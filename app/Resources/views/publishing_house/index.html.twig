@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publishing_houses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publishing_house in publishing_houses %}
+            <tr>
+                <td><a href="{{ path('publishing_house_show', { 'id': publishing_house.id }) }}">{{ publishing_house.id }}</a></td>
+                <td>{{ publishing_house.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('publishing_house_show', { 'id': publishing_house.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('publishing_house_edit', { 'id': publishing_house.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publishing_house_new') }}">Create a new publishing_house</a>
+        </li>
+    </ul>
+{% endblock %}

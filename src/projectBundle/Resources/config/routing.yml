@@ -1,0 +1,7 @@
+project_homepage:
+    path:     /
+    defaults: { _controller: projectBundle:Default:index }
+
+project_view:
+    path:     /{id}
+    defaults: { _controller: projectBundle:Default:view }

@@ -1,0 +1,31 @@
+<?php
+
+namespace projectBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class DefaultController extends Controller
+{
+    public function indexAction()
+    {
+        $bookRepo = $this -> getDoctrine() ->getRepository('projectBundle:book');
+        $books = $bookRepo ->findAll();
+
+        $houseRepo = $this -> getDoctrine()->getRepository('projectBundle:publishing_house');
+        $houses = $houseRepo ->findAll();
+
+        return $this->render('projectBundle:Default:index.html.twig', [
+           'books' => $books,
+           'house' => $houses
+        ]);
+    }
+
+    public  function viewAction($id)
+    {
+
+        return $this->render('projectBundle:Default:index.html.twig', [
+
+        ]);
+    }
+
+}
