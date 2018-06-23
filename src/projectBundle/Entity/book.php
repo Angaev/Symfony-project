@@ -31,6 +31,11 @@ class book
     private $publishing_house;
 
     /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\comment", inversedBy="book")
+     */
+    private $comment;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $year;
@@ -203,5 +208,60 @@ class book
     public function getPublishingHouse()
     {
         return $this->publishing_house;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param \projectBundle\Entity\comment $comment
+     *
+     * @return book
+     */
+    public function setComment(\projectBundle\Entity\comment $comment = null)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \projectBundle\Entity\comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \projectBundle\Entity\comment $comment
+     *
+     * @return book
+     */
+    public function addComment(\projectBundle\Entity\comment $comment)
+    {
+        $this->comment[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \projectBundle\Entity\comment $comment
+     */
+    public function removeComment(\projectBundle\Entity\comment $comment)
+    {
+        $this->comment->removeElement($comment);
     }
 }

@@ -81,4 +81,28 @@ class publishing_house
     {
         return $this->house;
     }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return publishing_house
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }

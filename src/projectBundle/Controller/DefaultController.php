@@ -14,6 +14,9 @@ class DefaultController extends Controller
         $houseRepo = $this -> getDoctrine()->getRepository('projectBundle:publishing_house');
         $houses = $houseRepo ->findAll();
 
+        $commentRepo = $this -> getDoctrine()->getRepository('projectBundle:comment');
+        $comment = $commentRepo ->findAll();
+
         return $this->render('projectBundle:Default:index.html.twig', [
            'books' => $books,
            'house' => $houses
