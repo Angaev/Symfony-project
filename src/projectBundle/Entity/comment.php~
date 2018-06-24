@@ -37,7 +37,7 @@ class comment
     private $book;
 
     /**
-     *@ORM\Column(type="string")
+     *@ORM\Column(type="text")
      */
     private $comment;
 

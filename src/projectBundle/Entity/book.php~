@@ -233,4 +233,35 @@ class book
     {
         return $this->comment;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comment = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \projectBundle\Entity\comment $comment
+     *
+     * @return book
+     */
+    public function addComment(\projectBundle\Entity\comment $comment)
+    {
+        $this->comment[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \projectBundle\Entity\comment $comment
+     */
+    public function removeComment(\projectBundle\Entity\comment $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
 }
