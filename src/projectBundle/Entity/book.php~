@@ -36,6 +36,11 @@ class book
     private $comment;
 
     /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\like", inversedBy="book")
+     */
+    private $like;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $year;

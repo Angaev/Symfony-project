@@ -31,7 +31,11 @@ class like
      */
     private $created;
 
-
+    /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\book", mappedBy="like")
+     * @ORM\JoinTable(name="book_likes")
+     */
+    private $book;
 
     /**
      * Get id
@@ -65,5 +69,46 @@ class like
     public function getCreated()
     {
         return $this->created;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->book = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add book
+     *
+     * @param \projectBundle\Entity\book $book
+     *
+     * @return like
+     */
+    public function addBook(\projectBundle\Entity\book $book)
+    {
+        $this->book[] = $book;
+
+        return $this;
+    }
+
+    /**
+     * Remove book
+     *
+     * @param \projectBundle\Entity\book $book
+     */
+    public function removeBook(\projectBundle\Entity\book $book)
+    {
+        $this->book->removeElement($book);
+    }
+
+    /**
+     * Get book
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBook()
+    {
+        return $this->book;
     }
 }

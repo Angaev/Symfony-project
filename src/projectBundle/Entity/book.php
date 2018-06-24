@@ -36,6 +36,11 @@ class book
     private $comment;
 
     /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\like", inversedBy="book")
+     */
+    private $like;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $year;
@@ -263,5 +268,39 @@ class book
     public function removeComment(\projectBundle\Entity\comment $comment)
     {
         $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Add like
+     *
+     * @param \projectBundle\Entity\like $like
+     *
+     * @return book
+     */
+    public function addLike(\projectBundle\Entity\like $like)
+    {
+        $this->like[] = $like;
+
+        return $this;
+    }
+
+    /**
+     * Remove like
+     *
+     * @param \projectBundle\Entity\like $like
+     */
+    public function removeLike(\projectBundle\Entity\like $like)
+    {
+        $this->like->removeElement($like);
+    }
+
+    /**
+     * Get like
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLike()
+    {
+        return $this->like;
     }
 }
