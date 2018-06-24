@@ -33,9 +33,14 @@ class like
 
     /**
      * @ORM\ManyToMany(targetEntity="projectBundle\Entity\book", mappedBy="like")
-     * @ORM\JoinTable(name="book_likes  ")
+     * @ORM\JoinTable(name="book_likes")
      */
     private $book;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\user", inversedBy="like")
+     */
+    private $user;
 
     /**
      * Get id
@@ -69,5 +74,80 @@ class like
     public function getCreated()
     {
         return $this->created;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->book = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add book
+     *
+     * @param \projectBundle\Entity\book $book
+     *
+     * @return like
+     */
+    public function addBook(\projectBundle\Entity\book $book)
+    {
+        $this->book[] = $book;
+
+        return $this;
+    }
+
+    /**
+     * Remove book
+     *
+     * @param \projectBundle\Entity\book $book
+     */
+    public function removeBook(\projectBundle\Entity\book $book)
+    {
+        $this->book->removeElement($book);
+    }
+
+    /**
+     * Get book
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \projectBundle\Entity\user $user
+     *
+     * @return like
+     */
+    public function addUser(\projectBundle\Entity\user $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \projectBundle\Entity\user $user
+     */
+    public function removeUser(\projectBundle\Entity\user $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

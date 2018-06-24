@@ -37,6 +37,10 @@ class comment
     private $book;
 
     /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\user", inversedBy="comment")
+     */
+    private $user;
+    /**
      *@ORM\Column(type="text")
      */
     private $comment;
@@ -138,5 +142,39 @@ class comment
     public function getBook()
     {
         return $this->book;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \projectBundle\Entity\user $user
+     *
+     * @return comment
+     */
+    public function addUser(\projectBundle\Entity\user $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \projectBundle\Entity\user $user
+     */
+    public function removeUser(\projectBundle\Entity\user $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

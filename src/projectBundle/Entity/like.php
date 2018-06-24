@@ -38,6 +38,11 @@ class like
     private $book;
 
     /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\user", inversedBy="like")
+     */
+    private $user;
+
+    /**
      * Get id
      *
      * @return integer
@@ -110,5 +115,39 @@ class like
     public function getBook()
     {
         return $this->book;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \projectBundle\Entity\user $user
+     *
+     * @return like
+     */
+    public function addUser(\projectBundle\Entity\user $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \projectBundle\Entity\user $user
+     */
+    public function removeUser(\projectBundle\Entity\user $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -37,6 +37,10 @@ class comment
     private $book;
 
     /**
+     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\user", inversedBy="comment")
+     */
+    private $user;
+    /**
      *@ORM\Column(type="text")
      */
     private $comment;
