@@ -31,19 +31,19 @@ class comment
     private $created;
 
     /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\book", mappedBy="comment")
-     * @ORM\JoinTable(name="book_comments")
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="id")
      */
     private $book;
 
     /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\user", inversedBy="comment")
-     */
-    private $user;
-    /**
      *@ORM\Column(type="text")
      */
     private $comment;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="id")
+     */
+    private $user;
 
     /**
      * Get id
@@ -176,5 +176,33 @@ class comment
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set book
+     *
+     * @param \projectBundle\Entity\book $book
+     *
+     * @return comment
+     */
+    public function setBook(\projectBundle\Entity\book $book = null)
+    {
+        $this->book = $book;
+
+        return $this;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \projectBundle\Entity\user $user
+     *
+     * @return comment
+     */
+    public function setUser(\projectBundle\Entity\user $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }

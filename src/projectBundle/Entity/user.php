@@ -56,18 +56,6 @@ class user
      */
     private $isBan;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\like", mappedBy="user")
-     * @ORM\JoinTable(name="user_likes_matching")
-     */
-    private $like;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\comment", mappedBy="user")
-     * @ORM\JoinTable(name="user_comment_matching")
-     */
-    private $comment;
-
 
     /**
      * Get id

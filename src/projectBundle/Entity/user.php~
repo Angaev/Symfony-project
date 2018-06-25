@@ -56,18 +56,6 @@ class user
      */
     private $isBan;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\like", mappedBy="user")
-     * @ORM\JoinTable(name="user_likes_matching")
-     */
-    private $like;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\comment", mappedBy="user")
-     * @ORM\JoinTable(name="user_comment_matching")
-     */
-    private $comment;
-
 
     /**
      * Get id
@@ -297,5 +285,39 @@ class user
     public function getLike()
     {
         return $this->like;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \projectBundle\Entity\comment $comment
+     *
+     * @return user
+     */
+    public function addComment(\projectBundle\Entity\comment $comment)
+    {
+        $this->comment[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \projectBundle\Entity\comment $comment
+     */
+    public function removeComment(\projectBundle\Entity\comment $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }

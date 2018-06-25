@@ -16,6 +16,7 @@ class book
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
      */
     private $id;
 
@@ -23,22 +24,6 @@ class book
      * @ORM\Column(type="string")
      */
     private $name;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\publishing_house", inversedBy="house")
-     * @ORM\JoinColumn(name="publishing_house_id", referencedColumnName="id")
-     */
-    private $publishing_house;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\comment", inversedBy="book")
-     */
-    private $comment;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\like", inversedBy="book")
-     */
-    private $like;
 
     /**
      * @ORM\Column(type="integer")
@@ -59,6 +44,12 @@ class book
      * @ORM\Column(type="text")
      */
     private $link;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\publishing_house", inversedBy="house")
+     * @ORM\JoinColumn(name="publishing_house_id", referencedColumnName="id")
+     */
+    private $publishing_house;
 
 
     /**

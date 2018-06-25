@@ -32,13 +32,12 @@ class like
     private $created;
 
     /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\book", mappedBy="like")
-     * @ORM\JoinTable(name="book_likes")
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="id")
      */
     private $book;
 
     /**
-     * @ORM\ManyToMany(targetEntity="projectBundle\Entity\user", inversedBy="like")
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="id")
      */
     private $user;
 
@@ -149,5 +148,33 @@ class like
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set book
+     *
+     * @param \projectBundle\Entity\book $book
+     *
+     * @return like
+     */
+    public function setBook(\projectBundle\Entity\book $book = null)
+    {
+        $this->book = $book;
+
+        return $this;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \projectBundle\Entity\user $user
+     *
+     * @return like
+     */
+    public function setUser(\projectBundle\Entity\user $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }
