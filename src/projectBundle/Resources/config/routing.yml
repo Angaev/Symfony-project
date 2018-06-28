@@ -1,7 +1,15 @@
-project_homepage:
+book_list:
     path:     /
     defaults: { _controller: projectBundle:Default:index }
 
-project_view:
+book_view:
     path:     /{id}
     defaults: { _controller: projectBundle:Default:view }
+    requirements:
+      id: '\d+'
+
+book_edit:
+    path: /{id}/edit
+    defaults: {_controller: projectBundle:Default:edit }
+    requirements:
+      id: '\d+'

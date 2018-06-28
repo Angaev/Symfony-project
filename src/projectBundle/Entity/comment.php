@@ -30,10 +30,7 @@ class comment
      */
     private $created;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="id")
-     */
-    private $book;
+
 
     /**
      *@ORM\Column(type="text")
@@ -41,7 +38,8 @@ class comment
     private $comment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="user")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 

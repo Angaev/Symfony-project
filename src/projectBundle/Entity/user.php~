@@ -26,6 +26,11 @@ class user
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="projectBundle\Entity\comment", mappedBy="user")
+     */
+    private $user;
+
+    /**
      * @ORM\Column(type="string")
      */
     private $name;
@@ -319,5 +324,39 @@ class user
     public function getComment()
     {
         return $this->comment;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \projectBundle\Entity\comment $user
+     *
+     * @return user
+     */
+    public function addUser(\projectBundle\Entity\comment $user)
+    {
+        $this->user[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \projectBundle\Entity\comment $user
+     */
+    public function removeUser(\projectBundle\Entity\comment $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

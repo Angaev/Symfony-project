@@ -2,6 +2,7 @@
 
 namespace projectBundle\Controller;
 
+use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -25,10 +26,28 @@ class DefaultController extends Controller
 
     public  function viewAction($id)
     {
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $book = $bookRepo->find($id);
 
+        $houseRepo = $this -> getDoctrine()->getRepository('projectBundle:publishing_house');
+        $houses = $houseRepo ->findAll();
+
+        $commentRepo = $this -> getDoctrine()->getRepository('projectBundle:comment');
+        $comment = $commentRepo ->findAll();
+
+        $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
+        $users = $userRepo->findAll();
         return $this->render('projectBundle:Default:index.html.twig', [
-
+            'books' => $book,
+            'house' => $houses,
+            'comment' => $comment
         ]);
     }
 
+    public function editAction($id)
+    {
+
+        return $this->render('projectBundle:Default:index.html.twig', [
+        ]);
+    }
 }
