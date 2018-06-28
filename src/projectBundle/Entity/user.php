@@ -28,7 +28,12 @@ class user
     /**
      * @ORM\OneToMany(targetEntity="projectBundle\Entity\comment", mappedBy="user")
      */
-    private $user;
+    private $userComment;
+
+    /**
+     * @ORM\OneToMany(targetEntity="projectBundle\Entity\like", mappedBy="user")
+     */
+    private $userLike;
 
     /**
      * @ORM\Column(type="string")
@@ -358,5 +363,73 @@ class user
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add userComment
+     *
+     * @param \projectBundle\Entity\comment $userComment
+     *
+     * @return user
+     */
+    public function addUserComment(\projectBundle\Entity\comment $userComment)
+    {
+        $this->userComment[] = $userComment;
+
+        return $this;
+    }
+
+    /**
+     * Remove userComment
+     *
+     * @param \projectBundle\Entity\comment $userComment
+     */
+    public function removeUserComment(\projectBundle\Entity\comment $userComment)
+    {
+        $this->userComment->removeElement($userComment);
+    }
+
+    /**
+     * Get userComment
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserComment()
+    {
+        return $this->userComment;
+    }
+
+    /**
+     * Add userLike
+     *
+     * @param \projectBundle\Entity\like $userLike
+     *
+     * @return user
+     */
+    public function addUserLike(\projectBundle\Entity\like $userLike)
+    {
+        $this->userLike[] = $userLike;
+
+        return $this;
+    }
+
+    /**
+     * Remove userLike
+     *
+     * @param \projectBundle\Entity\like $userLike
+     */
+    public function removeUserLike(\projectBundle\Entity\like $userLike)
+    {
+        $this->userLike->removeElement($userLike);
+    }
+
+    /**
+     * Get userLike
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserLike()
+    {
+        return $this->userLike;
     }
 }

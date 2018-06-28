@@ -38,7 +38,7 @@ class comment
     private $comment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="user")
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="userComment")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

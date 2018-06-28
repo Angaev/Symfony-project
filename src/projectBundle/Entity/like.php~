@@ -31,13 +31,10 @@ class like
      */
     private $created;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="id")
-     */
-    private $book;
 
     /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="userLike")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
