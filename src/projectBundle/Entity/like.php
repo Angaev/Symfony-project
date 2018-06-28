@@ -38,7 +38,7 @@ class like
      */
     private $user;
 
-    //много коментариев может быть в одиной книге
+    //много лайков может быть в одиной книге
     /**
      * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="like")
      * @ORM\JoinColumn(name="book_id", referencedColumnName="id")

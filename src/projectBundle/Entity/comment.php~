@@ -35,13 +35,20 @@ class comment
     /**
      *@ORM\Column(type="text")
      */
-    private $comment;
+    private $commentText;
 
     /**
      * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="userComment")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
+
+    //много комментов может быть в одиной книге
+    /**
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="comment")
+     * @ORM\JoinColumn(name="book_id", referencedColumnName="id")
+     */
+    private $book;
 
     /**
      * Get id
@@ -202,5 +209,29 @@ class comment
         $this->user = $user;
 
         return $this;
+    }
+
+    /**
+     * Set commentText
+     *
+     * @param string $commentText
+     *
+     * @return comment
+     */
+    public function setCommentText($commentText)
+    {
+        $this->commentText = $commentText;
+
+        return $this;
+    }
+
+    /**
+     * Get commentText
+     *
+     * @return string
+     */
+    public function getCommentText()
+    {
+        return $this->commentText;
     }
 }
