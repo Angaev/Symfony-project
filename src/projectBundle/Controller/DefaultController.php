@@ -35,12 +35,18 @@ class DefaultController extends Controller
         $commentRepo = $this -> getDoctrine()->getRepository('projectBundle:comment');
         $comment = $commentRepo ->findAll();
 
+        $likeRepo = $this -> getDoctrine()->getRepository('projectBundle:like');
+        $likes = $likeRepo->findAll();
+
+
         $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
         $users = $userRepo->findAll();
+
         return $this->render('projectBundle:Default:index.html.twig', [
             'books' => $book,
             'house' => $houses,
-            'comment' => $comment
+            'comments' => $comment,
+            'likes' => $likes
         ]);
     }
 

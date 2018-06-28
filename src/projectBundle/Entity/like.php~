@@ -31,12 +31,20 @@ class like
      */
     private $created;
 
-
+    //много лайков у одного пользователя
     /**
      * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="userLike")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
+
+    //много коментариев может быть в одиной книге
+    /**
+     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="like")
+     * @ORM\JoinColumn(name="book_id", referencedColumnName="id")
+     */
+    private $book;
+
 
     /**
      * Get id

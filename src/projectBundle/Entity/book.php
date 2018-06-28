@@ -50,6 +50,11 @@ class book
      */
     private $publishing_house;
 
+    //в одной книге много комментариев (One-to-many)
+    /**
+     * @ORM\OneToMany(targetEntity="projectBundle\Entity\like", mappedBy="book")
+     */
+    private $like;
 
     /**
      * Get id
