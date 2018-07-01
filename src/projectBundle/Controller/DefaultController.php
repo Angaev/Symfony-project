@@ -6,7 +6,8 @@ use projectBundle\Entity\book;
 use projectBundle\Froms\BookForm;
 use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\BrowserKit\Request;
+//use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -73,9 +74,12 @@ class DefaultController extends Controller
 
         if($form->isSubmitted())
         {
-
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($book);
+            $em->flush();
+            return $this->redirectToRoute('book_list');
         }
-        return $this->render('projectBundle:Default:index.html.twig', [
+        return $this->render('projectBundle:Default:add.html.twig', [
             'form' => $form->createView()
         ]);
     }
