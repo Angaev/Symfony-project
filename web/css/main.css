@@ -1,0 +1,339 @@
+#headerwrap{
+  margin-top:60px;
+}
+
+body
+{
+  min-width: 400px;
+}
+
+.book_cover
+{
+  height: 270px;
+}
+
+.book_block
+{
+  padding: 15px;
+  height: 420px;
+}
+
+.book_block:hover
+{
+  background: #eee;
+}
+
+.book_block a
+{
+ display: block; /* Ссылка как блочный элемент */
+ height: 100%; /* Высота на весь слой */
+ text-decoration: none;
+ color: inherit;
+}
+
+.like_icon
+{
+  background-image:url(../img/like_icon.png);
+  background-repeat: no-repeat;
+  background-size: 17px;
+  padding-left: 20px;
+  margin-left: 10px;
+}
+
+.comment_icon
+{
+  background-image:url(../img/comment_icon.png);
+  background-repeat: no-repeat;
+  background-size: 17px;
+  padding-left: 20px;
+  margin-left: 10px;
+}
+
+
+.book_big_cover
+{
+  margin-top: 20px;
+  width: 400px;
+}
+
+.like_big_icon
+{
+  background-image:url(../img/like_icon.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-left: 25px;
+  font-size: 20px;
+}
+
+.book_name
+{
+  line-height: 1.5;
+}
+
+.comment_big_icon
+{
+  background-image:url(../img/comment_icon.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-left: 25px;
+  margin-left: 10px;
+  font-size: 20px;
+  background-position-y: 2px;
+}
+
+.button_group
+{
+  margin-top: 10px;
+}
+
+.buttons_book
+{
+  margin-bottom: 5px;
+}
+
+.small_buttons_book
+{
+  margin-top: 20px;
+}
+
+.btn-with-margin
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.btn-file input[type=file] {
+  position: inherit;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.book_image_text_block
+{
+  height: 370px;
+  overflow: hidden;
+}
+
+.comments
+{
+  background: #f2f2f2;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+}
+
+.book_description
+{
+  margin-bottom: 30px;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.comment
+{
+    margin: 10px 0;
+}
+
+.userName
+{
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.commentText
+{
+  margin-bottom: 10px;
+  margin-left: 120px;
+  min-height: 50px;
+}
+
+.avatar
+{
+  width: 100px; 
+  height: 100px; 
+  margin-right: 20px;
+}
+
+.avatar_single
+{
+  width: 100px; 
+  height: 100px; 
+}
+
+
+.gray_text
+{
+  color: gray;
+}
+
+.no_horizontal_scroll 
+{
+  overflow-x: hidden;
+}
+
+.date_text
+{
+  font-size: 12px;
+  color: gray;
+}
+
+.book_mini_description
+{
+  color: gray;
+  margin-top: 10px;
+}
+
+.book_mini_cover
+{
+  padding: 7px;
+}
+
+.area_button
+{
+  margin-top: 40px;
+}
+
+.visitcard
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.avatar_btn
+{
+  width: 100%;
+}
+
+.block_bottom_offset
+{
+  margin-bottom: 5px;
+}
+
+.block_bottom_20_offset
+{
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) 
+{ 
+  .container 
+  {
+    width: 800px;
+  }
+
+  .navbar-brand
+  {
+    display: none;
+  }
+
+  .add_comment_area
+  {
+    height: 210px;
+  }
+
+  .book_mini
+  {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  
+  .book_mini_cover
+  {
+    width: 60%;
+  }  
+  
+  .book_cover
+  {
+    height: 255px;
+  }
+  
+  .avatar_btn
+  {
+    width: auto;
+  }
+  
+  .book_mini
+  {
+    height: 320px;
+  } 
+}
+
+@media only screen and (max-width: 766px) 
+{
+  .book_block
+  {
+    text-align: center;
+    max-width: 50%;
+  }
+
+  .book_mini
+  {
+    max-width: 50%;
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .book_cover
+  {
+    margin: 0 auto;
+  }
+
+  .add_comment_area
+  {
+    height: 210px;
+  }
+
+  .book_big_cover
+  {
+    width: 250px;
+  }
+
+  .button_group
+  {
+    width: 230px;
+  }
+
+  .book_mini_cover
+  {
+    width: 40%;
+  }
+  
+  .avatar_btn
+  {
+    width: auto;
+  }  
+}
+
+@media only screen and (max-width: 615px) 
+{
+  .book_block
+  {
+    max-width: none;
+  }
+  
+  .book_mini
+  {
+    max-width: none;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .avatar_btn
+  {
+    width: auto;
+  }
+}

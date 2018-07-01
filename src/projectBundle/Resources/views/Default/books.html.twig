@@ -1,0 +1,41 @@
+{% extends  "projectBundle:Default:index.html.twig" %}
+{% block title %}
+    {{ titleText }}
+{% endblock %}
+
+{% block content %}
+   {# {% include 'message.twig' %} #}
+    <div class="row">
+        <div class="col-md-6 text-left">
+            <h3>
+                {{ pageDescription }}
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for book in books %}
+            <div class="col-md-3 col-sm-3 col-xs-12 book_block">
+              {#  {{ dump(book) }}
+                {{ book.publishingHouse.name}} #}
+                 <a href="/{{ book.id }}">
+                    <div class="book_image_text_block">
+                        <img src="{{ book.image }}" alt="Обложка книги" class="img-responsive book_cover">
+                        <h5 class="display-1 book_name">{{ book.name }}</h5>
+                    </div>
+                    <small>{{ book.year }}г.</small>
+                    <span class="like_icon">
+                        {{ book.like.count }}
+                    </span>
+                    <span class="comment_icon">
+                        {{ book.comment.count }}
+                    </span>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{# {% block pagination %}
+    {% include 'pagination.twig' %}
+{% endblock %} #}

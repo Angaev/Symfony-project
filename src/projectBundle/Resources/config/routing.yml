@@ -2,6 +2,10 @@ book_list:
     path:     /
     defaults: { _controller: projectBundle:Default:index }
 
+book_add:
+    path: /add_book
+    defaults: { _controller: projectBundle:Default:add }
+
 book_view:
     path:     /{id}
     defaults: { _controller: projectBundle:Default:view }
@@ -10,6 +14,7 @@ book_view:
 
 book_edit:
     path: /{id}/edit
-    defaults: {_controller: projectBundle:Default:edit }
+    defaults: { _controller: projectBundle:Default:edit }
     requirements:
       id: '\d+'
+

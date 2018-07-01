@@ -2,8 +2,11 @@
 
 namespace projectBundle\Controller;
 
+use projectBundle\Entity\book;
+use projectBundle\Froms\BookForm;
 use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\BrowserKit\Request;
 
 class DefaultController extends Controller
 {
@@ -18,9 +21,12 @@ class DefaultController extends Controller
         $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
         $comment = $commentRepo->findAll();
 
-        return $this->render('projectBundle:Default:index.html.twig', [
+        return $this->render('projectBundle:Default:books.html.twig', [
            'books' => $books,
-           'house' => $houses
+           'house' => $houses,
+           'titleText' => 'Все книги',
+           'pageDescription' => 'Все книги'
+
         ]);
     }
 
@@ -57,4 +63,21 @@ class DefaultController extends Controller
         return $this->render('projectBundle:Default:index.html.twig', [
         ]);
     }
+
+    public function addAction(Request $request)
+    {
+        $book = new book();
+        $form = $this->createForm(BookForm::class, $book);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted())
+        {
+
+        }
+        return $this->render('projectBundle:Default:index.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
 }
