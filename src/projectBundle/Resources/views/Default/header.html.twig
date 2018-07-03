@@ -5,7 +5,7 @@
             <span class="icon-bar"> </span>
             <span class="icon-bar"> </span>
         </button>
-        <a class="navbar-brand" href="/index.php">AutoBook </a>
+        <a class="navbar-brand" href="{{ path('book_list') }}">AutoBook </a>
     </div>
     <div class="navbar-collapse collapse no_horizontal_scroll">
         <ul class="nav navbar-nav navbar-right">
@@ -17,11 +17,20 @@
                     <button type="submit" class="btn btn-default">Поиск</button>
                 </form>
             </li>
-            {% for item in headerData%}
+           {# {% for item in headerData%}
                 <li {% if activeMenu == item.id %} class="active" {% endif %} >
                     <a href="{{ item.url }}">{{ item.name }}</a>
                 </li>
-            {% endfor %}
+            {% endfor %} #}
+            <li>
+                <a href="{{ path('book_list') }}">Главная страница</a>
+            </li>
+            <li>
+                <a href="{{ path('book_list') }}">Личный кабинет</a>
+            </li>
+            <li>
+                <a href="{{ path('book_list') }}">Топ 50</a>
+            </li>
         </ul>
     </div>
 </div>

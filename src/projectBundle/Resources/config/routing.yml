@@ -18,3 +18,6 @@ book_edit:
     requirements:
       id: '\d+'
 
+book_search:
+    path: /search/{word}
+    defaults: { _controller: projectBundle:Default:search}

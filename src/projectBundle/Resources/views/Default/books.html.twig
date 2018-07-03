@@ -12,19 +12,16 @@
             </h3>
         </div>
     </div>
-
     <div class="row">
         {% for book in books %}
             <div class="col-md-3 col-sm-3 col-xs-12 book_block">
-              {#  {{ dump(book) }}
-                {{ book.publishingHouse.name}} #}
                  <a href="/{{ book.id }}">
                     <div class="book_image_text_block">
                         <img src="
                             {% if  book.image == null %}
-                                {{ asset('img/book/no_cover.png') }}
+                                {{ asset('../img/book/no_cover.png') }}
                             {% else %}
-                                {{ book.image }}
+                                ../{{ book.image }}
                             {% endif %}
                         " alt="Обложка книги" class="img-responsive book_cover">
                         <h5 class="display-1 book_name">{{ book.name }}</h5>

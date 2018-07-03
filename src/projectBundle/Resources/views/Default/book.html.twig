@@ -1,0 +1,66 @@
+{% extends  "projectBundle:Default:index.html.twig" %}
+{% block title %}
+    {{ titleText }}
+{% endblock %}
+
+{% block content %}
+    {# {% include 'message.twig' %} #}
+    <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+            <img src="{{ book.image }}" class="img-responsive book_big_cover">
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-12">
+            <input type="hidden" id="book_id" value="{{ book.id }}"/>
+            <h3>{{ book.name }}</h3>
+            <h3>{{ book.publishingHouse.name}}</h3>
+            <h3>{{ book.year }}г.</h3>
+            <span class="like_big_icon" id="like_count">
+        {{ book.like.count }}
+      </span>
+
+            <span class="comment_big_icon">
+        {{ book.comment.count }}
+      </span>
+            <div class="button_group">
+                <a target="_blank" href="{% if book.link is empty %} # {% else %} {{ book.link }} {% endif %}" type="button" class="btn btn-success btn-md buttons_book
+                {% if book.link is  empty %} disabled {% endif %}">
+                    {% if book.link is  empty %} Нет активной ссылки {% else %} <span class="	glyphicon glyphicon-download"></span> Скачать {% endif %}
+                </a>
+                {% if  likeBtn == 'free' %}
+                    <input type="hidden" id="likeBtn_status" value=1 />
+                {% else %}
+                    <input type="hidden" id="likeBtn_status" value=2 />
+                {% endif %}
+                {% if likeBtn != 'off' %}
+                    <span href="{{ path('book_view()') }}" type="button" class="btn {% if likeBtn == 'lock' %}btn-primary {% elseif  likeBtn == 'free' %} btn-info {% endif %} btn-md buttons_book" id="like_button">
+            {% if  likeBtn == 'free' %}
+                <span class="glyphicon glyphicon-heart" id="likeBtn_icon"></span>
+                <span id="likeBtn_text">Мне нравится</span>
+            {% else %}
+                <span class="glyphicon glyphicon-thumbs-down" id="likeBtn_icon"></span>
+                <span id="likeBtn_text">Больше не нравится</span>
+            {%endif%}
+          </span>
+                {% endif %}
+
+                {% if admin %}
+                    <a href="edit_book.php?id={{ bookId }}" type="button" class="btn btn-danger btn-md buttons_book">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Редактировать
+                    </a>
+                {% endif %}
+            </div>
+            <div>
+                <h2>Описание</h2>
+            </div>
+            <div>
+                <div class="book_description">
+          <span>
+            {{ book.description|e|nl2br }}
+          </span>
+                </div>
+            </div>
+            {#{% include 'comments.twig' %}#}
+        </div>
+    </div>
+{% endblock %}

@@ -45,16 +45,17 @@ class DefaultController extends Controller
         $likeRepo = $this->getDoctrine()->getRepository('projectBundle:like');
         $likes = $likeRepo->findByBook($book);
 
-
-
         $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
         $users = $userRepo->findAll();
 
-        return $this->render('projectBundle:Default:index.html.twig', [
-            'books' => $book,
+        return $this->render('projectBundle:Default:book.html.twig', [
+            'book' => $book,
             'house' => $houses,
             'comments' => $comment,
-            'likes' => $likes
+            'likes' => $likes,
+            'titleText' => $book->getName(),
+            'likeBtn' => 'off',
+            'admin' => false
         ]);
     }
 
@@ -80,8 +81,27 @@ class DefaultController extends Controller
             return $this->redirectToRoute('book_list');
         }
         return $this->render('projectBundle:Default:add.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'titleText' => 'Добавление новой книги'
         ]);
     }
 
+    public function searchAction($word)
+    {
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $books = $bookRepo->findByName($word);
+
+        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
+        $houses = $houseRepo->findAll();
+
+        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
+        $comment = $commentRepo->findAll();
+
+        return $this->render('projectBundle:Default:books.html.twig', [
+            'books' => $books,
+            'house' => $houses,
+            'titleText' => 'Книги по запросу ' . $word,
+            'pageDescription' => 'Поиск ' . $word
+        ]);
+    }
 }
