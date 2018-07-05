@@ -3,12 +3,18 @@
 namespace projectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+
 
 /**
  * Class book
  * @package projectBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="book")
+ * @Vich\Uploadable
  */
 class book
 {
@@ -61,6 +67,62 @@ class book
      * @ORM\OneToMany(targetEntity="projectBundle\Entity\comment", mappedBy="book")
      */
     private $comment;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="book_cover", fileNameProperty="bookFileName")
+     *
+     * @var File
+     */
+    private $bookFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $bookCoverFileName;
+
+    /**
+     * @param File|UploadedFile $bookFile
+     *
+     * @return Book
+     */
+    public function setBookFile(File $coverFile = null)
+    {
+        $this->bookFile = $coverFile;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getBookFile()
+    {
+        return $this->bookFile;
+    }
+
+    /**
+     * @param string $bookCoverFileName
+     *
+     * @return Book
+     */
+    public function setBookCoverFileName($bookCoverFileName)
+    {
+        $this->bookCoverFileName = $bookCoverFileName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBookCoverFileName()
+    {
+        return $this->bookCoverFileName;
+    }
 
     /**
      * Get id

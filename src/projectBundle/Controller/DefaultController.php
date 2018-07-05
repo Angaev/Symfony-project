@@ -6,8 +6,9 @@ use projectBundle\Entity\book;
 use projectBundle\Froms\BookForm;
 use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class DefaultController extends Controller
 {
@@ -70,11 +71,27 @@ class DefaultController extends Controller
     {
         $book = new book();
         $form = $this->createForm(BookForm::class, $book);
-
         $form->handleRequest($request);
 
-        if($form->isSubmitted())
+        if($form->isSubmitted() && $form->isValid())
         {
+
+            // $file сохраняет загруженный файл
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $book->getImage();
+
+            $fileName = 'img/book/' . $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+
+            
+            // перемещает файл в каталог, где хранятся обложки книг
+            $file->move(
+                $this->getParameter('covers_directory'),
+                $fileName
+            );
+
+            $book->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);
             $em->flush();
@@ -103,5 +120,15 @@ class DefaultController extends Controller
             'titleText' => 'Книги по запросу ' . $word,
             'pageDescription' => 'Поиск ' . $word
         ]);
+    }
+
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName()
+    {
+        // md5() уменьшает схожесть имён файлов, сгенерированных
+        // uniqid(), которые основанный на временных отметках
+        return md5(uniqid());
     }
 }

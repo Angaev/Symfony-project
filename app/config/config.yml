@@ -9,6 +9,8 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    covers_directory: 'c:\wamp\www\first_project\web\img\book\'
+
 
 framework:
     #esi:             ~

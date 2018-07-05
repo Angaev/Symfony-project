@@ -3,6 +3,8 @@
 namespace projectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Class book
@@ -31,6 +33,8 @@ class book
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\NotBlank()
+     * @Assert\Image()
      */
     private $image;
 
@@ -61,6 +65,7 @@ class book
      * @ORM\OneToMany(targetEntity="projectBundle\Entity\comment", mappedBy="book")
      */
     private $comment;
+
 
     /**
      * Get id
