@@ -3,6 +3,8 @@
 namespace projectBundle\Controller;
 
 use projectBundle\Entity\book;
+use projectBundle\Froms\BookDeleteForm;
+use projectBundle\Froms\BookEditForm;
 use projectBundle\Froms\BookForm;
 use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -60,12 +62,57 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function editAction($id)
+    public function editAction($id, Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('projectBundle:book');
+        $book = $repo->find($id);
+        if (!$book)
+        {
+           return $this->redirectToRoute('book_list');
+        }
 
-        return $this->render('projectBundle:Default:index.html.twig', [
+        $form = $this->createForm(BookEditForm::class, $book);
+        $form->handleRequest($request);
+        if($form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($book);
+            $em->flush();
+            return $this->redirectToRoute('book_view', [ 'id' => $book->getId()]);
+        }
+        return $this->render('@project/Default/edit_book.html.twig', [
+           'form' => $form->createView(),
+            'titleText' => 'Редактирование книги'
         ]);
     }
+
+    public function deleteAction($id, Request $request)
+    {
+        //в твиге добавить кнопку удаления, она будет перебрасывать на этот path, здесь выпилить проверку на нажатие
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('projectBundle:book');
+        $book = $repo->find($id);
+        if (!$book)
+        {
+            return $this->redirectToRoute('book_list');
+        }
+        $form = $this->createForm(BookDeleteForm::class, null, [
+            'delete_id' => $book->getId()
+        ]);
+        $form->handleRequest($request);
+        if($form->isSubmitted())
+        {
+            $em->remove($book);
+            $em->flush();
+            return $this->redirectToRoute('book_list');
+        }
+        return $this->render('@project/Default/edit_book.html.twig', [
+            'form' => $form->createView(),
+            'titleText' => 'Удаление книги'
+        ]);
+    }
+
 
     public function addAction(Request $request)
     {
@@ -83,7 +130,7 @@ class DefaultController extends Controller
             $fileName = 'img/book/' . $this->generateUniqueFileName().'.'.$file->guessExtension();
 
 
-            
+
             // перемещает файл в каталог, где хранятся обложки книг
             $file->move(
                 $this->getParameter('covers_directory'),

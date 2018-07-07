@@ -18,6 +18,12 @@ book_edit:
     requirements:
       id: '\d+'
 
+book_delete:
+    path: /{id}/delete
+    defaults: {_controller: projectBundle:Default:delete}
+    requirements:
+        id: '\d+'
+
 book_search:
     path: /search/{word}
     defaults: { _controller: projectBundle:Default:search}
