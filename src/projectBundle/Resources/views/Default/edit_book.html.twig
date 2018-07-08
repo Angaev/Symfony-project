@@ -5,4 +5,8 @@
 
 {% block content %}
     {{ form(form) }}
+
+    <a href="{{ path('book_delete', {'id': id}) }}" type="button" class="btn btn-danger">Удалить</a>
+
+    <script src="http://bootboxjs.com/bootbox.js"></script>
 {% endblock %}

@@ -40,13 +40,13 @@ class publishing_house
     {
         return $this->id;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->house = new ArrayCollection();
-    }
+//    /**
+//     * Constructor
+//     */
+//    public function __construct()
+//    {
+//        $this->house = new ArrayCollection();
+//    }
 
     /**
      * Add house

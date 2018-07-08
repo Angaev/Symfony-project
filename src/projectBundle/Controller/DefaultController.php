@@ -3,14 +3,18 @@
 namespace projectBundle\Controller;
 
 use projectBundle\Entity\book;
+use projectBundle\Entity\publishing_house;
+use projectBundle\Froms\addHouseForm;
 use projectBundle\Froms\BookDeleteForm;
 use projectBundle\Froms\BookEditForm;
 use projectBundle\Froms\BookForm;
+use projectBundle\Froms\RenameHouseForm;
 use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class DefaultController extends Controller
 {
@@ -83,13 +87,15 @@ class DefaultController extends Controller
         }
         return $this->render('@project/Default/edit_book.html.twig', [
            'form' => $form->createView(),
-            'titleText' => 'Редактирование книги'
+            'titleText' => 'Редактирование книги',
+            'id' => $book->getId()
         ]);
     }
 
     public function deleteAction($id, Request $request)
     {
-        //в твиге добавить кнопку удаления, она будет перебрасывать на этот path, здесь выпилить проверку на нажатие
+        //удаляет указаную книку без придупреждения
+
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('projectBundle:book');
         $book = $repo->find($id);
@@ -101,16 +107,11 @@ class DefaultController extends Controller
             'delete_id' => $book->getId()
         ]);
         $form->handleRequest($request);
-        if($form->isSubmitted())
-        {
-            $em->remove($book);
-            $em->flush();
-            return $this->redirectToRoute('book_list');
-        }
-        return $this->render('@project/Default/edit_book.html.twig', [
-            'form' => $form->createView(),
-            'titleText' => 'Удаление книги'
-        ]);
+
+        $em->remove($book);
+        $em->flush();
+        return $this->redirectToRoute('book_list');
+
     }
 
 
@@ -168,6 +169,76 @@ class DefaultController extends Controller
             'pageDescription' => 'Поиск ' . $word
         ]);
     }
+
+    public function addHouseAction(Request $request)
+    {
+        $house = new publishing_house();
+        $form = $this->createForm(addHouseForm::class, $house);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($house);
+            $em->flush();
+            return $this->redirectToRoute('book_list');
+        }
+        return $this->render('projectBundle:Default:houseEditor.html.twig', [
+            'form' => $form->createView(),
+            'titleText' => 'Добавление нового издательства'
+        ]);
+    }
+
+    public function renameHouseAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('projectBundle:publishing_house');
+        $house = $repo->findAll();
+
+        if (!$house)
+        {
+            return $this->redirectToRoute('book_list');
+        }
+
+        $form = $this->createForm(RenameHouseForm::class, $house, [
+            'data_class' => null
+        ]);
+        $form->handleRequest($request);
+        if($form->isSubmitted())
+        {
+//            var_dump($request);
+//            die();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($house);
+            $em->flush();
+            return $this->redirectToRoute('book_list');
+        }
+        return $this->render('@project/Default/houseEditor.html.twig', [
+            'form' => $form->createView(),
+            'titleText' => 'Редактирование издательств'
+        ]);
+    }
+
+    public function deleteHouseAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('projectBundle:publishing_house');
+        $house = $repo->find($id);
+        if (!$house)
+        {
+            return $this->redirectToRoute('book_list');
+        }
+        $form = $this->createForm(BookDeleteForm::class, null, [
+            'delete_id' => $house->getId()
+        ]);
+        $form->handleRequest($request);
+
+        $em->remove($house);
+        $em->flush();
+        return $this->redirectToRoute('book_list');
+    }
+
 
     /**
      * @return string
