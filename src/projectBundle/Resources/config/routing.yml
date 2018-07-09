@@ -36,8 +36,7 @@ publishing_house_add:
     path: /add_house
     defaults: {_controller: projectBundle:Default:addHouse}
 
-#publishing_house_delete:
-#    path: /{id}/delete_house
-#    defaults: {_controller: projectBundle:Default:deleteHouse}
-#    requiresments:
-#        id: '\d+'
+publishing_house_delete:
+    path: /{id}/delete_house
+    defaults: {_controller: projectBundle:Default:deleteHouse}
+
