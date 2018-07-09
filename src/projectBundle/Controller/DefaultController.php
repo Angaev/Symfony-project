@@ -194,21 +194,22 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('projectBundle:publishing_house');
-        $house = $repo->findAll();
+        $houses = $repo->findAll();
 
-        if (!$house)
+        if (!$houses)
         {
             return $this->redirectToRoute('book_list');
         }
 
-        $form = $this->createForm(RenameHouseForm::class, $house, [
+        $form = $this->createForm(RenameHouseForm::class, $houses, [
             'data_class' => null
         ]);
         $form->handleRequest($request);
         if($form->isSubmitted())
         {
-//            var_dump($request);
-//            die();
+            $requestData = $request->get('rename_house_form');
+            $house = $repo->find($requestData['publishing_house']);
+            $house->setName($requestData['name']);
             $em = $this->getDoctrine()->getManager();
             $em->persist($house);
             $em->flush();
