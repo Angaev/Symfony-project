@@ -3,6 +3,8 @@
 namespace projectBundle\Controller;
 
 use projectBundle\Entity\book;
+use projectBundle\Entity\user;
+use projectBundle\Froms\UserTypeForm;
 use projectBundle\Entity\publishing_house;
 use projectBundle\Froms\addHouseForm;
 use projectBundle\Froms\BookDeleteForm;
@@ -18,6 +20,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class DefaultController extends Controller
 {
+    /**
+     * @Route("/", name="main_page")
+     */
     public function indexAction()
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
@@ -238,6 +243,37 @@ class DefaultController extends Controller
         $em->remove($house);
         $em->flush();
         return $this->redirectToRoute('book_list');
+    }
+
+    public function registerAction(Request $request)
+    {
+        $user = new User();
+        $form = $this->createForm(UserTypeForm::class, $user);
+//        var_dump($user);
+//        die();
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            // Encode the new users password
+            $encoder = $this->get('security.password_encoder');
+            $password = $encoder->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+
+            // Set their role
+            $user->setRole('ROLE_USER');
+
+            // Save
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirectToRoute('login');
+        }
+
+        return $this->render('projectBundle:Default:form.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
 

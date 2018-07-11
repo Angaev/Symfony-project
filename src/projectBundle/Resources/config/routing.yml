@@ -20,7 +20,7 @@ book_edit:
 
 book_delete:
     path: /{id}/delete
-    defaults: {_controller: projectBundle:Default:delete}
+    defaults: { _controller: projectBundle:Default:delete}
     requirements:
         id: '\d+'
 
@@ -30,13 +30,20 @@ book_search:
 
 publishing_house_edit:
     path: /rename_house
-    defaults: {_controller: projectBundle:Default:renameHouse}
+    defaults: { _controller: projectBundle:Default:renameHouse}
 
 publishing_house_add:
     path: /add_house
-    defaults: {_controller: projectBundle:Default:addHouse}
+    defaults: { _controller: projectBundle:Default:addHouse}
 
 publishing_house_delete:
     path: /{id}/delete_house
-    defaults: {_controller: projectBundle:Default:deleteHouse}
+    defaults: { _controller: projectBundle:Default:deleteHouse}
 
+login:
+  path: /login
+  defaults: { _controller: projectBundle:Security:login}
+
+register:
+  path: /register
+  defaults: { _controller: projectBundle:Default:register}

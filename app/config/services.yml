@@ -7,3 +7,6 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.form_login_authenticator:
+        class: projectBundle\Security\FormLoginAuthenticator
+        arguments: ["@router", "@security.password_encoder"]

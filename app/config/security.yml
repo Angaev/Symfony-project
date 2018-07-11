@@ -2,23 +2,41 @@
 # http://symfony.com/doc/current/security.html
 security:
 
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/, roles: ROLE_ADMIN }
+
+    encoders:
+        projectBundle\Entity\User: bcrypt
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
+        database_users:
+            entity:
+                class: AppBundle:user
+                property: email
+
         in_memory:
             memory: ~
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
+        main:
+            anonymous: ~
+#           http_basic: ~
+            guard:
+                authenticators:
+                    - app.form_login_authenticator
+  #         form_login:
+  #             login_path: login
+  #             # check_login: login
+            logout:
+                path: /logout
+                target: /
+
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
 
-            # http_basic: ~
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
-            # form_login: ~
-            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+

@@ -9,14 +9,19 @@
 namespace projectBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * Class book
  * @package projectBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @UniqueEntity(fields="email", message="This email address is already in use")
  */
-class user
+class user implements UserInterface
 {
     /**
      * @ORM\Column(type="integer")
@@ -41,31 +46,51 @@ class user
     private $name;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=50)
      */
-    private $email;
+    protected $role;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, unique=true)
+     *
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
      */
     private $avatar;
 
     /**
-     * @ORM\Column(type="string")
+     * @Assert\Length(max=4096)
      */
-    private $passHash;
-
+    protected $plainPassword;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", length=64)
      */
-    private $isAdmin;
+    protected $password;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isBan;
 
+    public function eraseCredentials()
+    {
+        return null;
+    }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole($role = null)
+    {
+        $this->role = $role;
+    }
+
+    public function getRoles()
+    {
+        return [$this->getRole()];
+    }
 
     /**
      * Get id
@@ -116,14 +141,45 @@ class user
         return $this;
     }
 
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+
     /**
      * Get email
      *
      * @return string
      */
-    public function getEmail()
+    public function getUsername()
     {
         return $this->email;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    public function getSalt()
+    {
+        return null;
     }
 
     /**
@@ -150,77 +206,9 @@ class user
         return $this->avatar;
     }
 
-    /**
-     * Set passHash
-     *
-     * @param string $passHash
-     *
-     * @return user
-     */
-    public function setPassHash($passHash)
-    {
-        $this->passHash = $passHash;
 
-        return $this;
-    }
 
-    /**
-     * Get passHash
-     *
-     * @return string
-     */
-    public function getPassHash()
-    {
-        return $this->passHash;
-    }
 
-    /**
-     * Set isAdmin
-     *
-     * @param boolean $isAdmin
-     *
-     * @return user
-     */
-    public function setIsAdmin($isAdmin)
-    {
-        $this->isAdmin = $isAdmin;
-
-        return $this;
-    }
-
-    /**
-     * Get isAdmin
-     *
-     * @return boolean
-     */
-    public function getIsAdmin()
-    {
-        return $this->isAdmin;
-    }
-
-    /**
-     * Set isBan
-     *
-     * @param boolean $isBan
-     *
-     * @return user
-     */
-    public function setIsBan($isBan)
-    {
-        $this->isBan = $isBan;
-
-        return $this;
-    }
-
-    /**
-     * Get isBan
-     *
-     * @return boolean
-     */
-    public function getIsBan()
-    {
-        return $this->isBan;
-    }
     /**
      * Constructor
      */
