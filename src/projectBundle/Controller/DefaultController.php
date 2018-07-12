@@ -21,7 +21,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="main_page")
+     * @Route("/", name="/")
      */
     public function indexAction()
     {

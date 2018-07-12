@@ -2,8 +2,8 @@
 # http://symfony.com/doc/current/security.html
 security:
 
-    access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#    access_control:
+#        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 #        - { path: ^/, roles: ROLE_ADMIN }
 
     encoders:
@@ -11,15 +11,19 @@ security:
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         database_users:
-            entity:
-                class: AppBundle:user
-                property: email
+            entity: { class: projectBundle:user, property: email }
 
-        in_memory:
-            memory: ~
+#        in_memory:
+#            memory:
+#              users:
+#                admin:
+#                  password:
+#                  roles: 'ROLE_ADMIN'
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
         main:
             anonymous: ~
 #           http_basic: ~
@@ -33,9 +37,7 @@ security:
                 path: /logout
                 target: /
 
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+
 
 
 

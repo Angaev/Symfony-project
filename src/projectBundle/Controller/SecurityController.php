@@ -22,21 +22,16 @@ class SecurityController extends Controller
      */
     public function loginAction(Request $request)
     {
-        $authUtils = $this->get('security.authentication_utils');
-        // получить ошибку входа, если она есть
-        $error = $authUtils->getLastAuthenticationError();
+        $helper = $this->get('security.authentication_utils');
 
-        // последнее имя пользователя, введенное пользователем
-        $lastUsername = $authUtils->getLastUsername();
-
-//        var_dump($error);
-//        var_dump($lastUsername);
-//        die();
-        return $this->render('projectBundle:security:login.html.twig', array(
-            'last_username' => $lastUsername,
-            'error'         => $error,
-            'titleText' => 'Представьтесь'
-        ));
+        return $this->render(
+            'projectBundle:security:login.html.twig',
+            array(
+                'last_username' => $helper->getLastUsername(),
+                'error'         => $helper->getLastAuthenticationError(),
+                'titleText' => 'Представьтесь'
+            )
+        );
     }
 
     /**
@@ -44,7 +39,6 @@ class SecurityController extends Controller
      */
     public function loginCheckAction()
     {
-
     }
 
     /**

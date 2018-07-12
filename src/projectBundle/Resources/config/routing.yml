@@ -44,6 +44,14 @@ login:
   path: /login
   defaults: { _controller: projectBundle:Security:login}
 
+login_check:
+  path: /login_check
+  defaults: { _controller: projectBundle:Security:loginCheck}
+
+logout:
+  path: /logout
+  defaults: { _controller: projectBundle:Security:logout}
+
 register:
   path: /register
   defaults: { _controller: projectBundle:Default:register}

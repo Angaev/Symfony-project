@@ -41,20 +41,21 @@ class user implements UserInterface
     private $userLike;
 
     /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     *
+     */
+    protected $email;
+
+    /**
      * @ORM\Column(type="string")
      */
-    private $name;
+    protected $name;
 
     /**
      * @ORM\Column(type="string", length=50)
      */
     protected $role;
 
-    /**
-     * @ORM\Column(type="string", length=255, unique=true)
-     *
-     */
-    protected $email;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -205,8 +206,6 @@ class user implements UserInterface
     {
         return $this->avatar;
     }
-
-
 
 
     /**
