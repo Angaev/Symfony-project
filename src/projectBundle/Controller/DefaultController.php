@@ -158,6 +158,7 @@ class DefaultController extends Controller
 
     public function searchAction($word)
     {
+
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
         $books = $bookRepo->searchByWord($word);
 

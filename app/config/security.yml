@@ -2,12 +2,19 @@
 # http://symfony.com/doc/current/security.html
 security:
 
-#    access_control:
-#        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/, roles: ROLE_ADMIN }
+    access_control:
+
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /rename_house, roles: ROLE_ADMIN }
+        - { path: ^/add_house, roles: ROLE_ADMIN }
+        - { path: /delete_house, roles: ROLE_ADMIN }
+        - { path: ^/add_book, roles: ROLE_ADMIN }
+        - { path: /edit, roles: ROLE_ADMIN }
+        - { path: /delete, roles: ROLE_ADMIN }
+
 
     encoders:
-        projectBundle\Entity\User: bcrypt
+          projectBundle\Entity\User: bcrypt
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         database_users:
@@ -26,13 +33,9 @@ security:
             security: false
         main:
             anonymous: ~
-#           http_basic: ~
             guard:
                 authenticators:
                     - app.form_login_authenticator
-  #         form_login:
-  #             login_path: login
-  #             # check_login: login
             logout:
                 path: /logout
                 target: /

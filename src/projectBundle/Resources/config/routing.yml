@@ -13,17 +13,18 @@ book_view:
       id: '\d+'
 
 book_edit:
-    path: /{id}/edit
+    path: /edit/{id}
     defaults: { _controller: projectBundle:Default:edit }
     requirements:
       id: '\d+'
 
 book_delete:
-    path: /{id}/delete
+    path: /delete/{id}
     defaults: { _controller: projectBundle:Default:delete}
     requirements:
         id: '\d+'
 
+#попробуй взять значения из get/post, а не через {word}
 book_search:
     path: /search/{word}
     defaults: { _controller: projectBundle:Default:search}
@@ -37,7 +38,7 @@ publishing_house_add:
     defaults: { _controller: projectBundle:Default:addHouse}
 
 publishing_house_delete:
-    path: /{id}/delete_house
+    path: /delete_house/{id}
     defaults: { _controller: projectBundle:Default:deleteHouse}
 
 login:
