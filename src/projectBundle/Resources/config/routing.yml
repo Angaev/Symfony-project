@@ -26,7 +26,7 @@ book_delete:
 
 #попробуй взять значения из get/post, а не через {word}
 book_search:
-    path: /search/{word}
+    path: /search
     defaults: { _controller: projectBundle:Default:search}
 
 publishing_house_edit:

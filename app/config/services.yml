@@ -10,3 +10,5 @@ services:
     app.form_login_authenticator:
         class: projectBundle\Security\FormLoginAuthenticator
         arguments: ["@router", "@security.password_encoder"]
+    app.security.access_denied_handler:
+        class: projectBundle\Security\AccessDeniedHandler

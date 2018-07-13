@@ -10,7 +10,7 @@
     <div class="navbar-collapse collapse no_horizontal_scroll">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <form class="navbar-form navbar-left" role="search" action="search.php" method="get" autocomplete="off">
+                <form class="navbar-form navbar-left" role="search" action="{{ path('book_search') }}" method="get" autocomplete="off">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Поиск книги" name="name" required/>
                     </div>

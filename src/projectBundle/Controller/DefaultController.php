@@ -99,7 +99,7 @@ class DefaultController extends Controller
 
     public function deleteAction($id, Request $request)
     {
-        //удаляет указаную книку без придупреждения
+        //удаляет указаную книгу без придупреждения
 
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('projectBundle:book');
@@ -156,9 +156,9 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function searchAction($word)
+    public function searchAction(Request $request)
     {
-
+        $word = $request->query->get('name');
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
         $books = $bookRepo->searchByWord($word);
 
