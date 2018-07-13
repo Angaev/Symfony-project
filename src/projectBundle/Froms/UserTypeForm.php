@@ -27,9 +27,6 @@ class UserTypeForm extends AbstractType
                     'first_options' => ['label' => 'Пароль'],
                     'second_options' => ['label' => 'Повторите пароль'],
                 ]);
-        $builder->add('submit', SubmitType::class ,[
-            'label' => 'Регистрация'
-        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

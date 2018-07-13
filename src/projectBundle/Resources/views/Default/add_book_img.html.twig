@@ -1,0 +1,11 @@
+{% extends 'projectBundle:Default:index.html.twig' %}
+{% block title %}
+    {{ titleText }}
+{% endblock %}
+
+{% block content %}
+    {{ form(form) }}
+    <a href="{{ path('book_list') }}" class="btn btn-danger sm">
+        Удалить обложку
+    </a>
+{% endblock %}

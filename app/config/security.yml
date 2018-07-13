@@ -5,6 +5,7 @@ security:
     access_control:
 
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: /rename_house, roles: ROLE_ADMIN }
         - { path: ^/add_house, roles: ROLE_ADMIN }
         - { path: /delete_house, roles: ROLE_ADMIN }

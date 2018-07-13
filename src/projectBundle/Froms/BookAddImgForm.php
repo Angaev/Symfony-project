@@ -2,12 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: user
- * Date: 30.06.2018
- * Time: 23:33
+ * Date: 13.07.2018
+ * Time: 22:43
  */
 
 namespace projectBundle\Froms;
-
 
 use projectBundle\Entity\book;
 use Symfony\Component\Form\AbstractType;
@@ -16,18 +15,17 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class BookForm extends AbstractType
+class BookAddImgForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('year')->add("description")->add('link')->add('publishing_house');
-
         $builder->add('image', FileType::class);
 
         $builder->add('submit', SubmitType::class ,[
-           'label' => 'Добавить',
+            'label' => 'Добавить'
         ]);
     }
+
 
     public function configureOptions(OptionsResolver $resolver)
     {

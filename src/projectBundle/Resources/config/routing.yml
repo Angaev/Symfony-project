@@ -24,7 +24,12 @@ book_delete:
     requirements:
         id: '\d+'
 
-#попробуй взять значения из get/post, а не через {word}
+book_add_img:
+    path: /book_add_img/{id}
+    defaults: { _controller: projectBundle:Default:bookAddImg}
+    requirements:
+            id: '\d+'
+
 book_search:
     path: /search
     defaults: { _controller: projectBundle:Default:search}

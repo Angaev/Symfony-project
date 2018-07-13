@@ -7,7 +7,13 @@
     {# {% include 'message.twig' %} #}
     <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-12">
-            <img src="{{ book.image }}" class="img-responsive book_big_cover">
+            <img src="
+                   {% if book.image is null %}
+                        ..{{ asset('img/book/no_cover.png') }}
+                   {% else %}
+                        {{ book.image }}
+                    {% endif %}
+            " class="img-responsive book_big_cover">
         </div>
         <div class="col-md-9 col-sm-8 col-xs-12">
             <input type="hidden" id="book_id" value="{{ book.id }}"/>

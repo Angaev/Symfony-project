@@ -4,6 +4,7 @@ namespace projectBundle\Controller;
 
 use projectBundle\Entity\book;
 use projectBundle\Entity\user;
+use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\UserTypeForm;
 use projectBundle\Entity\publishing_house;
 use projectBundle\Froms\addHouseForm;
@@ -94,6 +95,49 @@ class DefaultController extends Controller
            'form' => $form->createView(),
             'titleText' => 'Редактирование книги',
             'id' => $book->getId()
+        ]);
+    }
+
+    public function bookAddImgAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('projectBundle:book');
+        $book = $repo->find($id);
+        if (!$book)
+        {
+            return $this->redirectToRoute('book_list');
+        }
+
+        $form = $this->createForm(BookAddImgForm::class, $book, [
+            'data_class' => null
+        ]);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+
+            // $file сохраняет загруженный файл
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $book->getImage();
+
+            $fileName = 'img/book/' . $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+            // перемещает файл в каталог, где хранятся обложки книг
+            $file->move(
+                $this->getParameter('covers_directory'),
+                $fileName
+            );
+
+            $book->setImage($fileName);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($book);
+            $em->flush();
+            return $this->redirectToRoute('book_list');
+        }
+        return $this->render('projectBundle:Default:add_book_img.html.twig', [
+            'form' => $form->createView(),
+            'titleText' => 'Добавление новой книги'
         ]);
     }
 
@@ -272,8 +316,9 @@ class DefaultController extends Controller
             return $this->redirectToRoute('login');
         }
 
-        return $this->render('projectBundle:Default:form.html.twig', [
+        return $this->render('projectBundle:security:register.html.twig', [
             'form' => $form->createView(),
+            'titleText' => 'Регистрация нового пользователя'
         ]);
     }
 
