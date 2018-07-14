@@ -109,7 +109,7 @@ class DefaultController extends Controller
         }
 
         $form = $this->createForm(BookAddImgForm::class, $book, [
-            'data_class' => null
+            'data_class' => 'projectBundle\Entity\book'
         ]);
         $form->handleRequest($request);
 
@@ -129,6 +129,9 @@ class DefaultController extends Controller
             );
 
             $book->setImage($fileName);
+//            $book->setImage(
+//                new File($this->getParameter('covers_directory') . "/" . $book->getImage())
+//            );
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);
@@ -137,7 +140,8 @@ class DefaultController extends Controller
         }
         return $this->render('projectBundle:Default:add_book_img.html.twig', [
             'form' => $form->createView(),
-            'titleText' => 'Добавление новой книги'
+            'titleText' => 'Добавление новой книги',
+            'id' => $id
         ]);
     }
 
@@ -163,6 +167,20 @@ class DefaultController extends Controller
 
     }
 
+    public function deleteCoverAction(Request $request)
+    {
+        $id = $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('projectBundle:book');
+        $book = $repo->find($id);
+        $book->setImage(null);
+        $em->persist($book);
+        $em->flush();
+
+        return $this->redirectToRoute('book_view', array(
+            'id' => $id
+        ));
+    }
 
     public function addAction(Request $request)
     {

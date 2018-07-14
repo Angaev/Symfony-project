@@ -34,6 +34,10 @@ book_add_img:
     requirements:
             id: '\d+'
 
+book_delete_img:
+    path: /delete_cover
+    defaults: { _controller: projectBundle:Default:deleteCover}
+
 book_search:
     path: /search
     defaults: { _controller: projectBundle:Default:search}
