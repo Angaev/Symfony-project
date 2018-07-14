@@ -45,10 +45,7 @@ class UserController extends Controller
 
         return $this->render('projectBundle:Default:users.html.twig', [
             'users' => $users,
-
-            'titleText' => 'Все книги',
-            'pageDescription' => 'Все книги'
-
+            'titleText' => 'Редактирование пользователей'
         ]);
     }
 
