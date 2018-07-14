@@ -220,6 +220,25 @@ class DefaultController extends Controller
         ]);
     }
 
+    public function getTop50Action()
+    {
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $books = $bookRepo->getTop50();
+
+        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
+        $houses = $houseRepo->findAll();
+
+        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
+        $comment = $commentRepo->findAll();
+
+        return $this->render('projectBundle:Default:books.html.twig', [
+            'books' => $books,
+            'house' => $houses,
+            'titleText' => 'Топ 50 книг',
+            'pageDescription' => 'Топ 50 книг'
+        ]);
+    }
+
     public function addHouseAction(Request $request)
     {
         $house = new publishing_house();

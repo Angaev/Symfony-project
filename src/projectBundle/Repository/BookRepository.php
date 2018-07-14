@@ -13,4 +13,11 @@ class BookRepository extends EntityRepository
         $qry->setParameter('word', '%' . $word . '%');
         return $qry->getQuery()->getResult();
     }
+
+    public function getTop50()
+    {
+        $qry = $this->createQueryBuilder('b')
+                ->setMaxResults(50);
+        return $qry->getQuery()->getResult();
+    }
 }

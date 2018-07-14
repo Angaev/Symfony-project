@@ -1,0 +1,87 @@
+{% extends "projectBundle:Default:index.html.twig" %}
+
+{% block title %}
+  {{ titleText }}
+{% endblock %}
+
+{% block content %}
+  {#{% include 'message.twig' %}#}
+  <div class="row">
+    <div class="col-md-6 text-left">
+        <h3>
+          Все пользователи
+        </h3>
+    </div>
+  </div>
+  {#{{ dump() }}#}
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Имя</th>
+            <th>E-mail</th>
+            <th>Права</th>
+            {#<th>Бан</th>#}
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <td>{{ user.name }}</td>
+              <td>
+                  {{ user.email }}
+              </td>
+              <td>
+                <div class="btn-group">
+                  <a type="button" data-toggle="dropdown" class="btn btn-link btn-sm dropdown-toggle">
+                    {% if user.role == "ROLE_USER" %}
+                        Пользователь
+                    {% elseif user.role == "ROLE_BAN" %}
+                        Забанен
+                    {% else %}
+                        Администратор
+                    {% endif %}
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="{{ path("flip_user_right", {'id': user.id}) }}">
+                        Сделать
+                        {% if user.role == "ROLE_USER" %}администратором{% else %}пользователем{% endif %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ path('flip_user_ban', {'id': user.id}) }}">
+                          {% if user.role == "ROLE_BAN" %}Разбанить{% else %}Забанить{% endif %}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+              {#<td>#}
+
+                {#<div class="btn-group">#}
+                  {#<a type="button" data-toggle="dropdown" class="btn btn-link btn-sm dropdown-toggle">#}
+                    {#{% if user.role == "ROLE_BAN" %}Бан{% else %}Нет запрета{% endif %}#}
+                    {#<span class="caret"></span>#}
+                  {#</a>#}
+                  {#<ul class="dropdown-menu">#}
+                    {#<li>#}
+                      {#<a href="{{ path('flip_user_ban', {'id': user.id}) }}">#}
+                        {#{% if user.role == "ROLE_BAN" %}Разбанить{% else %}Забанить{% endif %}#}
+                      {#</a>#}
+                    {#</li>#}
+                  {#</ul>#}
+                {#</div>#}
+
+
+              {#</td>#}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+    
+{% endblock %}

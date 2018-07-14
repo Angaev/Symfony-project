@@ -12,6 +12,10 @@ book_view:
     requirements:
       id: '\d+'
 
+book_top50:
+    path: /top50
+    defaults: { _controller: projectBundle:Default:getTop50 }
+
 book_edit:
     path: /edit/{id}
     defaults: { _controller: projectBundle:Default:edit }
@@ -61,3 +65,15 @@ logout:
 register:
   path: /register
   defaults: { _controller: projectBundle:Default:register}
+
+users_edit:
+  path: /user_edit
+  defaults: { _controller: projectBundle:User:userIndex}
+
+flip_user_right:
+  path: /user_right
+  defaults: { _controller: projectBundle:User:flipUserRole}
+
+flip_user_ban:
+  path: /user_ban
+  defaults: { _controller: projectBundle:User:flipBan}
