@@ -81,3 +81,7 @@ flip_user_right:
 flip_user_ban:
   path: /user_ban
   defaults: { _controller: projectBundle:User:flipBan}
+
+do_like:
+  path: /like
+  defaults: { _controller: projectBundle:Default:like}

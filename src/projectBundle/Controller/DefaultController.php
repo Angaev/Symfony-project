@@ -3,6 +3,7 @@
 namespace projectBundle\Controller;
 
 use projectBundle\Entity\book;
+use projectBundle\Entity\like;
 use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\UserTypeForm;
@@ -14,6 +15,7 @@ use projectBundle\Froms\BookForm;
 use projectBundle\Froms\RenameHouseForm;
 use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -67,7 +69,7 @@ class DefaultController extends Controller
             'comments' => $comment,
             'likes' => $likes,
             'titleText' => $book->getName(),
-            'likeBtn' => 'off',
+            'likeBtn' => 'free',
             'admin' => false
         ]);
     }
@@ -77,6 +79,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('projectBundle:book');
         $book = $repo->find($id);
+
         if (!$book)
         {
            return $this->redirectToRoute('book_list');
@@ -96,6 +99,28 @@ class DefaultController extends Controller
             'titleText' => 'Редактирование книги',
             'id' => $book->getId()
         ]);
+    }
+
+    public function likeAction(Request $request)
+    {
+        $bookId = $request->get('book_id');
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('projectBundle:book');
+        $book = $repo->find($bookId);
+
+        $user = $this->getUser();
+        //поставить like для указанной книги от пользователя
+        $like = new like();
+        $like->setUser($user);
+        $like->setBook($book);
+
+
+        $em->persist($like);
+        $em->flush();
+
+        $likes = $book->getLike();
+        $likeCount = count($likes);
+        return new JsonResponse($likeCount);
     }
 
     public function bookAddImgAction($id, Request $request)

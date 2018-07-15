@@ -3,7 +3,6 @@
 security:
 
     access_control:
-
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: /rename_house, roles: ROLE_ADMIN }
@@ -15,9 +14,7 @@ security:
         - { path: ^/user_edit, roles: ROLE_ADMIN }
         - { path: ^/user_right, roles: ROLE_ADMIN }
         - { path: ^/user_ban, roles: ROLE_ADMIN }
-
-
-
+        - { path: ^/delete_cover, roles: ROLE_ADMIN }
 
     encoders:
           projectBundle\Entity\User: bcrypt

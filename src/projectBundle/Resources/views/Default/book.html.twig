@@ -38,7 +38,7 @@
                     <input type="hidden" id="likeBtn_status" value=2 />
                 {% endif %}
                 {% if likeBtn != 'off' %}
-                    <span href="{{ path('book_view()') }}" type="button" class="btn {% if likeBtn == 'lock' %}btn-primary {% elseif  likeBtn == 'free' %} btn-info {% endif %} btn-md buttons_book" id="like_button">
+                    <span href="{{ path('book_list') }}" type="button" class="btn {% if likeBtn == 'lock' %}btn-primary {% elseif  likeBtn == 'free' %} btn-info {% endif %} btn-md buttons_book" id="like_button">
             {% if  likeBtn == 'free' %}
                 <span class="glyphicon glyphicon-heart" id="likeBtn_icon"></span>
                 <span id="likeBtn_text">Мне нравится</span>
@@ -69,4 +69,5 @@
             {#{% include 'comments.twig' %}#}
         </div>
     </div>
+
 {% endblock %}

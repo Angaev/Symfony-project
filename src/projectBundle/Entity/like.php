@@ -26,10 +26,10 @@ class like
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
+//    /**
+//     * @ORM\Column(type="datetime")
+//     */
+//    private $created;
 
     //много лайков у одного пользователя
     /**
@@ -56,29 +56,29 @@ class like
         return $this->id;
     }
 
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     *
-     * @return like
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
+//    /**
+//     * Set created
+//     *
+//     * @param \DateTime $created
+//     *
+//     * @return like
+//     */
+//    public function setCreated($created)
+//    {
+//        $this->created = $created;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get created
+//     *
+//     * @return \DateTime
+//     */
+//    public function getCreated()
+//    {
+//        return $this->created;
+//    }
     /**
      * Constructor
      */
