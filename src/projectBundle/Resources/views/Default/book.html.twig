@@ -50,7 +50,7 @@
                 {% endif %}
 
                 {% if admin %}
-                    <a href="edit_book.php?id={{ bookId }}" type="button" class="btn btn-danger btn-md buttons_book">
+                    <a href="{{ path('book_edit', {'id': book.id}) }}" type="button" class="btn btn-danger btn-md buttons_book">
                         <span class="glyphicon glyphicon-pencil"></span>
                         Редактировать
                     </a>

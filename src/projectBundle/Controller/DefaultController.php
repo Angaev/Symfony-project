@@ -60,10 +60,12 @@ class DefaultController extends Controller
         $likeRepo = $this->getDoctrine()->getRepository('projectBundle:like');
         $likes = $likeRepo->findByBook($book);
 
+        $user =  $this->getUser();
         $findLike = $likeRepo->findOneBy(array(
-           'user' => $this->getUser(),
+           'user' => $user,
            'book' => $book
         ));
+
 
         $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
         $users = $userRepo->findAll();
@@ -76,7 +78,7 @@ class DefaultController extends Controller
             'titleText' => $book->getName(),
 //            'likeBtn' => 'free',
             'likeBtn' => $findLike ? 'lock' : 'free',
-            'admin' => false
+            'admin' => ($user->getRole() == 'ROLE_ADMIN') ? true : false
         ]);
     }
 
