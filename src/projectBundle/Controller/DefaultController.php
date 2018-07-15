@@ -103,21 +103,30 @@ class DefaultController extends Controller
 
     public function likeAction(Request $request)
     {
+        $user = $this->getUser();
         $bookId = $request->get('book_id');
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('projectBundle:book');
         $book = $repo->find($bookId);
 
-        $user = $this->getUser();
-        //поставить like для указанной книги от пользователя
-        $like = new like();
-        $like->setUser($user);
-        $like->setBook($book);
+        $likeRepo = $em->getRepository('projectBundle:like');
+        $findLike = $likeRepo->findOneBy(array('user' => $user, 'book' => $book));
 
+        //если лайк уже поставлен, то его надо удалить
+        if ($findLike)
+        {
+            $em->remove($findLike);
+        }
+        else
+        {
+            //поставить like для указанной книги от пользователя
+            $like = new like();
+            $like->setUser($user);
+            $like->setBook($book);
+            $em->persist($like);
+        }
 
-        $em->persist($like);
         $em->flush();
-
         $likes = $book->getLike();
         $likeCount = count($likes);
         return new JsonResponse($likeCount);
