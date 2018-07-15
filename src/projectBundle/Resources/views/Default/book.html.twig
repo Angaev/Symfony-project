@@ -66,7 +66,8 @@
           </span>
                 </div>
             </div>
-            {#{% include 'comments.twig' %}#}
+            {{ dump(book.comment) }}
+            {{  include ('@project/Default/comments.html.twig', {'comments' : book.comment}) }}
         </div>
     </div>
 
