@@ -24,24 +24,23 @@
   {% if comments is empty %}
       Нет комментариев
   {% endif %}
-  {% for item in comments %}
-      {{ dump(item) }}
-  {% endfor %}
-  {#<div class="col-md-12 col-sm-12 col-xs-12">#}
-    {#<ul class="media-list">#}
-      {#{% for comment in book.comment %}#}
-        {#<li class="media">#}
-          {#<div class="media-left">#}
-            {#<img class="media-object img-circle avatar" src={% if comment.img == null %} "" {% else %} "{{ comment.img }}"{% endif %} alt="">#}
-          {#</div>#}
-          {#<div class="media-body">#}
-            {#<h4 class="media-heading">#}
-              {#{{ comment.Name }} {{ comment.Subname }}#}
-              {#<span class="date_text">#}
-                {#{{ comment.date }}#}
-              {#</span>#}
-            {#</h4>#}
-            {#{{ comment.comment|e|nl2br }}#}
+
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <ul class="media-list">
+      {% for comment in comments %}
+        {#{{ dump(comment) }}#}
+        <li class="media">
+          <div class="media-left">
+            <img class="media-object img-circle avatar" src={% if comment.user.avatar == null %} "" {% else %} "{{ comment.user.avatar }}"{% endif %} alt="">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">
+              {{ comment.user.name }}
+              <span class="date_text">
+                {{ comment.created|date("m/d/Y") }}
+              </span>
+            </h4>
+            {{ comment.commentText|e|nl2br }}
             {#{% if admin %}#}
               {#<form action="actions/delete_comment.php" method="post">#}
                 {#<input type="hidden" name="commentId" value="{{ comment.id }}">#}
@@ -49,9 +48,9 @@
                 {#<button id="deleteBtn" type="submit" class="btn btn-danger pull-right btn-sm">Удалить</button>#}
               {#</form>#}
             {#{% endif %}#}
-          {#</div>#}
-        {#</li>#}
-      {#{% endfor%}#}
-    {#</ul>#}
-  {#</div>#}
+          </div>
+        </li>
+      {% endfor%}
+    </ul>
+  </div>
 </div>
