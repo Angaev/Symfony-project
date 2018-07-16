@@ -85,3 +85,7 @@ flip_user_ban:
 do_like:
   path: /like
   defaults: { _controller: projectBundle:Default:like}
+
+delete_comment:
+  path: /delete_comment
+  defaults: { _controller: projectBundle:Default:deleteComment }

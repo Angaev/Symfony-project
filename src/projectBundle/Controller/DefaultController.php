@@ -110,6 +110,36 @@ class DefaultController extends Controller
         ]);
     }
 
+    public function deleteCommentAction(Request $request)
+    {
+        /** @var user $user */
+//        var_dump($request);
+//        die();
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->redirectToRoute('book_list');
+        }
+        $idComment = $request->get('idComment');
+        $em = $this->getDoctrine()->getManager();
+        $findComment = $em->getRepository('projectBundle:comment')->find($idComment);
+        if ($findComment == null) {
+            return $this->redirectToRoute('book_list');
+        }
+
+        /** @var book $book */
+        $book = $findComment->getBook();
+
+        if (($findComment->getUser() != $user) or ($user->getRole() == "ROLE_ADMIN"))
+        {
+            $em->remove($findComment);
+            $em->flush();
+
+            return $this->redirectToRoute('book_view', ['id' => $book->getId()]);
+        }
+        else
+            return $this->redirectToRoute('book_list');
+    }
+
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();

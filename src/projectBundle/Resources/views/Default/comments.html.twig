@@ -9,15 +9,9 @@
     {% if user != null %}
       <div class="comment ">
           <div>
-            {{ form(comment_form) }}
-            {#<form action="actions/add_comment.php" method="post">              #}
-              {#<div class="form-group">#}
-                {#<textarea id="textInput" class="form-control" name="text" placeholder="Написать комментарий" required #}
-                {#rows="4" style="resize:none"></textarea> #}
-                {#<input type="hidden" name="book_id" value="{{ bookId }}"/>#}
-              {#</div>#}
-              {#<button type="submit" class="btn btn-primary pull-left btn-sm" id="commentBtn">Отправить</button>#}
-            {#</form>#}
+            {{ form_start(comment_form) }}
+              {{ form_row(comment_form.commentText, {'attr': {'class': 'form-control'}}) }}
+            {{ form_end(comment_form) }}
           </div>
       </div>
     {% else %}
@@ -43,7 +37,8 @@
               </span>
             </h4>
             {{ comment.commentText|e|nl2br }}
-            {% if admin %}
+            {% if admin or user.id == comment.user.id %}
+                <a href="{{ path('delete_comment', {'idComment' : comment.id}) }}" class="btn btn-danger pull-right btn-sm">Удалить</a>
               {#<form action="actions/delete_comment.php" method="post">#}
                 {#<input type="hidden" name="commentId" value="{{ comment.id }}">#}
                 {#<input type="hidden" name="bookId" value="{{ comment.book_id }}">#}

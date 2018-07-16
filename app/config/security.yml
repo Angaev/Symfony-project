@@ -5,16 +5,18 @@ security:
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: /rename_house, roles: ROLE_ADMIN }
+        - { path: ^/rename_house, roles: ROLE_ADMIN }
         - { path: ^/add_house, roles: ROLE_ADMIN }
-        - { path: /delete_house, roles: ROLE_ADMIN }
+        - { path: ^/delete_house, roles: ROLE_ADMIN }
         - { path: ^/add_book, roles: ROLE_ADMIN }
-        - { path: /edit, roles: ROLE_ADMIN }
-        - { path: /delete, roles: ROLE_ADMIN }
+        - { path: ^/edit, roles: ROLE_ADMIN }
+        - { path: ^/delete, roles: ROLE_ADMIN }
         - { path: ^/user_edit, roles: ROLE_ADMIN }
         - { path: ^/user_right, roles: ROLE_ADMIN }
         - { path: ^/user_ban, roles: ROLE_ADMIN }
         - { path: ^/delete_cover, roles: ROLE_ADMIN }
+        - { path: ^/delete_comment, roles: ROLE_ADMIN }
+
 
     encoders:
           projectBundle\Entity\User: bcrypt

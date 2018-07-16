@@ -20,9 +20,11 @@ class CommentForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('commentText');
+        $builder->add('commentText', null, [
+            'label' => 'Введите текст комментария',
+        ]);
         $builder->add('Submit', SubmitType::class, [
-            'label' => 'Add comment'
+            'label' => 'Добавить'
         ]);
 
     }
