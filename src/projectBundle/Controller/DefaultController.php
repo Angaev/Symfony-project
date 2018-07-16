@@ -128,8 +128,10 @@ class DefaultController extends Controller
 
         /** @var book $book */
         $book = $findComment->getBook();
+        /** @var user $authtorComment */
+        $authtorComment = $findComment->getUser();
 
-        if (($findComment->getUser() != $user) or ($user->getRole() == "ROLE_ADMIN"))
+        if (($authtorComment->getId() == $user->getId()) or ($user->getRole() == "ROLE_ADMIN"))
         {
             $em->remove($findComment);
             $em->flush();
