@@ -3,9 +3,11 @@
 namespace projectBundle\Controller;
 
 use projectBundle\Entity\book;
+use projectBundle\Entity\comment;
 use projectBundle\Entity\like;
 use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
+use projectBundle\Froms\CommentForm;
 use projectBundle\Froms\UserTypeForm;
 use projectBundle\Entity\publishing_house;
 use projectBundle\Froms\addHouseForm;
@@ -46,7 +48,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public  function viewAction($id)
+    public  function viewAction($id, Request $request)
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
         $book = $bookRepo->find($id);
@@ -66,6 +68,31 @@ class DefaultController extends Controller
            'book' => $book
         ));
 
+        if ($user != null)
+        {
+            $isAdmin =  ($user->getRole() == 'ROLE_ADMIN') ? true : false;
+        }
+        else
+        {
+            $isAdmin = false;
+        }
+
+        $commentForm = $this->createForm(CommentForm::class);
+        $commentForm->handleRequest($request);
+        if ($commentForm->isSubmitted())
+        {
+            /** @var comment $newComment */
+            $newComment = $commentForm->getData();
+            $newComment->setUser($user);
+            $newComment->setBook($book);
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($newComment);
+            $em->flush();
+            return $this->redirectToRoute('book_view', ['id' => $book->getId()]);
+//            var_dump($newComment);
+//            die();
+        }
 
         $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
         $users = $userRepo->findAll();
@@ -76,9 +103,10 @@ class DefaultController extends Controller
             'comments' => $comment,
             'likes' => $likes,
             'titleText' => $book->getName(),
-//            'likeBtn' => 'free',
             'likeBtn' => $findLike ? 'lock' : 'free',
-            'admin' => ($user->getRole() == 'ROLE_ADMIN') ? true : false
+            'admin' => $isAdmin,
+            'user' => $user,
+            'comment_form' => $commentForm->createView()
         ]);
     }
 

@@ -112,6 +112,7 @@ class comment
      */
     public function __construct()
     {
+        $this->created = new \DateTime();
         $this->book = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

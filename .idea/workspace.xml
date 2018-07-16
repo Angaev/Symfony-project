@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feature_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/feature_list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +24,8 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="81" column="11" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
+            <state relative-caret-position="442">
+              <caret line="91" column="81" selection-start-line="91" selection-start-column="81" selection-end-line="91" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -46,20 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feature_list.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="feature_list.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/feature_list.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="security.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -67,26 +60,17 @@
       <file leaf-file-name="book.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+            <state relative-caret-position="378">
+              <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comments.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="comments.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="like.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/like.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="391">
+              <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -134,10 +118,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/web/text.txt" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" />
         <option value="$PROJECT_DIR$/web/css/main.css" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/footer.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.htmk.twig" />
@@ -181,10 +163,12 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/web/js/like.js" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/like.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" />
         <option value="$PROJECT_DIR$/feature_list.txt" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" />
       </list>
     </option>
   </component>
@@ -429,12 +413,12 @@
       <workItem from="1531493335679" duration="12540000" />
       <workItem from="1531554294070" duration="23234000" />
       <workItem from="1531666142385" duration="9813000" />
-      <workItem from="1531757396276" duration="1947000" />
+      <workItem from="1531757396276" duration="5898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236547000" />
+    <option name="totallyTimeSpent" value="240498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -474,13 +458,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/book/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form/bootstrap_3_layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -492,13 +469,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
           <caret line="43" column="54" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
+          <folding>
+            <element signature="e#121#151#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -581,6 +554,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#121#161#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -595,6 +571,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
+          <folding>
+            <element signature="e#120#160#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -602,6 +581,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+          <folding>
+            <element signature="e#121#151#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -626,6 +608,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding>
+            <element signature="e#120#160#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -714,6 +699,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#39#69#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -728,6 +716,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="37" column="34" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="34" />
+          <folding>
+            <element signature="e#120#150#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -780,13 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="11" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/like.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -794,24 +778,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig">
+    <entry file="file://$PROJECT_DIR$/feature_list.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        <state relative-caret-position="180">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+        <state relative-caret-position="378">
+          <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_list.txt">
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="442">
+          <caret line="91" column="81" selection-start-line="91" selection-start-column="81" selection-end-line="91" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="e#121#154#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
         </state>
       </provider>
     </entry>

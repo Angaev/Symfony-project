@@ -6,9 +6,10 @@
         Комментарии ({{ book.comment.count }})
       </h3>
     </div>
-    {#{% if isUserLogin %}#}
-      {#<div class="comment ">#}
-          {#<div>#}
+    {% if user != null %}
+      <div class="comment ">
+          <div>
+            {{ form(comment_form) }}
             {#<form action="actions/add_comment.php" method="post">              #}
               {#<div class="form-group">#}
                 {#<textarea id="textInput" class="form-control" name="text" placeholder="Написать комментарий" required #}
@@ -17,9 +18,11 @@
               {#</div>#}
               {#<button type="submit" class="btn btn-primary pull-left btn-sm" id="commentBtn">Отправить</button>#}
             {#</form>#}
-          {#</div>#}
-      {#</div>#}
-    {#{% endif %}#}
+          </div>
+      </div>
+    {% else %}
+        Только зарегистрированные пользователи могут оставлять комментарии
+    {% endif %}
   </div>
   {% if comments is empty %}
       Нет комментариев
@@ -28,10 +31,9 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <ul class="media-list">
       {% for comment in comments %}
-        {#{{ dump(comment) }}#}
         <li class="media">
           <div class="media-left">
-            <img class="media-object img-circle avatar" src={% if comment.user.avatar == null %} "" {% else %} "{{ comment.user.avatar }}"{% endif %} alt="">
+            <img class="media-object img-circle avatar" src={% if comment.user.avatar == null %} "../{{ asset('img/avatar/noavatar.png') }}" {% else %} "{{ comment.user.avatar }}"{% endif %} alt="">
           </div>
           <div class="media-body">
             <h4 class="media-heading">
@@ -41,13 +43,13 @@
               </span>
             </h4>
             {{ comment.commentText|e|nl2br }}
-            {#{% if admin %}#}
+            {% if admin %}
               {#<form action="actions/delete_comment.php" method="post">#}
                 {#<input type="hidden" name="commentId" value="{{ comment.id }}">#}
                 {#<input type="hidden" name="bookId" value="{{ comment.book_id }}">#}
                 {#<button id="deleteBtn" type="submit" class="btn btn-danger pull-right btn-sm">Удалить</button>#}
               {#</form>#}
-            {#{% endif %}#}
+            {% endif %}
           </div>
         </li>
       {% endfor%}
