@@ -15,6 +15,7 @@ use projectBundle\Froms\BookDeleteForm;
 use projectBundle\Froms\BookEditForm;
 use projectBundle\Froms\BookForm;
 use projectBundle\Froms\RenameHouseForm;
+use Symfony\Component\HttpFoundation\File\File;
 use projectBundle\projectBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -209,7 +210,10 @@ class DefaultController extends Controller
         {
             return $this->redirectToRoute('book_list');
         }
-
+        if($book->getImage() != null)
+        {
+            $book->setImage(new File($book->getImage()));
+        }
         $form = $this->createForm(BookAddImgForm::class, $book, [
             'data_class' => 'projectBundle\Entity\book'
         ]);

@@ -32,7 +32,7 @@ book_add_img:
     path: /book_add_img/{id}
     defaults: { _controller: projectBundle:Default:bookAddImg}
     requirements:
-            id: '\d+'
+        id: '\d+'
 
 book_delete_img:
     path: /delete_cover

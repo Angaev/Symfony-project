@@ -22,9 +22,6 @@ class BookAddImgForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('image', FileType::class);
-//        $builder->add('image', CollectionType::class, array(
-//            'entry_type' => FileType::class
-//        ));
 
         $builder->add('submit', SubmitType::class ,[
             'label' => 'Добавить'

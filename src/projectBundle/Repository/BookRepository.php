@@ -17,6 +17,7 @@ class BookRepository extends EntityRepository
     public function getTop50()
     {
         $qry = $this->createQueryBuilder('b')
+
                 ->setMaxResults(50);
         return $qry->getQuery()->getResult();
     }
