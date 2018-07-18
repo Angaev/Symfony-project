@@ -12,3 +12,6 @@ services:
         arguments: ["@router", "@security.password_encoder"]
     app.security.access_denied_handler:
         class: projectBundle\Security\AccessDeniedHandler
+    app.cover_uploader:
+        class: projectBundle\FileUploader\FileUploader
+        arguments: ['%covers_directory%']

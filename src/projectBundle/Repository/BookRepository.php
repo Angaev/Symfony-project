@@ -4,6 +4,7 @@ namespace projectBundle\Repository;
 
 
 use Doctrine\ORM\EntityRepository;
+use projectBundle\projectBundle;
 
 class BookRepository extends EntityRepository
 {
@@ -16,9 +17,27 @@ class BookRepository extends EntityRepository
 
     public function getTop50()
     {
-        $qry = $this->createQueryBuilder('b')
+        $em = $this->getEntityManager();
+        $likeSort = $em->createQuery('
+            SELECT COUNT(l.id) FROM projectBundle:like l
+            ORDER BY (l.id)
+            GROUP BY l.book 
+        ');
 
-                ->setMaxResults(50);
-        return $qry->getQuery()->getResult();
+        return $likeSort->getResult();
+
+
+//        $qry = $this->createQueryBuilder('b')
+//                ->setMaxResults(50);
+
+
+        $query = $em->createQuery('
+            SELECT b FROM projectBundle:book b
+            LEFT JOIN b.like l 
+            
+        ');
+
+        return $query->getResult();
+//        return $qry->getQuery()->getResult();
     }
 }

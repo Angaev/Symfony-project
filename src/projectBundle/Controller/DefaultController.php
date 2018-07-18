@@ -297,22 +297,26 @@ class DefaultController extends Controller
         if($form->isSubmitted() && $form->isValid())
         {
 
-            // $file сохраняет загруженный файл
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+//            // $file сохраняет загруженный файл
+//            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+//            $file = $book->getImage();
+//
+//            $fileName = 'img/book/' . $this->generateUniqueFileName().'.'.$file->guessExtension();
+//
+//
+//
+//            // перемещает файл в каталог, где хранятся обложки книг
+//            $file->move(
+//                $this->getParameter('covers_directory'),
+//                $fileName
+//            );
+//
+//            $book->setImage($fileName);
             $file = $book->getImage();
+            $fileName = $this->get('app.cover_uploader')->upload($file);
 
-            $fileName = 'img/book/' . $this->generateUniqueFileName().'.'.$file->guessExtension();
-
-
-
-            // перемещает файл в каталог, где хранятся обложки книг
-            $file->move(
-                $this->getParameter('covers_directory'),
-                $fileName
-            );
-
-            $book->setImage($fileName);
-
+            $book->setImage('img/book' . $fileName);
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);
             $em->flush();
@@ -355,6 +359,8 @@ class DefaultController extends Controller
         $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
         $comment = $commentRepo->findAll();
 
+        var_dump($books);
+        die();
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
             'house' => $houses,
