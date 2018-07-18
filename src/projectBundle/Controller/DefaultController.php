@@ -312,11 +312,12 @@ class DefaultController extends Controller
 //            );
 //
 //            $book->setImage($fileName);
+
             $file = $book->getImage();
             $fileName = $this->get('app.cover_uploader')->upload($file);
 
-            $book->setImage('img/book' . $fileName);
-            
+            $book->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);
             $em->flush();

@@ -14,4 +14,4 @@ services:
         class: projectBundle\Security\AccessDeniedHandler
     app.cover_uploader:
         class: projectBundle\FileUploader\FileUploader
-        arguments: ['%covers_directory%']
+        arguments: ['c:\wamp\www\first_project\web\img\book\']
