@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/feature_list.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="221" column="72" lean-forward="true" selection-start-line="221" selection-start-column="72" selection-end-line="221" selection-end-column="72" />
+            <state relative-caret-position="206">
+              <caret line="211" column="50" lean-forward="true" selection-start-line="211" selection-start-column="50" selection-end-line="211" selection-end-column="50" />
               <folding>
                 <element signature="e#44#74#0#PHP" expanded="true" />
                 <element signature="e#1108#1128#1#PHP" expanded="true" />
@@ -63,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feature_list.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="feature_list.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/feature_list.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="367">
+              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -168,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
-        <option value="$PROJECT_DIR$/feature_list.txt" />
         <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" />
@@ -176,6 +173,7 @@
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/feature_list.txt" />
       </list>
     </option>
   </component>
@@ -228,7 +226,7 @@
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-42" />
     <option name="y" value="-19" />
     <option name="width" value="1346" />
@@ -382,12 +380,12 @@
       <workItem from="1531757396276" duration="9850000" />
       <workItem from="1531838016211" duration="7210000" />
       <workItem from="1531932663804" duration="8725000" />
-      <workItem from="1532018068105" duration="3177000" />
+      <workItem from="1532018068105" duration="3970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263562000" />
+    <option name="totallyTimeSpent" value="264355000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -704,13 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feature_list.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -762,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="221" column="72" lean-forward="true" selection-start-line="221" selection-start-column="72" selection-end-line="221" selection-end-column="72" />
+        <state relative-caret-position="206">
+          <caret line="211" column="50" lean-forward="true" selection-start-line="211" selection-start-column="50" selection-end-line="211" selection-end-column="50" />
           <folding>
             <element signature="e#44#74#0#PHP" expanded="true" />
             <element signature="e#1108#1128#1#PHP" expanded="true" />
@@ -800,6 +791,13 @@
             <element signature="e#14011#14043#1#PHP" expanded="true" />
             <element signature="e#15282#15325#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feature_list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
         </state>
       </provider>
     </entry>
