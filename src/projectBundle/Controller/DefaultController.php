@@ -425,10 +425,14 @@ class DefaultController extends Controller
 
     public function registerAction(Request $request)
     {
+        if (!($this->isAnonymousUser($this->getUser())))
+        {
+            return $this->redirectToRoute('book_list');
+        }
+
         $user = new User();
         $form = $this->createForm(UserTypeForm::class, $user);
-//        var_dump($user);
-//        die();
+
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
@@ -465,4 +469,17 @@ class DefaultController extends Controller
         // uniqid(), которые основанный на временных отметках
         return md5(uniqid());
     }
+
+    /**
+     * @return bool
+     */
+    private function isAnonymousUser($user)
+    {
+        if ($user != null)
+        {
+            return false;
+        }
+        return true;
+    }
 }
+

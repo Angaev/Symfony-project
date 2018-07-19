@@ -22,6 +22,11 @@ class SecurityController extends Controller
      */
     public function loginAction(Request $request)
     {
+        if (!($this->isAnonymousUser($this->getUser())))
+        {
+            return $this->redirectToRoute('book_list');
+        }
+
         $helper = $this->get('security.authentication_utils');
 
         return $this->render(
@@ -47,5 +52,17 @@ class SecurityController extends Controller
     public function logoutAction()
     {
 
+    }
+
+    /**
+     * @return bool
+     */
+    private function isAnonymousUser($user)
+    {
+        if ($user != null)
+        {
+            return false;
+        }
+        return true;
     }
 }
