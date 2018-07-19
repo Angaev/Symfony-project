@@ -28,7 +28,13 @@
         {{ book.comment.count }}
       </span>
             <div class="button_group">
-                <a target="_blank" href="{% if book.link is empty %} # {% else %} {{ book.link }} {% endif %}" type="button" class="btn btn-success btn-md buttons_book
+                <a target="_blank" href="
+                {% if book.link is empty %}
+                    #
+                {% else %}
+                    {{ book.link }}
+                {% endif %}
+                " type="button" class="btn btn-success btn-md buttons_book
                 {% if book.link is  empty %} disabled {% endif %}">
                     {% if book.link is  empty %} Нет активной ссылки {% else %} <span class="	glyphicon glyphicon-download"></span> Скачать {% endif %}
                 </a>

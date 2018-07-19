@@ -26,9 +26,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/", name="/")
-     */
     public function indexAction()
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
@@ -221,23 +218,9 @@ class DefaultController extends Controller
 
         if($form->isSubmitted() && $form->isValid())
         {
-
-            // $file сохраняет загруженный файл
-            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $book->getImage();
-
-            $fileName = 'img/book/' . $this->generateUniqueFileName().'.'.$file->guessExtension();
-
-            // перемещает файл в каталог, где хранятся обложки книг
-            $file->move(
-                $this->getParameter('covers_directory'),
-                $fileName
-            );
-
+            $fileName = $this->get('app.cover_uploader')->upload($file);
             $book->setImage($fileName);
-//            $book->setImage(
-//                new File($this->getParameter('covers_directory') . "/" . $book->getImage())
-//            );
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);
