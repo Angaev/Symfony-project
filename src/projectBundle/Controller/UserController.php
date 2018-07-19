@@ -136,10 +136,33 @@ class UserController extends Controller
         $newPassword = $encoder->encodePassword($user, $pass1);
         $user->setPassword($newPassword);
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
 
         return $this->redirectToRoute('edit_profile', ['message' => 'Пароль изменен']);
+    }
+
+    public function changeProfileDataAction(Request $request)
+    {
+        /** @var user $user */
+        $user = $this->getUser();
+
+        if ($user == null)
+        {
+            return $this->redirectToRoute('login');
+        }
+
+        $newName = $request->get('name');
+        $newEmail = $request->get('email');
+
+        $user->setName($newName);
+        $user->setEmail($newEmail);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->redirectToRoute('edit_profile', ['message' => 'Данные обновлены']);
     }
 }

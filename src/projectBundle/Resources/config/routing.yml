@@ -82,6 +82,9 @@ change_user_password:
   path: /change_password
   defaults: { _controller: projectBundle:User:changePassword }
 
+change_profile_data:
+  path: /change_profile_data
+  defaults: { _controller: projectBundle:User:changeProfileData }
 
 flip_user_right:
   path: /user_right
