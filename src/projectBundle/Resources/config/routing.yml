@@ -71,8 +71,17 @@ register:
   defaults: { _controller: projectBundle:Default:register}
 
 users_edit:
-  path: /user_edit
+  path: /users_edit
   defaults: { _controller: projectBundle:User:userIndex}
+
+edit_profile:
+  path: /edit_profile
+  defaults: { _controller: projectBundle:User:editProfile}
+
+change_user_password:
+  path: /change_password
+  defaults: { _controller: projectBundle:User:changePassword }
+
 
 flip_user_right:
   path: /user_right

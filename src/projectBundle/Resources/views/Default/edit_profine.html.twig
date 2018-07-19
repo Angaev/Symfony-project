@@ -1,0 +1,82 @@
+{% extends 'projectBundle:Default:index.html.twig' %}
+
+{% block title %}
+  {{ titleText }}
+{% endblock %}
+
+{% block content %}
+    {#{% include 'message.twig' %}#}
+    {{ dump(user) }}
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Редактирование персональных данных</h3>
+        </div>
+        <div class="col-md-2">
+          <img src="{% if user.avatar == null %} /img/avatar/noavatar.png {% else %} {{ user.avatar }} {% endif %}" id="avatar" class="img-responsive img-circle center-block avatar_single visitcard">
+          <div class="text-center">
+            <label class="btn btn-primary btn-sm buttons_book avatar_btn">
+              Обновить фото
+              <input type="file" hidden id="fileChoice">
+            </label>
+            {% if user.avatar != null %}
+              <span class="btn btn-default btn-sm buttons_book avatar_btn" id="deleteAvatar">
+                Удалить аватар
+              </span>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
+              <h4>Основная информация</h4>
+              <form action="actions/update_user.php" method="post" enctype="multipart/form-data">
+                <div class="block_bottom_offset">
+                  <input type="hidden" value=" {{ user.id }}" name="userId">
+                  <label for="username">Имя</label>
+                  <input class="form-control" id="username" value="{{ user.name }}" name="name" autocomplete="off" required>
+                </div>
+                {#<div class="block_bottom_offset">#}
+                  {#<label for="usersubname">Фамилия</label>#}
+                  {#<input class="form-control" id="usersubname"#}
+                  {#value="{{ user["Subname"] }}" name="subname" autocomplete="off" required>#}
+                {#</div>#}
+                <div class="block_bottom_offset">
+                  <label for="userEmail">E-mail</label>
+                  <input class="form-control" id="userEmail"
+                  value="{{ user.email }}" name="email" autocomplete="off" required>
+                </div>
+                <button type="submit" class="btn btn-info btn-sm btn-with-margin">
+                  Обновить информацию
+                </button>
+              </form>
+            </div>
+            <div class="col-md-7 col-sm-12 col-xs-12">
+              <h4>Смена пароля</h4>
+              <form action="{{ path('change_user_password') }}" method="post" enctype="multipart/form-data">
+                <div class="block_bottom_offset">
+                  <label for="userOldPass">Старый пароль</label>
+                  <input type="password" class="form-control" id="userOldPass" value="" name="oldPass" placeholder="Старый пароль" required>
+                </div>
+                <div class="block_bottom_offset">
+                  <label for="userNewPass1">Новый пароль</label>
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6 block_bottom_offset">
+                      <input type="password" class="form-control" id="userNewPass1"
+                      value="" name="pass1" placeholder="Новый пароль" required>
+                    </div>
+                    <div class="col-md-6 col-sm-6 block_bottom_offset">
+                      <input type="password" class="form-control" id="userNewPass2"
+                      value="" name="pass2" placeholder="Повторите, чтобы не ошибиться" required>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-info btn-sm btn-with-margin">
+                  Обновить пароль
+                </button>
+              </form>
+            </div>
+           </div>
+        </div>
+      </div>
+{% endblock %}

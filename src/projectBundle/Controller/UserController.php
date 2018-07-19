@@ -34,15 +34,6 @@ class UserController extends Controller
         $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
         $users = $userRepo->findAll();
 
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->findAll();
-
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findAll();
-
         return $this->render('projectBundle:Default:users.html.twig', [
             'users' => $users,
             'titleText' => 'Редактирование пользователей'
@@ -95,5 +86,58 @@ class UserController extends Controller
         $em->persist($user);
         $em->flush();
         return $this->redirect('user_edit');
+    }
+
+    public function editProfileAction(Request $request)
+    {
+
+        /** @var user $user */
+        $user = $this->getUser();
+
+        if ($user == null)
+        {
+            return $this->redirectToRoute('login');
+        }
+
+        return $this->render('projectBundle:Default:edit_profine.html.twig', [
+            'user' => $user,
+            'titleText' => 'Редактирование профиля'
+        ]);
+    }
+
+    public function changePasswordAction(Request $request)
+    {
+        /** @var user $user */
+        $user = $this->getUser();
+
+        if ($user == null)
+        {
+            return $this->redirectToRoute('login');
+        }
+
+        $oldPass = $request->get('oldPass');
+        $pass1 = $request->get('pass1');
+        $pass2 = $request->get('pass2');
+
+        if ($pass1 != $pass2)
+        {
+            var_dump('не совпадает пароли');
+        }
+
+        $encoder = $this->get('security.password_encoder');
+
+        if (!($encoder->isPasswordValid($user, $oldPass)))
+        {
+            var_dump('Не правильный пароль');
+        }
+
+        $newPassword = $encoder->encodePassword($user, $pass1);
+        $user->setPassword($newPassword);
+        
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $this->redirectToRoute('edit_profile');
     }
 }

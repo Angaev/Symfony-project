@@ -17,11 +17,6 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface
 {
     public function handle(Request $request, AccessDeniedException $accessDeniedException)
     {
-//        echo('shit');
-//        die();
-//        return render('', [
-//            'titleText' => 'Редактирование издательств'
-//        ]);
         $content = '';
         return new Response($content, 403);
     }

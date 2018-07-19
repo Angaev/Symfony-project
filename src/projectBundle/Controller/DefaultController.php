@@ -234,6 +234,7 @@ class DefaultController extends Controller
         ]);
     }
 
+
     public function deleteAction($id, Request $request)
     {
         //удаляет указаную книгу без придупреждения
