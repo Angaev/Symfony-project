@@ -99,9 +99,11 @@ class UserController extends Controller
             return $this->redirectToRoute('login');
         }
 
-        return $this->render('projectBundle:Default:edit_profine.html.twig', [
+        $message = $request->get('message');
+        return $this->render('projectBundle:Default:edit_profile.html.twig', [
             'user' => $user,
-            'titleText' => 'Редактирование профиля'
+            'titleText' => 'Редактирование профиля',
+            'message' => $message
         ]);
     }
 
@@ -121,23 +123,23 @@ class UserController extends Controller
 
         if ($pass1 != $pass2)
         {
-            var_dump('не совпадает пароли');
+            return $this->redirectToRoute('edit_profile', ['message' => 'Не совпадают пароли']);
         }
 
         $encoder = $this->get('security.password_encoder');
 
         if (!($encoder->isPasswordValid($user, $oldPass)))
         {
-            var_dump('Не правильный пароль');
+            return $this->redirectToRoute('edit_profile', ['message' => 'Не правильный пароль']);
         }
 
         $newPassword = $encoder->encodePassword($user, $pass1);
         $user->setPassword($newPassword);
-        
+
         $em = $this->getDoctrine()->getEntityManager();
         $em->persist($user);
         $em->flush();
 
-        return $this->redirectToRoute('edit_profile');
+        return $this->redirectToRoute('edit_profile', ['message' => 'Пароль изменен']);
     }
 }
