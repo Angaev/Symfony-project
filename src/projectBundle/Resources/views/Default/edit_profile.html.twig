@@ -19,11 +19,15 @@
               Обновить фото
               <input type="file" hidden id="fileChoice">
             </label>
-            {% if user.avatar != null %}
-              <span class="btn btn-default btn-sm buttons_book avatar_btn" id="deleteAvatar">
+
+              <span class="btn btn-default btn-sm buttons_book avatar_btn
+              {% if user.avatar == null %}
+                  hide
+              {% endif %}
+              " id="deleteAvatar">
                 Удалить аватар
               </span>
-            {% endif %}
+
           </div>
         </div>
         <div class="col-md-10">

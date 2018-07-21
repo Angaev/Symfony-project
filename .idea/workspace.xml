@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/loadAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/loadAvatar.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,20 +68,29 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="edit_profile.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="26" column="32" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loadAvatar.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/js/loadAvatar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="401">
               <caret line="28" selection-start-line="28" selection-end-line="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="book.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -164,17 +173,17 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profine.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/web/js/like.js" />
-        <option value="$PROJECT_DIR$/web/js/loadAvatar.js" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/header.html.twig" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/projectBundle/FileUploader/FileUploader.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/web/js/deleteAvatar.js" />
         <option value="$PROJECT_DIR$/feature_list.txt" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig" />
+        <option value="$PROJECT_DIR$/web/js/loadAvatar.js" />
       </list>
     </option>
   </component>
@@ -227,7 +236,7 @@
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-42" />
     <option name="y" value="-19" />
     <option name="width" value="1346" />
@@ -421,12 +430,12 @@
       <workItem from="1531932663804" duration="8725000" />
       <workItem from="1532018068105" duration="10967000" />
       <workItem from="1532111554353" duration="7850000" />
-      <workItem from="1532164614784" duration="6423000" />
+      <workItem from="1532164614784" duration="7899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285625000" />
+    <option name="totallyTimeSpent" value="287101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -739,13 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/loadAvatar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/FileUploader/FileUploader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -757,13 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="80" column="57" selection-start-line="80" selection-start-column="57" selection-end-line="80" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -808,6 +803,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
@@ -815,10 +817,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="82" column="53" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+        <state relative-caret-position="408">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/loadAvatar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
         </state>
       </provider>
     </entry>

@@ -17,7 +17,9 @@ $(document).ready ( function() {
                 console.log(phpResponse);
                 $("#avatar").attr("src", phpResponse);
                 $("#deleteAvatar").text("Удалить аватар");
+                $("#deleteAvatar").removeClass("hide");
                 $("#deleteAvatar").attr("disabled", false);
+
             }
      });
   })
