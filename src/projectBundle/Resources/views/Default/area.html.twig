@@ -38,40 +38,41 @@
       </div>
       
       <div class="col-md-10 col-sm-12 col-xs-12">
-        {{ dump() }}
-        {#<div class="col-md-12 col-sm-12 col-xs-12">#}
-          {#<div class="panel panel-default">#}
-            {#<div class="panel-body">#}
-              {#<h4>Вы писали</h4>#}
-              {#{% if lastComment is not empty%}#}
-                {#<div class="comment">#}
-                  {#<div class="row">#}
-                    {#<div class="col-md-12">#}
-                      {#<div class="gray_text">#}
-                         {#{{ lastComment["date"] }}#}
-                        {#<h5 class="gray_text">#}
-                          {#К книге: <a href="book.php?book_id={{ lastComment["book_id"] }}">{{ lastComment["name"] }}</a>#}
-                        {#</h5>#}
-                      {#</div>#}
-                      {#<div class="text-left">#}
-                        {#<span>{{ lastComment["comment"]|e|nl2br }}</span>#}
-                      {#</div>#}
-                    {#</div>#}
-                  {#</div>#}
-                {#</div>#}
-              {#{% else %}#}
-                {#<p>#}
-                  {#Здесь будут появляться Ваши комментарий#}
-                {#</p>#}
-              {#{% endif%}#}
-              {#{% if lastComment is not empty%}#}
-                {#<a href="all_comments.php"> #}
-                  {#Посмотреть все <span class="glyphicon glyphicon-menu-right"></span>#}
-                {#</a>#}
-              {#{% endif%}#}
-            {#</div>#}
-          {#</div>#}
-        {#</div>#}
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>Вы писали</h4>
+              {% if lastComment is not empty%}
+                {% for comment in lastComment %}
+                  <div class="comment">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="gray_text">
+                           {{ comment.created|date("m/d/Y") }}
+                          <h5 class="gray_text">
+                            К книге: <a href="{{ path('book_view', {'id' : comment.book.id}) }}">{{ comment.book.name }}</a>
+                          </h5>
+                        </div>
+                        <div class="text-left">
+                          <span>{{ comment.commentText|e|nl2br }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <p>
+                  Здесь будут появляться Ваши комментарий
+                </p>
+              {% endif%}
+              {% if lastComment is not empty%}
+                <a href="all_comments.php">
+                  Посмотреть все <span class="glyphicon glyphicon-menu-right"></span>
+                </a>
+              {% endif%}
+            </div>
+          </div>
+        </div>
         
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="panel panel-default">

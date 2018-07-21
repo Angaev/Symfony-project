@@ -21,9 +21,11 @@ class BookRepository extends EntityRepository
         $qry = $em->createQuery('
             SELECT l FROM projectBundle:like l
             WHERE l.user = :user
+            ORDER BY l.id DESC 
         ');
         $qry->setParameter('user', $userId);
 //        $qry->setParameter('quantity', $quantity);
+
         $qry->setMaxResults($quantity);
         return $qry->getResult();
     }
