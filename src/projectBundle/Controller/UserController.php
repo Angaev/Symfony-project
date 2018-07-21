@@ -180,4 +180,21 @@ class UserController extends Controller
 
         return new JsonResponse($user->getAvatar());
     }
+
+    public function deleteAvatarAction(Request $request)
+    {
+        /** @var user $user */
+        $user = $this->getUser();
+        if ($user == null)
+        {
+            die();
+        }
+
+        $user->setAvatar(null);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        return new JsonResponse('was delete');
+    }
 }

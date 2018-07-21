@@ -106,6 +106,10 @@ user_add_avatar:
   path: /user_add_avatar
   defaults: { _controller: projectBundle:User:addAvatar }
 
+user_delete_avatar:
+  path: /user_delete_avatar
+  defaults: { _controller: projectBundle:User:deleteAvatar}
+
 area:
   path: /area
   defaults: { _controller: projectBundle:User:editProfile }
