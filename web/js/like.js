@@ -3,8 +3,6 @@ $(document).ready ( function() {
   var NO_LIKE_PRESSED = 1;
   var LIKE_PRESSED = 2;
 
-  console.log('hello');
-
   $("#like_button").click(function() {
     $.ajax ({
         url:"/like",

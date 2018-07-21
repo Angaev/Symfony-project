@@ -16,6 +16,7 @@ security:
         - { path: ^/user_right, roles: ROLE_ADMIN }
         - { path: ^/user_ban, roles: ROLE_ADMIN }
         - { path: ^/delete_cover, roles: ROLE_ADMIN }
+        - { path: ^/area, roles: IS_AUTHENTICATED_FULLY }
 
 
 

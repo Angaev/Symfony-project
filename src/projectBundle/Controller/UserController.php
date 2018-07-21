@@ -10,22 +10,11 @@ namespace projectBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use projectBundle\Entity\book;
 use projectBundle\Entity\user;
-use projectBundle\Froms\BookAddImgForm;
-use projectBundle\Froms\UserTypeForm;
-use projectBundle\Entity\publishing_house;
-use projectBundle\Froms\addHouseForm;
-use projectBundle\Froms\BookDeleteForm;
-use projectBundle\Froms\BookEditForm;
-use projectBundle\Froms\BookForm;
-use projectBundle\Froms\RenameHouseForm;
-use projectBundle\projectBundle;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 class UserController extends Controller
 {
@@ -164,5 +153,31 @@ class UserController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('edit_profile', ['message' => 'Данные обновлены']);
+    }
+
+    public function addAvatarAction(Request $request)
+    {
+        /** @var user $user */
+        $user = $this->getUser();
+        if ($user == null)
+        {
+            die();
+        }
+        if($user->getAvatar() != null)
+        {
+            $user->setAvatar(new File($user->getAvatar()));
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $request->get('form_data');
+        $file = $request->files->get('file');
+
+        $fileName = $this->get('app.avatar_uploader')->upload($file);
+        $user->setAvatar($fileName);
+        $em->persist($user);
+        $em->flush();
+
+        return new JsonResponse($user->getAvatar());
     }
 }

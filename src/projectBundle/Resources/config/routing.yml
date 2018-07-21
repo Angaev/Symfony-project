@@ -101,3 +101,11 @@ do_like:
 delete_comment:
   path: /delete_comment
   defaults: { _controller: projectBundle:Default:deleteComment }
+
+user_add_avatar:
+  path: /user_add_avatar
+  defaults: { _controller: projectBundle:User:addAvatar }
+
+area:
+  path: /area
+  defaults: { _controller: projectBundle:User:editProfile }

@@ -14,4 +14,7 @@ services:
         class: projectBundle\Security\AccessDeniedHandler
     app.cover_uploader:
         class: projectBundle\FileUploader\FileUploader
-        arguments: ['c:\wamp\www\first_project\web\img\book\']
+        arguments: ['c:\wamp\www\first_project\web\img\book\', 'img/book/']
+    app.avatar_uploader:
+        class: projectBundle\FileUploader\FileUploader
+        arguments: ['c:\wamp\www\first_project\web\img\avatar\', 'img/avatar/']
