@@ -197,4 +197,19 @@ class UserController extends Controller
 
         return new JsonResponse('was delete');
     }
+
+    public function areaViewAction()
+    {
+        /** @var user $user */
+        $user = $this->getUser();
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $likes = $bookRepo->getLastUserBook($user->getId(), 6);
+
+        $book = $bookRepo -> findAll();
+        return $this->render('projectBundle:Default:area.html.twig', [
+            'user' => $user,
+            'titleText' => 'Редактирование профиля',
+            'likes' => $likes
+        ]);
+    }
 }

@@ -112,4 +112,4 @@ user_delete_avatar:
 
 area:
   path: /area
-  defaults: { _controller: projectBundle:User:editProfile }
+  defaults: { _controller: projectBundle:User:areaView }

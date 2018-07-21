@@ -15,6 +15,19 @@ class BookRepository extends EntityRepository
         return $qry->getQuery()->getResult();
     }
 
+    public function getLastUserBook($userId, $quantity)
+    {
+        $em = $this->getEntityManager();
+        $qry = $em->createQuery('
+            SELECT l FROM projectBundle:like l
+            WHERE l.user = :user
+        ');
+        $qry->setParameter('user', $userId);
+//        $qry->setParameter('quantity', $quantity);
+        $qry->setMaxResults($quantity);
+        return $qry->getResult();
+    }
+
     public function getTop50()
     {
         $em = $this->getEntityManager();
@@ -40,4 +53,6 @@ class BookRepository extends EntityRepository
         return $query->getResult();
 //        return $qry->getQuery()->getResult();
     }
+
+
 }

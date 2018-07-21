@@ -1,0 +1,113 @@
+{% extends 'projectBundle:Default:index.html.twig' %}
+
+{% block title %}
+  {{ titleText }}
+{% endblock %}
+
+{% block content %}
+  {#{% include 'message.twig' %}#}
+  
+    <div class="row">
+      <div class="col-md-6">
+          <h3>Личный кабинет</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-sm-12 col-xs-12 visitcard">
+        <div class="no_horizontal_scroll ">
+          <img src= {% if user.avatar != null %} "{{ user.avatar }}" {% else %} "img/avatar/noavatar.png"  {% endif %} class="img-responsive img-circle center-block avatar_single">
+          <h4 class="text-center">{{user.name}}</h4>
+        </div>
+        <div class="text-center">
+          <a href="{{ path('edit_profile') }}" class="btn btn-success btn-sm buttons_book">
+            <span class="glyphicon glyphicon-pencil "></span> Редактировать данные
+          </a>
+          
+          {% if user.role == 'ROLE_ADMIN' %}
+            <div class="btn-group">
+              <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm buttons_book"> <span class="glyphicon glyphicon-cog"></span> Администрирование <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ path('users_edit') }}" target="_blank">Редактирование пользователей</a></li>
+                    <li><a href="{{ path('book_add') }}" target="_blank">Добавить книгу в библиотеку</a></li>
+                    <li><a href="{{ path('publishing_house_add') }}" target="_blank">Добавить издательство</a></li>
+                    <li><a href="{{ path('publishing_house_edit') }}" target="_blank">Переименовать издательство</a></li>
+               </ul>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="col-md-10 col-sm-12 col-xs-12">
+        {{ dump() }}
+        {#<div class="col-md-12 col-sm-12 col-xs-12">#}
+          {#<div class="panel panel-default">#}
+            {#<div class="panel-body">#}
+              {#<h4>Вы писали</h4>#}
+              {#{% if lastComment is not empty%}#}
+                {#<div class="comment">#}
+                  {#<div class="row">#}
+                    {#<div class="col-md-12">#}
+                      {#<div class="gray_text">#}
+                         {#{{ lastComment["date"] }}#}
+                        {#<h5 class="gray_text">#}
+                          {#К книге: <a href="book.php?book_id={{ lastComment["book_id"] }}">{{ lastComment["name"] }}</a>#}
+                        {#</h5>#}
+                      {#</div>#}
+                      {#<div class="text-left">#}
+                        {#<span>{{ lastComment["comment"]|e|nl2br }}</span>#}
+                      {#</div>#}
+                    {#</div>#}
+                  {#</div>#}
+                {#</div>#}
+              {#{% else %}#}
+                {#<p>#}
+                  {#Здесь будут появляться Ваши комментарий#}
+                {#</p>#}
+              {#{% endif%}#}
+              {#{% if lastComment is not empty%}#}
+                {#<a href="all_comments.php"> #}
+                  {#Посмотреть все <span class="glyphicon glyphicon-menu-right"></span>#}
+                {#</a>#}
+              {#{% endif%}#}
+            {#</div>#}
+          {#</div>#}
+        {#</div>#}
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h4>Вам понравилось</h4>
+              {% if likes is not empty %}
+                <div class="row">
+                  {% for likedBook in likes %}
+                    <a href="{{ path('book_view', {'id': likedBook.book.id}) }}">
+                      <div class="col-md-2 col-sm-4 col-xs-12 book_mini">
+                        <img src= {% if likedBook.book.image is not empty %}
+                                      "{{ likedBook.book.image }}"
+                                  {% else %}
+                                      "{{ asset('../img/book/no_cover.png') }}"
+                                  {% endif %}
+                        class="img-responsive book_mini_cover">
+                        <p class="book_mini_description">
+                          {{ likedBook.book.name }}
+                        </p>
+                      </div>
+                    </a>
+                  {% endfor %}
+                </div>
+                <a href="liked_books.php">
+                  Посмотреть все <span class="glyphicon glyphicon-menu-right"></span>
+                </a>
+              {% else %}
+                <h4>
+                  Здесь будут книги, которые Вам понравились
+                </h4>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}
