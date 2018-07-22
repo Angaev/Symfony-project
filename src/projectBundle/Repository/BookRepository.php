@@ -24,10 +24,30 @@ class BookRepository extends EntityRepository
             ORDER BY l.id DESC 
         ');
         $qry->setParameter('user', $userId);
-//        $qry->setParameter('quantity', $quantity);
 
         $qry->setMaxResults($quantity);
         return $qry->getResult();
+    }
+
+    public function getLikedBooks($userId)
+    {
+        $em = $this->getEntityManager();
+
+        $subQry = $em->createQuery('
+            SELECT l FROM projectBundle:like l
+            WHERE l.user = :user
+            ORDER BY l.id DESC 
+        ');
+        $subQry->setParameter('user', $userId);
+
+        $qry = $em->createQuery('
+            SELECT b FROM projectBundle:book b
+            WHERE b.like in 
+            ORDER BY b.id DESC 
+        ');
+        $qry->setParameter('user', $userId);
+
+        return $subQry->getResult();
     }
 
     public function getTop50()

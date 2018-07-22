@@ -1,0 +1,68 @@
+{% extends 'projectBundle:Default:index.html.twig' %}
+
+{% block title %}
+  {{ titleText }}
+{% endblock %}
+
+{% block content %}
+  {% include '@project/Default/message.html.twig' %}
+  <div class="row">
+    <div class="col-md-6 text-left">
+        <h3>
+          Редактирование издательств
+        </h3>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12 small_buttons_book">
+       {#<form method="post" id="add_form" action="">#}
+        <label for="new_publishing_house">Добавление нового издательства в базу</label>
+        <input type="text" class="form-control" id="new_publishing_house" name = "new_name" placeholder="Введите название добавляемого издательства" required autocomplete="off"/>
+        <button class="btn btn-success small_buttons_book btn-sm" id="add">Добавить</button>
+      {#</form>#}
+    </div>
+
+    <div class="col-md-12 small_buttons_book">
+       {#<form action="" method="post">#}
+          <label for="delete_publishing_house">Удаление издательства из базы</label>
+          <select name="publishing_house" class="form-control" required id="delete_select">
+            <option value="">Выберите издательство</option>
+            {% for item in publishing_houses %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+          </select>
+          <button type="" class="btn btn-danger small_buttons_book btn-sm" id="delete">Удалить</button>
+      {#</form>#}
+    </div>
+
+    <div class="col-md-12 small_buttons_book">
+       {#<form action="" method="post">#}
+         <label>Переименование издательства в базе</label>
+         <div class="row">
+           <div class="col-md-6">
+             <select name="publishing_house" class="form-control" required id="rename_select">
+              <option value="0">Выберите издательство</option>
+              {% for item in publishing_houses %}
+                  <option value="{{ item.id }}">{{ item.name }}</option>
+              {% endfor %}
+             </select>
+           </div>
+           <div class="col-md-6">
+            <input type="text" class="form-control" id="rename_publishing_house" name = "rename" placeholder="Введите новое название издательства" required autocomplete="off" id="newName"/>
+           </div> 
+         </div>
+         <button type="" class="btn btn-warning small_buttons_book btn-sm" id="rename">Переименовать</button>
+         
+        {#</form>#}
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="http://bootboxjs.com/bootbox.js"></script>
+    <script src="{{ asset('js/addHouse.js') }}"></script>
+    <script src="{{ asset('js/deleteHouse.js') }}"></script>
+    <script src="{{ asset('js/renameHouse.js') }}"></script>
+{% endblock %}

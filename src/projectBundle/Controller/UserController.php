@@ -210,7 +210,7 @@ class UserController extends Controller
         $book = $bookRepo -> findAll();
         return $this->render('projectBundle:Default:area.html.twig', [
             'user' => $user,
-            'titleText' => 'Редактирование профиля',
+            'titleText' => 'Личный кабинет',
             'likes' => $likes,
             'lastComment' => $lastComment
         ]);

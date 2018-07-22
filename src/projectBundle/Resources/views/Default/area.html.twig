@@ -29,8 +29,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="{{ path('users_edit') }}" target="_blank">Редактирование пользователей</a></li>
                     <li><a href="{{ path('book_add') }}" target="_blank">Добавить книгу в библиотеку</a></li>
-                    <li><a href="{{ path('publishing_house_add') }}" target="_blank">Добавить издательство</a></li>
-                    <li><a href="{{ path('publishing_house_edit') }}" target="_blank">Переименовать издательство</a></li>
+                    <li><a href="{{ path('publishing_house_action') }}" target="_blank">Редактировать издательства</a></li>
                </ul>
             </div>
           {% endif %}
@@ -96,7 +95,7 @@
                     </a>
                   {% endfor %}
                 </div>
-                <a href="liked_books.php">
+                <a href="{{ path('book_liked') }}">
                   Посмотреть все <span class="glyphicon glyphicon-menu-right"></span>
                 </a>
               {% else %}

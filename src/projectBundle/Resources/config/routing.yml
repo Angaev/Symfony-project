@@ -42,17 +42,25 @@ book_search:
     path: /search
     defaults: { _controller: projectBundle:Default:search}
 
-publishing_house_edit:
+book_liked:
+    path: /liked_books
+    defaults: { _controller: projectBundle:Book:likedBooksView }
+
+publishing_house_action:
+    path: /edit_houses
+    defaults: { _controller: projectBundle:House:houses}
+
+publishing_house_rename:
     path: /rename_house
-    defaults: { _controller: projectBundle:Default:renameHouse}
+    defaults: { _controller: projectBundle:House:renameHouse}
 
 publishing_house_add:
     path: /add_house
-    defaults: { _controller: projectBundle:Default:addHouse}
+    defaults: { _controller: projectBundle:House:addHouse}
 
 publishing_house_delete:
-    path: /delete_house/{id}
-    defaults: { _controller: projectBundle:Default:deleteHouse}
+    path: /delete_house
+    defaults: { _controller: projectBundle:House:deleteHouse}
 
 login:
   path: /login

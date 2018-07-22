@@ -42,7 +42,6 @@ class DefaultController extends Controller
            'house' => $houses,
            'titleText' => 'Все книги',
            'pageDescription' => 'Все книги'
-
         ]);
     }
 
@@ -280,23 +279,6 @@ class DefaultController extends Controller
 
         if($form->isSubmitted() && $form->isValid())
         {
-
-//            // $file сохраняет загруженный файл
-//            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
-//            $file = $book->getImage();
-//
-//            $fileName = 'img/book/' . $this->generateUniqueFileName().'.'.$file->guessExtension();
-//
-//
-//
-//            // перемещает файл в каталог, где хранятся обложки книг
-//            $file->move(
-//                $this->getParameter('covers_directory'),
-//                $fileName
-//            );
-//
-//            $book->setImage($fileName);
-
             $file = $book->getImage();
             $fileName = $this->get('app.cover_uploader')->upload($file);
 
@@ -354,75 +336,6 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function addHouseAction(Request $request)
-    {
-        $house = new publishing_house();
-        $form = $this->createForm(addHouseForm::class, $house);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid())
-        {
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($house);
-            $em->flush();
-            return $this->redirectToRoute('book_list');
-        }
-        return $this->render('projectBundle:Default:houseEditor.html.twig', [
-            'form' => $form->createView(),
-            'titleText' => 'Добавление нового издательства'
-        ]);
-    }
-
-    public function renameHouseAction($id, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:publishing_house');
-        $houses = $repo->findAll();
-
-        if (!$houses)
-        {
-            return $this->redirectToRoute('book_list');
-        }
-
-        $form = $this->createForm(RenameHouseForm::class, $houses, [
-            'data_class' => null
-        ]);
-        $form->handleRequest($request);
-        if($form->isSubmitted())
-        {
-            $requestData = $request->get('rename_house_form');
-            $house = $repo->find($requestData['publishing_house']);
-            $house->setName($requestData['name']);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($house);
-            $em->flush();
-            return $this->redirectToRoute('book_list');
-        }
-        return $this->render('@project/Default/houseEditor.html.twig', [
-            'form' => $form->createView(),
-            'titleText' => 'Редактирование издательств'
-        ]);
-    }
-
-    public function deleteHouseAction($id, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:publishing_house');
-        $house = $repo->find($id);
-        if (!$house)
-        {
-            return $this->redirectToRoute('book_list');
-        }
-        $form = $this->createForm(BookDeleteForm::class, null, [
-            'delete_id' => $house->getId()
-        ]);
-        $form->handleRequest($request);
-
-        $em->remove($house);
-        $em->flush();
-        return $this->redirectToRoute('book_list');
-    }
 
     public function registerAction(Request $request)
     {
