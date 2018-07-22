@@ -169,6 +169,27 @@ class BookController extends Controller
             return $this->redirectToRoute('book_list');
         }
 
+        if($book->getImage() != null)
+        {
+            $book->setImage(new File($book->getImage()));
+        }
+        $form_cover = $this->createForm(BookAddImgForm::class, $book, [
+            'data_class' => 'projectBundle\Entity\book'
+        ]);
+        $form_cover->handleRequest($request);
+        
+        if($form_cover->isSubmitted())
+        {
+            $file = $book->getImage();
+            $fileName = $this->get('app.cover_uploader')->upload($file);
+            $book->setImage($fileName);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($book);
+            $em->flush();
+            return $this->redirectToRoute('book_view', ['id' => $id]);
+        }
+
         $form = $this->createForm(BookEditForm::class, $book);
         $form->handleRequest($request);
         if($form->isSubmitted())
@@ -178,8 +199,10 @@ class BookController extends Controller
             $em->flush();
             return $this->redirectToRoute('book_view', [ 'id' => $book->getId()]);
         }
+
         return $this->render('@project/Default/edit_book.html.twig', [
             'form' => $form->createView(),
+            'form_cover' => $form_cover->createView(),
             'titleText' => 'Редактирование книги',
             'id' => $book->getId()
         ]);
