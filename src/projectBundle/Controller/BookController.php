@@ -54,4 +54,25 @@ class BookController extends Controller
             'pageDescription' => 'Все книги'
         ]);
     }
+
+    public function allCommentsAction()
+    {
+        /** @var user $user */
+        $user = $this->getUser();
+        if ($user == null)
+        {
+            return $this->redirectToRoute('login');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $comments = $em->getRepository('projectBundle:comment')->findBy(['user' => $user->getId()]);
+        $books = $em->getRepository('projectBundle:book')->findAll();
+
+        return $this->render('projectBundle:Default:all_comments.html.twig', [
+            'comments' => $comments,
+            'titleText' => 'Все комментарии',
+            'pageDescription' => 'Все комментарии',
+            'user' => $user
+        ]);
+    }
 }

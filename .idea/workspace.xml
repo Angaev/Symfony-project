@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/publishing_houses.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/addHouse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/deleteHouse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/renameHouse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/all_comments.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feature_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/feature_list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/area.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/area.html.twig" afterDir="false" />
     </list>
@@ -31,33 +23,19 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="338" selection-start-line="338" selection-end-line="338" />
+            <state relative-caret-position="245">
+              <caret line="332" column="21" selection-start-line="332" selection-start-column="21" selection-end-line="332" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="publishing_houses.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/publishing_houses.html.twig">
+      <file leaf-file-name="all_comments.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/all_comments.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="51" column="186" selection-start-line="51" selection-start-column="179" selection-end-line="51" selection-end-column="186" />
+            <state relative-caret-position="136">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding>
                 <element signature="e#12#49#0#Twig" expanded="true" />
-                <element signature="e#141#175#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HouseController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="100" column="31" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="31" />
-              <folding>
-                <element signature="e#126#183#0#PHP" expanded="true" />
-                <element signature="e#2443#2475#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,11 +44,10 @@
       <file leaf-file-name="area.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/area.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="31" column="114" selection-start-line="31" selection-start-column="114" selection-end-line="31" selection-end-column="114" />
+            <state relative-caret-position="310">
+              <caret line="97" column="16" selection-start-line="97" selection-start-column="18" selection-end-line="99" selection-end-column="22" />
               <folding>
                 <element signature="e#12#49#0#Twig" expanded="true" />
-                <element signature="e#1491#1514#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,8 +65,24 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="48" column="23" selection-start-line="48" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="289">
+              <caret line="50" column="59" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+              <folding>
+                <element signature="e#126#183#0#PHP" expanded="true" />
+                <element signature="e#1416#1448#1#PHP" expanded="true" />
+                <element signature="e#2040#2063#1#PHP" expanded="true" />
+                <element signature="e#2141#2161#1#PHP" expanded="true" />
+                <element signature="e#2125#2171#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/publishing_house.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/houseEditor.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/book.php" />
@@ -179,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" />
         <option value="$PROJECT_DIR$/feature_list.txt" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" />
         <option value="$PROJECT_DIR$/web/js/editHouse.js" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/publishing_houses.html.twig" />
@@ -189,6 +180,8 @@
         <option value="$PROJECT_DIR$/web/js/renameHouse.js" />
         <option value="$PROJECT_DIR$/web/js/addHouse.js" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/all_comments.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/area.html.twig" />
       </list>
     </option>
@@ -242,7 +235,7 @@
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-42" />
     <option name="y" value="-19" />
     <option name="width" value="1346" />
@@ -431,12 +424,12 @@
       <workItem from="1532018068105" duration="10967000" />
       <workItem from="1532111554353" duration="7850000" />
       <workItem from="1532164614784" duration="21405000" />
-      <workItem from="1532253370317" duration="11344000" />
+      <workItem from="1532253370317" duration="13289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311951000" />
+    <option name="totallyTimeSpent" value="313896000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -481,13 +474,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/add_book_img.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/style.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -715,18 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding>
-            <element signature="e#126#183#0#PHP" expanded="true" />
-            <element signature="e#1313#1333#1#PHP" expanded="true" />
-            <element signature="e#1416#1448#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -774,24 +748,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="338" selection-start-line="338" selection-end-line="338" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/like.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/deleteHouse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -809,20 +769,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="100" column="31" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="31" />
-          <folding>
-            <element signature="e#126#183#0#PHP" expanded="true" />
-            <element signature="e#2443#2475#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/publishing_houses.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
+        <state relative-caret-position="901">
           <caret line="51" column="186" selection-start-line="51" selection-start-column="179" selection-end-line="51" selection-end-column="186" />
           <folding>
             <element signature="e#12#49#0#Twig" expanded="true" />
@@ -831,20 +780,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-574">
+          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding>
+            <element signature="e#126#183#0#PHP" expanded="true" />
+            <element signature="e#2443#2475#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="48" column="23" selection-start-line="48" selection-end-line="48" selection-end-column="23" />
+        <state relative-caret-position="289">
+          <caret line="50" column="59" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/deleteHouse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="332" column="21" selection-start-line="332" selection-start-column="21" selection-end-line="332" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
+          <folding>
+            <element signature="e#126#183#0#PHP" expanded="true" />
+            <element signature="e#1416#1448#1#PHP" expanded="true" />
+            <element signature="e#2040#2063#1#PHP" expanded="true" />
+            <element signature="e#2141#2161#1#PHP" expanded="true" />
+            <element signature="e#2125#2171#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/all_comments.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="e#12#49#0#Twig" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/area.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="31" column="114" selection-start-line="31" selection-start-column="114" selection-end-line="31" selection-end-column="114" />
+        <state relative-caret-position="310">
+          <caret line="97" column="16" selection-start-line="97" selection-start-column="18" selection-end-line="99" selection-end-column="22" />
           <folding>
             <element signature="e#12#49#0#Twig" expanded="true" />
-            <element signature="e#1491#1514#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>

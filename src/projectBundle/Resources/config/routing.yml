@@ -46,6 +46,10 @@ book_liked:
     path: /liked_books
     defaults: { _controller: projectBundle:Book:likedBooksView }
 
+comments_view:
+    path: /all_comments
+    defaults: { _controller: projectBundle:Book:allComments }
+
 publishing_house_action:
     path: /edit_houses
     defaults: { _controller: projectBundle:House:houses}

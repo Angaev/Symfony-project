@@ -1,0 +1,53 @@
+{% extends 'projectBundle:Default:index.html.twig' %}
+
+{% block title %}
+  {{ titleText }}
+{% endblock %}
+
+{% block content %}
+  {#{% include 'message.twig' %}#}
+  
+    <div class="row">
+      <div class="col-md-6">
+          <h3>Все комментарии</h3>
+      </div>
+    </div>
+   
+    <div class="row">
+      <div class="col-md-12">
+        {% if comments is not empty %}
+          <ul class="media-list">
+              {#{{ dump() }}#}
+            {% for comment in comments %}
+              <li class="media">
+                <div class="media-left">
+                    <img class="media-object avatar img-circle" src=
+                    {% if user.avatar != null %}
+                        '{{ user.avatar }}'
+                    {% else %}
+                        " {{ asset('../img/avatar/noavatar.png') }}"
+                    {% endif %} alt="">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ user.name }}</h4>
+                    <h5 class="gray_text">
+                      К книге: <a href="book.php?book_id={{ path('book_view', { 'id' : comment.book.id}) }}">{{ comment.book.name }}</a>
+                    </h5>
+                    <h5 class="gray_text">
+                      Вы писали:
+                    </h5>
+                    <span>{{ comment.commentText|e|nl2br }}</span>
+                </div>
+              </li>
+            {% endfor %}
+          {% else %}
+            <h4>
+              Похоже, Вы еще не оставили комментариев
+            </h4>
+          {% endif %}
+        </ul>
+      </div>
+      
+    </div>
+
+{% endblock %}
