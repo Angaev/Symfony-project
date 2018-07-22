@@ -26,87 +26,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
-    {
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->findAll();
-
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findAll();
-
-        return $this->render('projectBundle:Default:books.html.twig', [
-           'books' => $books,
-           'house' => $houses,
-           'titleText' => 'Все книги',
-           'pageDescription' => 'Все книги'
-        ]);
-    }
-
-    public  function viewAction($id, Request $request)
-    {
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $book = $bookRepo->find($id);
-
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findByBook($book);
-
-        $likeRepo = $this->getDoctrine()->getRepository('projectBundle:like');
-        $likes = $likeRepo->findByBook($book);
-
-        $user =  $this->getUser();
-        $findLike = $likeRepo->findOneBy(array(
-           'user' => $user,
-           'book' => $book
-        ));
-
-        if ($user != null)
-        {
-            $isAdmin =  ($user->getRole() == 'ROLE_ADMIN') ? true : false;
-        }
-        else
-        {
-            $isAdmin = false;
-        }
-
-        $commentForm = $this->createForm(CommentForm::class);
-        $commentForm->handleRequest($request);
-        if ($commentForm->isSubmitted())
-        {
-            /** @var comment $newComment */
-            $newComment = $commentForm->getData();
-            $newComment->setUser($user);
-            $newComment->setBook($book);
-
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($newComment);
-            $em->flush();
-            return $this->redirectToRoute('book_view', ['id' => $book->getId()]);
-//            var_dump($newComment);
-//            die();
-        }
-
-        $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
-        $users = $userRepo->findAll();
-
-        return $this->render('projectBundle:Default:book.html.twig', [
-            'book' => $book,
-            'house' => $houses,
-            'comments' => $comment,
-            'likes' => $likes,
-            'titleText' => $book->getName(),
-            'likeBtn' => $findLike ? 'lock' : 'free',
-            'admin' => $isAdmin,
-            'user' => $user,
-            'comment_form' => $commentForm->createView()
-        ]);
-    }
-
     public function deleteCommentAction(Request $request)
     {
         /** @var user $user */
@@ -139,33 +58,6 @@ class DefaultController extends Controller
             return $this->redirectToRoute('book_list');
     }
 
-    public function editAction($id, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
-        $book = $repo->find($id);
-
-        if (!$book)
-        {
-           return $this->redirectToRoute('book_list');
-        }
-
-        $form = $this->createForm(BookEditForm::class, $book);
-        $form->handleRequest($request);
-        if($form->isSubmitted())
-        {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
-            return $this->redirectToRoute('book_view', [ 'id' => $book->getId()]);
-        }
-        return $this->render('@project/Default/edit_book.html.twig', [
-           'form' => $form->createView(),
-            'titleText' => 'Редактирование книги',
-            'id' => $book->getId()
-        ]);
-    }
-
     public function likeAction(Request $request)
     {
         $user = $this->getUser();
@@ -196,146 +88,6 @@ class DefaultController extends Controller
         $likeCount = count($likes);
         return new JsonResponse($likeCount);
     }
-
-    public function bookAddImgAction($id, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
-        $book = $repo->find($id);
-        if (!$book)
-        {
-            return $this->redirectToRoute('book_list');
-        }
-        if($book->getImage() != null)
-        {
-            $book->setImage(new File($book->getImage()));
-        }
-        $form = $this->createForm(BookAddImgForm::class, $book, [
-            'data_class' => 'projectBundle\Entity\book'
-        ]);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $file = $book->getImage();
-            $fileName = $this->get('app.cover_uploader')->upload($file);
-            $book->setImage($fileName);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
-            return $this->redirectToRoute('book_list');
-        }
-        return $this->render('projectBundle:Default:add_book_img.html.twig', [
-            'form' => $form->createView(),
-            'titleText' => 'Добавление новой книги',
-            'id' => $id
-        ]);
-    }
-
-
-    public function deleteAction($id, Request $request)
-    {
-        //удаляет указаную книгу без придупреждения
-
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
-        $book = $repo->find($id);
-        if (!$book)
-        {
-            return $this->redirectToRoute('book_list');
-        }
-        $form = $this->createForm(BookDeleteForm::class, null, [
-            'delete_id' => $book->getId()
-        ]);
-        $form->handleRequest($request);
-
-        $em->remove($book);
-        $em->flush();
-        return $this->redirectToRoute('book_list');
-
-    }
-
-    public function deleteCoverAction(Request $request)
-    {
-        $id = $request->get('id');
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
-        $book = $repo->find($id);
-        $book->setImage(null);
-        $em->persist($book);
-        $em->flush();
-
-        return $this->redirectToRoute('book_view', array(
-            'id' => $id
-        ));
-    }
-
-    public function addAction(Request $request)
-    {
-        $book = new book();
-        $form = $this->createForm(BookForm::class, $book);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $file = $book->getImage();
-            $fileName = $this->get('app.cover_uploader')->upload($file);
-
-            $book->setImage($fileName);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
-            return $this->redirectToRoute('book_list');
-        }
-        return $this->render('projectBundle:Default:add.html.twig', [
-            'form' => $form->createView(),
-            'titleText' => 'Добавление новой книги'
-        ]);
-    }
-
-    public function searchAction(Request $request)
-    {
-        $word = $request->query->get('name');
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->searchByWord($word);
-
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findAll();
-
-        return $this->render('projectBundle:Default:books.html.twig', [
-            'books' => $books,
-            'house' => $houses,
-            'titleText' => 'Книги по запросу ' . $word,
-            'pageDescription' => 'Поиск ' . $word
-        ]);
-    }
-
-    public function getTop50Action()
-    {
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->getTop50();
-
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findAll();
-
-        var_dump($books);
-        die();
-        return $this->render('projectBundle:Default:books.html.twig', [
-            'books' => $books,
-            'house' => $houses,
-            'titleText' => 'Топ 50 книг',
-            'pageDescription' => 'Топ 50 книг'
-        ]);
-    }
-
 
     public function registerAction(Request $request)
     {
@@ -372,7 +124,6 @@ class DefaultController extends Controller
             'titleText' => 'Регистрация нового пользователя'
         ]);
     }
-
 
     /**
      * @return string

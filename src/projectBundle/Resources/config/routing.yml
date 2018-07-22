@@ -1,46 +1,46 @@
 book_list:
     path:     /
-    defaults: { _controller: projectBundle:Default:index }
+    defaults: { _controller: projectBundle:Book:index }
 
 book_add:
     path: /add_book
-    defaults: { _controller: projectBundle:Default:add }
+    defaults: { _controller: projectBundle:Book:add }
 
 book_view:
     path:     /{id}
-    defaults: { _controller: projectBundle:Default:view }
+    defaults: { _controller: projectBundle:Book:view }
     requirements:
       id: '\d+'
 
 book_top50:
     path: /top50
-    defaults: { _controller: projectBundle:Default:getTop50 }
+    defaults: { _controller: projectBundle:Book:getTop50 }
 
 book_edit:
     path: /edit/{id}
-    defaults: { _controller: projectBundle:Default:edit }
+    defaults: { _controller: projectBundle:Book:edit }
     requirements:
       id: '\d+'
 
 book_delete:
     path: /delete/{id}
-    defaults: { _controller: projectBundle:Default:delete}
+    defaults: { _controller: projectBundle:Book:delete}
     requirements:
         id: '\d+'
 
 book_add_img:
     path: /book_add_img/{id}
-    defaults: { _controller: projectBundle:Default:bookAddImg}
+    defaults: { _controller: projectBundle:Book:bookAddImg}
     requirements:
         id: '\d+'
 
 book_delete_img:
     path: /delete_cover
-    defaults: { _controller: projectBundle:Default:deleteCover}
+    defaults: { _controller: projectBundle:Book:deleteCover}
 
 book_search:
     path: /search
-    defaults: { _controller: projectBundle:Default:search}
+    defaults: { _controller: projectBundle:Book:search}
 
 book_liked:
     path: /liked_books
