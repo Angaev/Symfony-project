@@ -87,7 +87,7 @@ class BookRepository extends EntityRepository
             (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
             (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount 
             FROM Book
-            ORDER BY ASC 
+            ORDER BY book.id ASC 
         ";
         $statement = $em->getConnection()->prepare($rawSql);
         $statement->execute();

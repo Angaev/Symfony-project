@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-   {# {% include 'message.twig' %} #}
+    {#{{ dump() }}#}
     <div class="row">
         <div class="col-md-6 text-left">
             <h3>
@@ -28,10 +28,10 @@
                     </div>
                     <small>{{ book.year }}г.</small>
                     <span class="like_icon">
-                        {{ book.like.count }}
+                        {{ book.likeCount }}
                     </span>
                     <span class="comment_icon">
-                        {{ book.comment.count }}
+                        {{ book.commentCount }}
                     </span>
                 </a>
             </div>

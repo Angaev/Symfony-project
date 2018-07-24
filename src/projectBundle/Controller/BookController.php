@@ -37,7 +37,7 @@ class BookController extends Controller
     public function indexAction()
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->findAll();
+        $books = $bookRepo->getAllBooks();
 
         $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
         $houses = $houseRepo->findAll();
@@ -140,7 +140,7 @@ class BookController extends Controller
     public function getTop50Action()
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->searchByWord('8/2');
+        $books = $bookRepo->getTop50();
 
         $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
         $houses = $houseRepo->findAll();
@@ -148,8 +148,8 @@ class BookController extends Controller
         $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
         $comment = $commentRepo->findAll();
 
-        var_dump($books);
-        die();
+//        var_dump($books);
+//        die();
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
             'house' => $houses,
@@ -313,8 +313,6 @@ class BookController extends Controller
         $books = $this->getDoctrine()->getRepository('projectBundle:book')->getLikedBooks($user->getId());
         $houses = $this->getDoctrine()->getRepository('projectBundle:publishing_house')->findAll();
 
-        var_dump($books);
-        die();
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
             'house' => $houses,
