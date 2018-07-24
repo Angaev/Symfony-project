@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" afterDir="false" />
     </list>
@@ -51,10 +50,11 @@
       <file leaf-file-name="BookController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="142" column="41" selection-start-line="142" selection-start-column="41" selection-end-line="142" selection-end-column="41" />
+            <state relative-caret-position="212">
+              <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
               <folding>
                 <element signature="e#5536#5575#0#PHP" expanded="true" />
+                <element signature="e#10874#10913#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,8 +72,8 @@
       <file leaf-file-name="BookRepository.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="77" column="25" lean-forward="true" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+            <state relative-caret-position="340">
+              <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
               <folding>
                 <element signature="e#45#79#0#PHP" expanded="true" />
               </folding>
@@ -143,6 +143,8 @@
       <find>like</find>
       <find>img</find>
       <find>fetch</find>
+      <find>default:books</find>
+      <find>top50</find>
     </findStrings>
     <dirStrings>
       <dir>C:\wamp\www\first_project</dir>
@@ -203,8 +205,8 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_book.html.twig" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" />
       </list>
     </option>
   </component>
@@ -449,12 +451,12 @@
       <workItem from="1532164614784" duration="21405000" />
       <workItem from="1532253370317" duration="17791000" />
       <workItem from="1532365102464" duration="4407000" />
-      <workItem from="1532444932940" duration="3282000" />
+      <workItem from="1532444932940" duration="5755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326087000" />
+    <option name="totallyTimeSpent" value="328560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -842,18 +844,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="142" column="41" selection-start-line="142" selection-start-column="41" selection-end-line="142" selection-end-column="41" />
+        <state relative-caret-position="212">
+          <caret line="142" column="45" selection-start-line="142" selection-start-column="45" selection-end-line="142" selection-end-column="45" />
           <folding>
             <element signature="e#5536#5575#0#PHP" expanded="true" />
+            <element signature="e#10874#10913#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="77" column="25" lean-forward="true" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+        <state relative-caret-position="340">
+          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding>
             <element signature="e#45#79#0#PHP" expanded="true" />
           </folding>

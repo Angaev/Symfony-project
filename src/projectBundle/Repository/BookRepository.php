@@ -10,9 +10,23 @@ class BookRepository extends EntityRepository
 {
     public function searchByWord($word)
     {
-        $qry = $this->createQueryBuilder('b')->where('b.name LIKE :word');
-        $qry->setParameter('word', '%' . $word . '%');
-        return $qry->getQuery()->getResult();
+        $em = $this->getEntityManager();
+        $rawSql = "SELECT book.id, book.name, book.year, book.image, book.description, 
+            (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
+            (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount 
+            FROM Book
+            WHERE
+             book.name like '%' :searchWord '%'";
+        $statement = $em->getConnection()->prepare($rawSql);
+        $statement->bindValue('searchWord', $word);
+        ($statement->execute());
+
+
+        return $result = $statement->fetchAll();
+
+//        $qry = $this->createQueryBuilder('b')->where('b.name LIKE :word');
+//        $qry->setParameter('word', '%' . $word . '%');
+//        return $qry->getQuery()->getResult();
     }
 
     public function getLastUserBook($userId, $quantity)
@@ -33,21 +47,19 @@ class BookRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
 
-        $subQry = $em->createQuery('
-            SELECT l FROM projectBundle:like l
-            WHERE l.user = :user
-            ORDER BY l.id DESC 
-        ');
-        $subQry->setParameter('user', $userId);
+        $rawSql = "SELECT book.id, book.name, book.year, book.image, book.description, 
+            (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
+            (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount 
+            FROM Book
+            WHERE book.id IN
+            (SELECT book_id FROM user_like WHERE user_id = :usr)";
 
-        $qry = $em->createQuery('
-            SELECT b FROM projectBundle:book b
-            WHERE b.like in 
-            ORDER BY b.id DESC 
-        ');
-        $qry->setParameter('user', $userId);
+        $statement = $em->getConnection()->prepare($rawSql);
+        $statement->bindValue('usr', $userId);
+        $statement->execute();
 
-        return $subQry->getResult();
+        return $result = $statement->fetchAll();
+
     }
 
     public function getTop50()

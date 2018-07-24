@@ -140,7 +140,7 @@ class BookController extends Controller
     public function getTop50Action()
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->getAllBooks();
+        $books = $bookRepo->searchByWord('8/2');
 
         $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
         $houses = $houseRepo->findAll();
@@ -310,7 +310,7 @@ class BookController extends Controller
             return $this->redirectToRoute('book_list');
         }
 
-        $books = $this->getDoctrine()->getRepository('projectBundle:book')->getLikedBooks($user);
+        $books = $this->getDoctrine()->getRepository('projectBundle:book')->getLikedBooks($user->getId());
         $houses = $this->getDoctrine()->getRepository('projectBundle:publishing_house')->findAll();
 
         var_dump($books);
