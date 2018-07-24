@@ -140,7 +140,7 @@ class BookController extends Controller
     public function getTop50Action()
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $books = $bookRepo->getTop50();
+        $books = $bookRepo->getAllBooks();
 
         $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
         $houses = $houseRepo->findAll();
@@ -177,7 +177,7 @@ class BookController extends Controller
             'data_class' => 'projectBundle\Entity\book'
         ]);
         $form_cover->handleRequest($request);
-        
+
         if($form_cover->isSubmitted())
         {
             $file = $book->getImage();

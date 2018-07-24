@@ -53,28 +53,33 @@ class BookRepository extends EntityRepository
     public function getTop50()
     {
         $em = $this->getEntityManager();
-        $likeSort = $em->createQuery('
-            SELECT COUNT(l.id) FROM projectBundle:like l
-            ORDER BY (l.id)
-            GROUP BY l.book 
-        ');
-
-        return $likeSort->getResult();
-
-
-//        $qry = $this->createQueryBuilder('b')
-//                ->setMaxResults(50);
+        $rawSql = "SELECT book.id, book.name, book.year, book.image,
+            (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
+            (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount
+            FROM book
+            ORDER BY likeCount DESC
+            LIMIT 50";
 
 
-        $query = $em->createQuery('
-            SELECT b FROM projectBundle:book b
-            LEFT JOIN b.like l 
-            
-        ');
+        $statement = $em->getConnection()->prepare($rawSql);
+        $statement->execute();
 
-        return $query->getResult();
-//        return $qry->getQuery()->getResult();
+        return $result = $statement->fetchAll();
     }
 
+    public function getAllBooks()
+    {
+        $em = $this->getEntityManager();
+        $rawSql = "
+            SELECT book.id, book.name, book.year, book.image, book.description, 
+            (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
+            (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount 
+            FROM Book
+            ORDER BY ASC 
+        ";
+        $statement = $em->getConnection()->prepare($rawSql);
+        $statement->execute();
 
+        return $statement->fetchAll();
+    }
 }
