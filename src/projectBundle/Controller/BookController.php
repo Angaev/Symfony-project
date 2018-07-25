@@ -39,15 +39,8 @@ class BookController extends Controller
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
         $books = $bookRepo->getAllBooks();
 
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findAll();
-
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
-            'house' => $houses,
             'titleText' => 'Все книги',
             'pageDescription' => 'Все книги'
         ]);
@@ -142,17 +135,8 @@ class BookController extends Controller
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
         $books = $bookRepo->getTop50();
 
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findAll();
-
-//        var_dump($books);
-//        die();
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
-            'house' => $houses,
             'titleText' => 'Топ 50 книг',
             'pageDescription' => 'Топ 50 книг'
         ]);
@@ -287,15 +271,9 @@ class BookController extends Controller
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
         $books = $bookRepo->searchByWord($word);
 
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findAll();
 
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
-            'house' => $houses,
             'titleText' => 'Книги по запросу ' . $word,
             'pageDescription' => 'Поиск ' . $word
         ]);
@@ -311,11 +289,9 @@ class BookController extends Controller
         }
 
         $books = $this->getDoctrine()->getRepository('projectBundle:book')->getLikedBooks($user->getId());
-        $houses = $this->getDoctrine()->getRepository('projectBundle:publishing_house')->findAll();
 
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
-            'house' => $houses,
             'titleText' => 'Все книги',
             'pageDescription' => 'Все книги'
         ]);
