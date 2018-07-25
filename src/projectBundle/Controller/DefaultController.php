@@ -126,16 +126,6 @@ class DefaultController extends Controller
     }
 
     /**
-     * @return string
-     */
-    private function generateUniqueFileName()
-    {
-        // md5() уменьшает схожесть имён файлов, сгенерированных
-        // uniqid(), которые основанный на временных отметках
-        return md5(uniqid());
-    }
-
-    /**
      * @return bool
      */
     private function isAnonymousUser($user)

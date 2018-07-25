@@ -23,10 +23,6 @@ class BookRepository extends EntityRepository
 
 
         return $result = $statement->fetchAll();
-
-//        $qry = $this->createQueryBuilder('b')->where('b.name LIKE :word');
-//        $qry->setParameter('word', '%' . $word . '%');
-//        return $qry->getQuery()->getResult();
     }
 
     public function getLastUserBook($userId, $quantity)
