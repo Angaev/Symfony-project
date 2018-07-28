@@ -17,7 +17,7 @@ use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\CommentForm;
 use projectBundle\Froms\UserTypeForm;
-use projectBundle\Entity\publishing_house;
+use projectBundle\Entity\PublishingHouse;
 use projectBundle\Froms\AddHouseForm;
 use projectBundle\Froms\BookDeleteForm;
 use projectBundle\Froms\BookEditForm;
@@ -36,7 +36,7 @@ class HouseController extends Controller
 {
     public function housesAction()
     {
-        $houses = $this->getDoctrine()->getRepository('projectBundle:publishing_house')->findAll();
+        $houses = $this->getDoctrine()->getRepository('projectBundle:PublishingHouse')->findAll();
         return $this->render('projectBundle:Default:publishing_houses.html.twig', [
             'publishing_houses' => $houses,
             'titleText' => 'Редактирование издательств',
@@ -46,8 +46,8 @@ class HouseController extends Controller
 
     public function addHouseAction(Request $request)
     {
-        /** @var publishing_house $house */
-        $house = new publishing_house();
+        /** @var PublishingHouse $house */
+        $house = new PublishingHouse();
 
         $data = $request->get('newHouse');
         $house->setName($data);
@@ -65,7 +65,7 @@ class HouseController extends Controller
     public function deleteHouseAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:publishing_house');
+        $repo = $em->getRepository('projectBundle:PublishingHouse');
 
         $id = $request->get('id');
         $house = $repo->find($id);
@@ -82,7 +82,7 @@ class HouseController extends Controller
     public function renameHouseAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:publishing_house');
+        $repo = $em->getRepository('projectBundle:PublishingHouse');
         $houseId = $request->get('id');
         $newName = $request->get('newName');
         $house = $repo->find($houseId);

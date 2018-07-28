@@ -11,7 +11,7 @@ namespace projectBundle\Froms;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use projectBundle\Entity\publishing_house;
+use projectBundle\Entity\PublishingHouse;
 use projectBundle\Entity\user;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +24,7 @@ class RenameHouseForm extends AbstractType
     {
         $builder
             ->add('publishing_house', EntityType::class, array(
-                'class' => publishing_house::class,
+                'class' => PublishingHouse::class,
                 'choice_label' => 'name'
             ))
             ->add('name')
@@ -36,7 +36,7 @@ class RenameHouseForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => publishing_house::class,
+            'data_class' => PublishingHouse::class,
         ));
     }
 }

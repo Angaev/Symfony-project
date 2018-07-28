@@ -49,7 +49,7 @@ class Book
     private $link;
 
     /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\publishing_house", inversedBy="house")
+     * @ORM\ManyToOne(targetEntity="PublishingHouse", inversedBy="house")
      * @ORM\JoinColumn(name="publishing_house_id", referencedColumnName="id")
      */
     private $publishing_house;
@@ -200,11 +200,11 @@ class Book
     /**
      * Set publishingHouse
      *
-     * @param \projectBundle\Entity\publishing_house $publishingHouse
+     * @param \projectBundle\Entity\PublishingHouse $publishingHouse
      *
      * @return Book
      */
-    public function setPublishingHouse(\projectBundle\Entity\publishing_house $publishingHouse = null)
+    public function setPublishingHouse(\projectBundle\Entity\PublishingHouse $publishingHouse = null)
     {
         $this->publishing_house = $publishingHouse;
 
@@ -214,7 +214,7 @@ class Book
     /**
      * Get publishingHouse
      *
-     * @return \projectBundle\Entity\publishing_house
+     * @return \projectBundle\Entity\PublishingHouse
      */
     public function getPublishingHouse()
     {

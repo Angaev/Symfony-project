@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="publishing_house")
  */
-class publishing_house
+class PublishingHouse
 {
     /**
      * @ORM\Column(type="integer")
@@ -53,7 +53,7 @@ class publishing_house
      *
      * @param \projectBundle\Entity\Book $house
      *
-     * @return publishing_house
+     * @return PublishingHouse
      */
     public function addHouse(\projectBundle\Entity\Book $house)
     {
@@ -87,7 +87,7 @@ class publishing_house
      *
      * @param string $name
      *
-     * @return publishing_house
+     * @return PublishingHouse
      */
     public function setName($name)
     {
