@@ -20,13 +20,12 @@ class BookAddImgForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('image', FileType::class);
-
-        $builder->add('submit', SubmitType::class ,[
-            'label' => 'Добавить'
-        ]);
+        $builder
+            ->add('image', FileType::class)
+            ->add('submit', SubmitType::class ,[
+                'label' => 'Добавить'
+            ]);
     }
-
 
     public function configureOptions(OptionsResolver $resolver)
     {

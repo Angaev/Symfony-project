@@ -13,11 +13,15 @@ class BookEditForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('year')->add("description")->add('link')->add('publishing_house');
-
-        $builder->add('submit', SubmitType::class ,[
-            'label' => 'Изменить'
-        ]);
+        $builder
+            ->add('name')
+            ->add('year')
+            ->add("description")
+            ->add('link')
+            ->add('publishing_house')
+            ->add('submit', SubmitType::class ,[
+                'label' => 'Изменить'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

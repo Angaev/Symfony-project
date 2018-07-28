@@ -11,12 +11,14 @@ class BookRepository extends EntityRepository
     public function searchByWord($word)
     {
         $em = $this->getEntityManager();
-        $rawSql = "SELECT book.id, book.name, book.year, book.image, book.description, 
+        $rawSql = "
+            SELECT book.id, book.name, book.year, book.image, book.description, 
             (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
             (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount 
             FROM Book
             WHERE
-             book.name like '%' :searchWord '%'";
+            book.name like '%' :searchWord '%'
+        ";
         $statement = $em->getConnection()->prepare($rawSql);
         $statement->bindValue('searchWord', $word);
         ($statement->execute());
@@ -43,12 +45,14 @@ class BookRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
 
-        $rawSql = "SELECT book.id, book.name, book.year, book.image, book.description, 
+        $rawSql = "
+            SELECT book.id, book.name, book.year, book.image, book.description, 
             (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
             (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount 
             FROM Book
             WHERE book.id IN
-            (SELECT book_id FROM user_like WHERE user_id = :usr)";
+            (SELECT book_id FROM user_like WHERE user_id = :usr)
+        ";
 
         $statement = $em->getConnection()->prepare($rawSql);
         $statement->bindValue('usr', $userId);
@@ -61,12 +65,14 @@ class BookRepository extends EntityRepository
     public function getTop50()
     {
         $em = $this->getEntityManager();
-        $rawSql = "SELECT book.id, book.name, book.year, book.image,
+        $rawSql = "
+            SELECT book.id, book.name, book.year, book.image,
             (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
             (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount
             FROM book
             ORDER BY likeCount DESC
-            LIMIT 50";
+            LIMIT 50
+        ";
 
 
         $statement = $em->getConnection()->prepare($rawSql);

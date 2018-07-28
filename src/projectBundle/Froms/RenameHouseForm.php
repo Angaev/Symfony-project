@@ -22,20 +22,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class RenameHouseForm extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        $builder->add('publishing_house', EntityType::class, array(
-           'class' => publishing_house::class,
-           'choice_label' => 'name'
-        ));
-        $builder->add('name');
-        $builder->add('submit', SubmitType::class, [
-            'label' => 'Переименовать'
-        ]);
+        $builder
+            ->add('publishing_house', EntityType::class, array(
+                'class' => publishing_house::class,
+                'choice_label' => 'name'
+            ))
+            ->add('name')
+            ->add('submit', SubmitType::class, [
+                'label' => 'Переименовать'
+            ]);
     }
-
 
     public function configureOptions(OptionsResolver $resolver)
     {

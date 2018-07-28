@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/web/js/addHouse.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/addHouse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/deleteAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/deleteAvatar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/deleteHouse.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/deleteHouse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/loadAvatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/loadAvatar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/issues_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/issues_list.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookDeleteForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookDeleteForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/UserEditForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/UserEditForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/UserTypeForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/UserTypeForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/addHouseForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/AddHouseForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,17 +56,17 @@
       <file leaf-file-name="issues_list.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/issues_list.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="48" column="50" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="50" />
+            <state relative-caret-position="418">
+              <caret line="50" column="115" lean-forward="true" selection-start-line="50" selection-start-column="115" selection-end-line="50" selection-end-column="115" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadAvatar.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/loadAvatar.js">
+      <file leaf-file-name="UserEditForm.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/UserEditForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="18" selection-end-column="59" />
+            <state relative-caret-position="306">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -73,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>association</find>
       <find>bookFileNa</find>
       <find>isBookFile</find>
       <find>input</find>
@@ -103,6 +111,7 @@
       <find>anony</find>
       <find>$bookRepo</find>
       <find>books.html.twig</find>
+      <find>addHouse</find>
     </findStrings>
     <dirStrings>
       <dir>C:\wamp\www\first_project</dir>
@@ -114,25 +123,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/form.html.twig" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/UserType.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/user.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Security/FormLoginAuthenticator.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/security/login.html.twig" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/UserTypeForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/security/register.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/users.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/add_book_img.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/style.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/like.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/addHouseForm.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/UserEditForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Security/AccessDeniedHandler.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profine.html.twig" />
         <option value="$PROJECT_DIR$/app/config/security.yml" />
@@ -152,19 +152,28 @@
         <option value="$PROJECT_DIR$/feature_list.txt" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/area.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/books.html.twig" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php" />
-        <option value="$PROJECT_DIR$/web/js/renameHouse.js" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" />
-        <option value="$PROJECT_DIR$/issues_list.txt" />
         <option value="$PROJECT_DIR$/web/js/addHouse.js" />
         <option value="$PROJECT_DIR$/web/js/deleteAvatar.js" />
         <option value="$PROJECT_DIR$/web/js/deleteHouse.js" />
         <option value="$PROJECT_DIR$/web/js/like.js" />
         <option value="$PROJECT_DIR$/web/js/loadAvatar.js" />
+        <option value="$PROJECT_DIR$/web/js/renameHouse.js" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/addHouseForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/UserTypeForm.php" />
+        <option value="$PROJECT_DIR$/issues_list.txt" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/AddHouseForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookDeleteForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Froms/UserEditForm.php" />
       </list>
     </option>
   </component>
@@ -435,12 +444,12 @@
       <workItem from="1532365102464" duration="4407000" />
       <workItem from="1532444932940" duration="6909000" />
       <workItem from="1532537961144" duration="4263000" />
-      <workItem from="1532713155632" duration="10692000" />
+      <workItem from="1532713155632" duration="11410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="344669000" />
+    <option name="totallyTimeSpent" value="345387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -608,77 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/UserTypeForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/UserEditForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookDeleteForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/addHouseForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="e#121#161#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="21" lean-forward="true" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-          <folding>
-            <element signature="e#45#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Repository/CommentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -724,16 +662,6 @@
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/SecurityController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-          <folding>
-            <element signature="e#126#183#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3223">
@@ -749,13 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
           <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/renameHouse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -800,17 +721,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/issues_list.txt">
+    <entry file="file://$PROJECT_DIR$/web/js/loadAvatar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="48" column="50" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="50" />
+        <state relative-caret-position="374">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/loadAvatar.js">
+    <entry file="file://$PROJECT_DIR$/web/js/renameHouse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="18" selection-end-column="59" />
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Repository/CommentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1347">
+          <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+          <folding>
+            <element signature="e#45#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <folding>
+            <element signature="e#126#183#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/UserTypeForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/AddHouseForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding>
+            <element signature="e#121#161#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <element signature="e#120#150#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookDeleteForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="31" column="15" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/CommentForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/issues_list.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="50" column="115" lean-forward="true" selection-start-line="50" selection-start-column="115" selection-end-line="50" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Froms/UserEditForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
         </state>
       </provider>
     </entry>

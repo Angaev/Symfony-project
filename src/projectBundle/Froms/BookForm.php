@@ -20,13 +20,16 @@ class BookForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('year')->add("description")->add('link')->add('publishing_house');
-
-        $builder->add('image', FileType::class);
-
-        $builder->add('submit', SubmitType::class ,[
-           'label' => 'Добавить',
-        ]);
+        $builder
+            ->add('name')
+            ->add('year')
+            ->add("description")
+            ->add('link')
+            ->add('publishing_house')
+            ->add('image', FileType::class)
+            ->add('submit', SubmitType::class ,[
+                'label' => 'Добавить',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

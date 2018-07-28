@@ -18,10 +18,12 @@ class UserEditForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('password');
-        $builder->add('submit', SubmitType::class ,[
-            'label' => 'Изменить'
-        ]);
+        $builder
+            ->add('name')
+            ->add('password')
+            ->add('submit', SubmitType::class ,[
+                'label' => 'Изменить'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

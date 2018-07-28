@@ -14,14 +14,14 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 
-class addHouseForm extends AbstractType
+class AddHouseForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
-
-        $builder->add('submit', SubmitType::class ,[
-            'label' => 'Добавить'
-        ]);
+        $builder
+            ->add('name')
+            ->add('submit', SubmitType::class ,[
+                'label' => 'Добавить'
+            ]);
     }
 }

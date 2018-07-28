@@ -18,7 +18,7 @@ use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\CommentForm;
 use projectBundle\Froms\UserTypeForm;
 use projectBundle\Entity\publishing_house;
-use projectBundle\Froms\addHouseForm;
+use projectBundle\Froms\AddHouseForm;
 use projectBundle\Froms\BookDeleteForm;
 use projectBundle\Froms\BookEditForm;
 use projectBundle\Froms\BookForm;
