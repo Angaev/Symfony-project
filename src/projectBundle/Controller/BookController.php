@@ -9,7 +9,7 @@
 namespace projectBundle\Controller;
 
 
-use projectBundle\Entity\book;
+use projectBundle\Entity\Book;
 use projectBundle\Entity\comment;
 use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
@@ -29,7 +29,7 @@ class BookController extends Controller
 {
     public function indexAction()
     {
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $books = $bookRepo->getAllBooks();
 
         return $this->render('projectBundle:Default:books.html.twig', [
@@ -41,7 +41,7 @@ class BookController extends Controller
 
     public function addAction(Request $request)
     {
-        $book = new book();
+        $book = new Book();
         $form = $this->createForm(BookForm::class, $book);
         $form->handleRequest($request);
 
@@ -50,7 +50,7 @@ class BookController extends Controller
             $file = $book->getImage();
             $fileName = $this->get('app.cover_uploader')->upload($file);
             $book->setImage($fileName);
-            $this->updateEntiry($book);
+            $this->updateEntity($book);
             return $this->redirectToRoute('book_list');
         }
         return $this->render('projectBundle:Default:add.html.twig', [
@@ -61,7 +61,7 @@ class BookController extends Controller
 
     public function viewAction($id, Request $request)
     {
-        $book = $this->getDoctrine()->getRepository('projectBundle:book')->find($id);
+        $book = $this->getDoctrine()->getRepository('projectBundle:Book')->find($id);
         $comment = $this->getDoctrine()->getRepository('projectBundle:comment')->findByBook($book);
         $user =  $this->getUser();
         $findLike = $this->getDoctrine()->getRepository('projectBundle:like')->findOneBy([
@@ -102,7 +102,7 @@ class BookController extends Controller
 
     public function getTop50Action()
     {
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $books = $bookRepo->getTop50();
 
         return $this->render('projectBundle:Default:books.html.twig', [
@@ -115,7 +115,7 @@ class BookController extends Controller
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
+        $repo = $em->getRepository('projectBundle:Book');
         $book = $repo->find($id);
 
         if (!$book)
@@ -128,7 +128,7 @@ class BookController extends Controller
             $book->setImage(new File($book->getImage()));
         }
         $form_cover = $this->createForm(BookAddImgForm::class, $book, [
-            'data_class' => 'projectBundle\Entity\book'
+            'data_class' => 'projectBundle\Entity\Book'
         ]);
         $form_cover->handleRequest($request);
 
@@ -138,7 +138,7 @@ class BookController extends Controller
             $fileName = $this->get('app.cover_uploader')->upload($file);
             $book->setImage($fileName);
 
-            $this->updateEntiry($book);
+            $this->updateEntity($book);
             return $this->redirectToRoute('book_view', ['id' => $id]);
         }
 
@@ -146,7 +146,7 @@ class BookController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted())
         {
-            $this->updateEntiry($book);
+            $this->updateEntity($book);
             return $this->redirectToRoute('book_view', [ 'id' => $book->getId()]);
         }
 
@@ -162,7 +162,7 @@ class BookController extends Controller
     {
         //удаляет указаную книгу без придупреждения
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
+        $repo = $em->getRepository('projectBundle:Book');
         $book = $repo->find($id);
         if (!$book)
         {
@@ -176,7 +176,7 @@ class BookController extends Controller
     public function bookAddImgAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
+        $repo = $em->getRepository('projectBundle:Book');
         $book = $repo->find($id);
         if (!$book)
         {
@@ -187,7 +187,7 @@ class BookController extends Controller
             $book->setImage(new File($book->getImage()));
         }
         $form = $this->createForm(BookAddImgForm::class, $book, [
-            'data_class' => 'projectBundle\Entity\book'
+            'data_class' => 'projectBundle\Entity\Book'
         ]);
         $form->handleRequest($request);
 
@@ -213,7 +213,7 @@ class BookController extends Controller
     {
         $id = $request->get('id');
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
+        $repo = $em->getRepository('projectBundle:Book');
         $book = $repo->find($id);
         $book->setImage(null);
         $em->persist($book);
@@ -227,7 +227,7 @@ class BookController extends Controller
     public function searchAction(Request $request)
     {
         $word = $request->query->get('name');
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $books = $bookRepo->searchByWord($word);
 
         return $this->render('projectBundle:Default:books.html.twig', [
@@ -246,7 +246,7 @@ class BookController extends Controller
             return $this->redirectToRoute('book_list');
         }
 
-        $books = $this->getDoctrine()->getRepository('projectBundle:book')->getLikedBooks($user->getId());
+        $books = $this->getDoctrine()->getRepository('projectBundle:Book')->getLikedBooks($user->getId());
 
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
@@ -274,7 +274,7 @@ class BookController extends Controller
         ]);
     }
 
-    private function updateEntiry($book)
+    private function updateEntity($book)
     {
         $em = $this->getDoctrine()->getManager();
         $em->persist($book);

@@ -12,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="projectBundle\Repository\BookRepository")
  * @ORM\Table(name="book")
  */
-class book
+class Book
 {
     /**
      * @ORM\Column(type="integer")
@@ -82,7 +82,7 @@ class book
      *
      * @param string $name
      *
-     * @return book
+     * @return Book
      */
     public function setName($name)
     {
@@ -106,7 +106,7 @@ class book
      *
      * @param integer $year
      *
-     * @return book
+     * @return Book
      */
     public function setYear($year)
     {
@@ -130,7 +130,7 @@ class book
      *
      * @param string $image
      *
-     * @return book
+     * @return Book
      */
     public function setImage($image)
     {
@@ -154,7 +154,7 @@ class book
      *
      * @param string $description
      *
-     * @return book
+     * @return Book
      */
     public function setDescription($description)
     {
@@ -178,7 +178,7 @@ class book
      *
      * @param string $link
      *
-     * @return book
+     * @return Book
      */
     public function setLink($link)
     {
@@ -202,7 +202,7 @@ class book
      *
      * @param \projectBundle\Entity\publishing_house $publishingHouse
      *
-     * @return book
+     * @return Book
      */
     public function setPublishingHouse(\projectBundle\Entity\publishing_house $publishingHouse = null)
     {
@@ -226,7 +226,7 @@ class book
      *
      * @param \projectBundle\Entity\comment $comment
      *
-     * @return book
+     * @return Book
      */
     public function setComment(\projectBundle\Entity\comment $comment = null)
     {
@@ -257,7 +257,7 @@ class book
      *
      * @param \projectBundle\Entity\comment $comment
      *
-     * @return book
+     * @return Book
      */
     public function addComment(\projectBundle\Entity\comment $comment)
     {
@@ -281,7 +281,7 @@ class book
      *
      * @param \projectBundle\Entity\like $like
      *
-     * @return book
+     * @return Book
      */
     public function addLike(\projectBundle\Entity\like $like)
     {

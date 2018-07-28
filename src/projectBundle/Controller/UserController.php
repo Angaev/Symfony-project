@@ -202,7 +202,7 @@ class UserController extends Controller
     {
         /** @var user $user */
         $user = $this->getUser();
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
+        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $likes = $bookRepo->getLastUserBook($user->getId(), 6);
         $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
         $lastComment = $commentRepo->getLastUserComment($user);

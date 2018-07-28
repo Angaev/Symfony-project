@@ -25,7 +25,7 @@ class publishing_house
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="projectBundle\Entity\book", mappedBy="publishing_house")
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="publishing_house")
      */
     private $house;
 
@@ -51,11 +51,11 @@ class publishing_house
     /**
      * Add house
      *
-     * @param \projectBundle\Entity\book $house
+     * @param \projectBundle\Entity\Book $house
      *
      * @return publishing_house
      */
-    public function addHouse(\projectBundle\Entity\book $house)
+    public function addHouse(\projectBundle\Entity\Book $house)
     {
         $this->house[] = $house;
 
@@ -65,9 +65,9 @@ class publishing_house
     /**
      * Remove house
      *
-     * @param \projectBundle\Entity\book $house
+     * @param \projectBundle\Entity\Book $house
      */
-    public function removeHouse(\projectBundle\Entity\book $house)
+    public function removeHouse(\projectBundle\Entity\Book $house)
     {
         $this->house->removeElement($house);
     }

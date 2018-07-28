@@ -40,7 +40,7 @@ class like
 
     //много лайков может быть в одиной книге
     /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\book", inversedBy="like")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="like")
      * @ORM\JoinColumn(name="book_id", referencedColumnName="id")
      */
     private $book;
@@ -90,11 +90,11 @@ class like
     /**
      * Add book
      *
-     * @param \projectBundle\Entity\book $book
+     * @param \projectBundle\Entity\Book $book
      *
      * @return like
      */
-    public function addBook(\projectBundle\Entity\book $book)
+    public function addBook(\projectBundle\Entity\Book $book)
     {
         $this->book[] = $book;
 
@@ -104,9 +104,9 @@ class like
     /**
      * Remove book
      *
-     * @param \projectBundle\Entity\book $book
+     * @param \projectBundle\Entity\Book $book
      */
-    public function removeBook(\projectBundle\Entity\book $book)
+    public function removeBook(\projectBundle\Entity\Book $book)
     {
         $this->book->removeElement($book);
     }
@@ -158,11 +158,11 @@ class like
     /**
      * Set book
      *
-     * @param \projectBundle\Entity\book $book
+     * @param \projectBundle\Entity\Book $book
      *
      * @return like
      */
-    public function setBook(\projectBundle\Entity\book $book = null)
+    public function setBook(\projectBundle\Entity\Book $book = null)
     {
         $this->book = $book;
 

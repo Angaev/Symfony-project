@@ -2,7 +2,7 @@
 
 namespace projectBundle\Controller;
 
-use projectBundle\Entity\book;
+use projectBundle\Entity\Book;
 use projectBundle\Entity\comment;
 use projectBundle\Entity\like;
 use projectBundle\Entity\user;
@@ -40,7 +40,7 @@ class DefaultController extends Controller
             return $this->redirectToRoute('book_list');
         }
 
-        /** @var book $book */
+        /** @var Book $book */
         $book = $findComment->getBook();
         /** @var user $authorComment */
         $authorComment = $findComment->getUser();
@@ -60,7 +60,7 @@ class DefaultController extends Controller
         $user = $this->getUser();
         $bookId = $request->get('book_id');
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:book');
+        $repo = $em->getRepository('projectBundle:Book');
         $book = $repo->find($bookId);
 
         $likeRepo = $em->getRepository('projectBundle:like');

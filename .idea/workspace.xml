@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/issues_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/issues_list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/RenameHouseForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Repository/BookRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/add_book_img.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/add_book_img.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/all_comments.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/all_comments.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/book.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/books.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/books.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/edit_profile.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/publishing_houses.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/publishing_houses.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/users.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projectBundle/Resources/views/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Resources/views/security/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Entity/book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Entity/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Entity/like.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Entity/like.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Entity/publishing_house.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Entity/publishing_house.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookAddImgForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookDeleteForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookDeleteForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookEditForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Froms/BookForm.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,32 +30,50 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="34">
+              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BookController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3757">
-              <caret line="235" column="49" selection-start-line="235" selection-start-column="49" selection-end-line="235" selection-end-column="49" />
+            <state relative-caret-position="480">
+              <caret line="273" column="11" lean-forward="true" selection-start-line="273" selection-start-column="11" selection-end-line="273" selection-end-column="11" />
               <folding>
                 <element signature="e#126#156#0#PHP" expanded="true" />
-                <element signature="e#2096#2116#1#PHP" expanded="true" />
+                <element signature="e#868#888#1#PHP" expanded="true" />
+                <element signature="e#1941#1961#1#PHP" expanded="true" />
                 <element signature="e#3525#3563#0#PHP" expanded="true" />
+                <element signature="e#3447#3467#1#PHP" expanded="true" />
+                <element signature="e#4124#4163#0#PHP" expanded="true" />
+                <element signature="e#3867#3887#1#PHP" expanded="true" />
+                <element signature="e#5402#5422#1#PHP" expanded="true" />
+                <element signature="e#5815#5835#1#PHP" expanded="true" />
+                <element signature="e#7054#7074#1#PHP" expanded="true" />
+                <element signature="e#7454#7474#1#PHP" expanded="true" />
                 <element signature="e#7556#7595#0#PHP" expanded="true" />
+                <element signature="e#8026#8046#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="issues_list.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="issues_list.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/issues_list.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+            <state relative-caret-position="119">
+              <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Book.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -74,7 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bookFileNa</find>
       <find>isBookFile</find>
       <find>input</find>
       <find>$file</find>
@@ -102,8 +116,9 @@
       <find>update</find>
       <find>anony</find>
       <find>$bookRepo</find>
-      <find>books.html.twig</find>
       <find>addHouse</find>
+      <find>{#</find>
+      <find>books.html.twig</find>
     </findStrings>
     <dirStrings>
       <dir>C:\wamp\www\first_project</dir>
@@ -115,8 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/projectBundle/Entity/user.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Security/FormLoginAuthenticator.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/style.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/like.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/SecurityController.php" />
@@ -135,7 +148,6 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/HouseController.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" />
         <option value="$PROJECT_DIR$/web/js/addHouse.js" />
         <option value="$PROJECT_DIR$/web/js/deleteAvatar.js" />
         <option value="$PROJECT_DIR$/web/js/deleteHouse.js" />
@@ -166,6 +178,9 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/publishing_houses.html.twig" />
         <option value="$PROJECT_DIR$/src/projectBundle/Resources/views/Default/users.html.twig" />
         <option value="$PROJECT_DIR$/issues_list.txt" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Entity/book.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Entity/Book.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Controller/BookController.php" />
       </list>
     </option>
   </component>
@@ -436,12 +451,12 @@
       <workItem from="1532365102464" duration="4407000" />
       <workItem from="1532444932940" duration="6909000" />
       <workItem from="1532537961144" duration="4263000" />
-      <workItem from="1532713155632" duration="12029000" />
+      <workItem from="1532713155632" duration="12412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346006000" />
+    <option name="totallyTimeSpent" value="346389000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -453,7 +468,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24304539" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24304539" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
@@ -486,13 +501,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -513,19 +521,6 @@
           <folding>
             <element signature="e#126#183#0#PHP" expanded="true" />
             <element signature="e#5433#5456#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3757">
-          <caret line="235" column="49" selection-start-line="235" selection-start-column="49" selection-end-line="235" selection-end-column="49" />
-          <folding>
-            <element signature="e#126#156#0#PHP" expanded="true" />
-            <element signature="e#2096#2116#1#PHP" expanded="true" />
-            <element signature="e#3525#3563#0#PHP" expanded="true" />
-            <element signature="e#7556#7595#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -651,9 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/book.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/comment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -751,13 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/books.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/comments.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -839,8 +824,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/issues_list.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Resources/views/Default/books.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Controller/BookController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="273" column="11" lean-forward="true" selection-start-line="273" selection-start-column="11" selection-end-line="273" selection-end-column="11" />
+          <folding>
+            <element signature="e#126#156#0#PHP" expanded="true" />
+            <element signature="e#868#888#1#PHP" expanded="true" />
+            <element signature="e#1941#1961#1#PHP" expanded="true" />
+            <element signature="e#3525#3563#0#PHP" expanded="true" />
+            <element signature="e#3447#3467#1#PHP" expanded="true" />
+            <element signature="e#4124#4163#0#PHP" expanded="true" />
+            <element signature="e#3867#3887#1#PHP" expanded="true" />
+            <element signature="e#5402#5422#1#PHP" expanded="true" />
+            <element signature="e#5815#5835#1#PHP" expanded="true" />
+            <element signature="e#7054#7074#1#PHP" expanded="true" />
+            <element signature="e#7454#7474#1#PHP" expanded="true" />
+            <element signature="e#7556#7595#0#PHP" expanded="true" />
+            <element signature="e#8026#8046#1#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

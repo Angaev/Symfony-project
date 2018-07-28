@@ -10,7 +10,7 @@ namespace projectBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use projectBundle\Entity\book;
+use projectBundle\Entity\Book;
 use projectBundle\Entity\comment;
 use projectBundle\Entity\like;
 use projectBundle\Entity\user;
