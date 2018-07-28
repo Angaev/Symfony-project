@@ -207,7 +207,6 @@ class UserController extends Controller
         $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
         $lastComment = $commentRepo->getLastUserComment($user);
 
-        $book = $bookRepo -> findAll();
         return $this->render('projectBundle:Default:area.html.twig', [
             'user' => $user,
             'titleText' => 'Личный кабинет',

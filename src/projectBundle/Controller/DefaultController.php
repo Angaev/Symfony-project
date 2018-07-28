@@ -29,8 +29,6 @@ class DefaultController extends Controller
     public function deleteCommentAction(Request $request)
     {
         /** @var user $user */
-//        var_dump($request);
-//        die();
         $user = $this->getUser();
         if ($user == null) {
             return $this->redirectToRoute('book_list');
@@ -44,14 +42,13 @@ class DefaultController extends Controller
 
         /** @var book $book */
         $book = $findComment->getBook();
-        /** @var user $authtorComment */
-        $authtorComment = $findComment->getUser();
+        /** @var user $authorComment */
+        $authorComment = $findComment->getUser();
 
-        if (($authtorComment->getId() == $user->getId()) or ($user->getRole() == "ROLE_ADMIN"))
+        if (($authorComment->getId() == $user->getId()) or ($user->getRole() == "ROLE_ADMIN"))
         {
             $em->remove($findComment);
             $em->flush();
-
             return $this->redirectToRoute('book_view', ['id' => $book->getId()]);
         }
         else
@@ -91,7 +88,7 @@ class DefaultController extends Controller
 
     public function registerAction(Request $request)
     {
-        if (!($this->isAnonymousUser($this->getUser())))
+        if (($this->getUser()))
         {
             return $this->redirectToRoute('book_list');
         }
@@ -125,16 +122,5 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @return bool
-     */
-    private function isAnonymousUser($user)
-    {
-        if ($user != null)
-        {
-            return false;
-        }
-        return true;
-    }
 }
 

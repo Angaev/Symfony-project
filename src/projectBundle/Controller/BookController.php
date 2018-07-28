@@ -49,12 +49,8 @@ class BookController extends Controller
         {
             $file = $book->getImage();
             $fileName = $this->get('app.cover_uploader')->upload($file);
-
             $book->setImage($fileName);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
+            $this->updateEntiry($book);
             return $this->redirectToRoute('book_list');
         }
         return $this->render('projectBundle:Default:add.html.twig', [
@@ -63,33 +59,20 @@ class BookController extends Controller
         ]);
     }
 
-    public  function viewAction($id, Request $request)
+    public function viewAction($id, Request $request)
     {
-        $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
-        $book = $bookRepo->find($id);
-
-        $houseRepo = $this->getDoctrine()->getRepository('projectBundle:publishing_house');
-        $houses = $houseRepo->findAll();
-
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
-        $comment = $commentRepo->findByBook($book);
-
-        $likeRepo = $this->getDoctrine()->getRepository('projectBundle:like');
-        $likes = $likeRepo->findByBook($book);
-
+        $book = $this->getDoctrine()->getRepository('projectBundle:book')->find($id);
+        $comment = $this->getDoctrine()->getRepository('projectBundle:comment')->findByBook($book);
         $user =  $this->getUser();
-        $findLike = $likeRepo->findOneBy(array(
+        $findLike = $this->getDoctrine()->getRepository('projectBundle:like')->findOneBy([
             'user' => $user,
             'book' => $book
-        ));
+        ]);
 
+        $isAdmin = false;
         if ($user != null)
         {
             $isAdmin =  ($user->getRole() == 'ROLE_ADMIN') ? true : false;
-        }
-        else
-        {
-            $isAdmin = false;
         }
 
         $commentForm = $this->createForm(CommentForm::class);
@@ -106,15 +89,9 @@ class BookController extends Controller
             $em->flush();
             return $this->redirectToRoute('book_view', ['id' => $book->getId()]);
         }
-
-        $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
-        $users = $userRepo->findAll();
-
         return $this->render('projectBundle:Default:book.html.twig', [
             'book' => $book,
-            'house' => $houses,
             'comments' => $comment,
-            'likes' => $likes,
             'titleText' => $book->getName(),
             'likeBtn' => $findLike ? 'lock' : 'free',
             'admin' => $isAdmin,
@@ -161,9 +138,7 @@ class BookController extends Controller
             $fileName = $this->get('app.cover_uploader')->upload($file);
             $book->setImage($fileName);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
+            $this->updateEntiry($book);
             return $this->redirectToRoute('book_view', ['id' => $id]);
         }
 
@@ -171,9 +146,7 @@ class BookController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted())
         {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
+            $this->updateEntiry($book);
             return $this->redirectToRoute('book_view', [ 'id' => $book->getId()]);
         }
 
@@ -188,7 +161,6 @@ class BookController extends Controller
     public function deleteAction($id, Request $request)
     {
         //удаляет указаную книгу без придупреждения
-
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('projectBundle:book');
         $book = $repo->find($id);
@@ -196,15 +168,9 @@ class BookController extends Controller
         {
             return $this->redirectToRoute('book_list');
         }
-        $form = $this->createForm(BookDeleteForm::class, null, [
-            'delete_id' => $book->getId()
-        ]);
-        $form->handleRequest($request);
-
         $em->remove($book);
         $em->flush();
         return $this->redirectToRoute('book_list');
-
     }
 
     public function bookAddImgAction($id, Request $request)
@@ -264,7 +230,6 @@ class BookController extends Controller
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:book');
         $books = $bookRepo->searchByWord($word);
 
-
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
             'titleText' => 'Книги по запросу ' . $word,
@@ -299,9 +264,7 @@ class BookController extends Controller
             return $this->redirectToRoute('login');
         }
 
-        $em = $this->getDoctrine()->getManager();
-        $comments = $em->getRepository('projectBundle:comment')->findBy(['user' => $user->getId()]);
-        $books = $em->getRepository('projectBundle:book')->findAll();
+        $comments = $this->getDoctrine()->getManager()->getRepository('projectBundle:comment')->findBy(['user' => $user->getId()]);
 
         return $this->render('projectBundle:Default:all_comments.html.twig', [
             'comments' => $comments,
@@ -309,5 +272,12 @@ class BookController extends Controller
             'pageDescription' => 'Все комментарии',
             'user' => $user
         ]);
+    }
+
+    private function updateEntiry($book)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($book);
+        $em->flush();
     }
 }

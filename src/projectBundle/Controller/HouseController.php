@@ -44,7 +44,6 @@ class HouseController extends Controller
         ]);
     }
 
-
     public function addHouseAction(Request $request)
     {
         /** @var publishing_house $house */
