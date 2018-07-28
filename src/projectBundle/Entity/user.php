@@ -31,7 +31,7 @@ class user implements UserInterface
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="projectBundle\Entity\comment", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
      */
     private $userComment;
 
@@ -287,11 +287,11 @@ class user implements UserInterface
     /**
      * Add comment
      *
-     * @param \projectBundle\Entity\comment $comment
+     * @param \projectBundle\Entity\Comment $comment
      *
      * @return user
      */
-    public function addComment(\projectBundle\Entity\comment $comment)
+    public function addComment(\projectBundle\Entity\Comment $comment)
     {
         $this->comment[] = $comment;
 
@@ -301,9 +301,9 @@ class user implements UserInterface
     /**
      * Remove comment
      *
-     * @param \projectBundle\Entity\comment $comment
+     * @param \projectBundle\Entity\Comment $comment
      */
-    public function removeComment(\projectBundle\Entity\comment $comment)
+    public function removeComment(\projectBundle\Entity\Comment $comment)
     {
         $this->comment->removeElement($comment);
     }
@@ -321,11 +321,11 @@ class user implements UserInterface
     /**
      * Add user
      *
-     * @param \projectBundle\Entity\comment $user
+     * @param \projectBundle\Entity\Comment $user
      *
      * @return user
      */
-    public function addUser(\projectBundle\Entity\comment $user)
+    public function addUser(\projectBundle\Entity\Comment $user)
     {
         $this->user[] = $user;
 
@@ -335,9 +335,9 @@ class user implements UserInterface
     /**
      * Remove user
      *
-     * @param \projectBundle\Entity\comment $user
+     * @param \projectBundle\Entity\Comment $user
      */
-    public function removeUser(\projectBundle\Entity\comment $user)
+    public function removeUser(\projectBundle\Entity\Comment $user)
     {
         $this->user->removeElement($user);
     }
@@ -355,11 +355,11 @@ class user implements UserInterface
     /**
      * Add userComment
      *
-     * @param \projectBundle\Entity\comment $userComment
+     * @param \projectBundle\Entity\Comment $userComment
      *
      * @return user
      */
-    public function addUserComment(\projectBundle\Entity\comment $userComment)
+    public function addUserComment(\projectBundle\Entity\Comment $userComment)
     {
         $this->userComment[] = $userComment;
 
@@ -369,9 +369,9 @@ class user implements UserInterface
     /**
      * Remove userComment
      *
-     * @param \projectBundle\Entity\comment $userComment
+     * @param \projectBundle\Entity\Comment $userComment
      */
-    public function removeUserComment(\projectBundle\Entity\comment $userComment)
+    public function removeUserComment(\projectBundle\Entity\Comment $userComment)
     {
         $this->userComment->removeElement($userComment);
     }

@@ -204,7 +204,7 @@ class UserController extends Controller
         $user = $this->getUser();
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $likes = $bookRepo->getLastUserBook($user->getId(), 6);
-        $commentRepo = $this->getDoctrine()->getRepository('projectBundle:comment');
+        $commentRepo = $this->getDoctrine()->getRepository('Comment');
         $lastComment = $commentRepo->getLastUserComment($user);
 
         return $this->render('projectBundle:Default:area.html.twig', [

@@ -62,7 +62,7 @@ class Book
 
     //в одной книге много комментов (One-to-many)
     /**
-     * @ORM\OneToMany(targetEntity="projectBundle\Entity\comment", mappedBy="book")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="book")
      */
     private $comment;
 
@@ -224,11 +224,11 @@ class Book
     /**
      * Set comment
      *
-     * @param \projectBundle\Entity\comment $comment
+     * @param \projectBundle\Entity\Comment $comment
      *
      * @return Book
      */
-    public function setComment(\projectBundle\Entity\comment $comment = null)
+    public function setComment(\projectBundle\Entity\Comment $comment = null)
     {
         $this->comment = $comment;
 
@@ -238,7 +238,7 @@ class Book
     /**
      * Get comment
      *
-     * @return \projectBundle\Entity\comment
+     * @return \projectBundle\Entity\Comment
      */
     public function getComment()
     {
@@ -255,11 +255,11 @@ class Book
     /**
      * Add comment
      *
-     * @param \projectBundle\Entity\comment $comment
+     * @param \projectBundle\Entity\Comment $comment
      *
      * @return Book
      */
-    public function addComment(\projectBundle\Entity\comment $comment)
+    public function addComment(\projectBundle\Entity\Comment $comment)
     {
         $this->comment[] = $comment;
 
@@ -269,9 +269,9 @@ class Book
     /**
      * Remove comment
      *
-     * @param \projectBundle\Entity\comment $comment
+     * @param \projectBundle\Entity\Comment $comment
      */
-    public function removeComment(\projectBundle\Entity\comment $comment)
+    public function removeComment(\projectBundle\Entity\Comment $comment)
     {
         $this->comment->removeElement($comment);
     }

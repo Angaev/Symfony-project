@@ -9,7 +9,7 @@
 namespace projectBundle\Froms;
 
 
-use projectBundle\Entity\comment;
+use projectBundle\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,7 +32,7 @@ class CommentForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
        $resolver->setDefaults([
-          'data_class' => comment::class
+          'data_class' => Comment::class
        ]);
     }
 }

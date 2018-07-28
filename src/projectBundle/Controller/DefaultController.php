@@ -3,7 +3,7 @@
 namespace projectBundle\Controller;
 
 use projectBundle\Entity\Book;
-use projectBundle\Entity\comment;
+use projectBundle\Entity\Comment;
 use projectBundle\Entity\like;
 use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
@@ -35,7 +35,7 @@ class DefaultController extends Controller
         }
         $idComment = $request->get('idComment');
         $em = $this->getDoctrine()->getManager();
-        $findComment = $em->getRepository('projectBundle:comment')->find($idComment);
+        $findComment = $em->getRepository('projectBundle:Comment')->find($idComment);
         if ($findComment == null) {
             return $this->redirectToRoute('book_list');
         }

@@ -10,7 +10,7 @@ namespace projectBundle\Controller;
 
 
 use projectBundle\Entity\Book;
-use projectBundle\Entity\comment;
+use projectBundle\Entity\Comment;
 use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\CommentForm;
@@ -62,7 +62,7 @@ class BookController extends Controller
     public function viewAction($id, Request $request)
     {
         $book = $this->getDoctrine()->getRepository('projectBundle:Book')->find($id);
-        $comment = $this->getDoctrine()->getRepository('projectBundle:comment')->findByBook($book);
+        $comment = $this->getDoctrine()->getRepository('projectBundle:Comment')->findByBook($book);
         $user =  $this->getUser();
         $findLike = $this->getDoctrine()->getRepository('projectBundle:like')->findOneBy([
             'user' => $user,
@@ -79,7 +79,7 @@ class BookController extends Controller
         $commentForm->handleRequest($request);
         if ($commentForm->isSubmitted())
         {
-            /** @var comment $newComment */
+            /** @var Comment $newComment */
             $newComment = $commentForm->getData();
             $newComment->setUser($user);
             $newComment->setBook($book);
@@ -264,7 +264,7 @@ class BookController extends Controller
             return $this->redirectToRoute('login');
         }
 
-        $comments = $this->getDoctrine()->getManager()->getRepository('projectBundle:comment')->findBy(['user' => $user->getId()]);
+        $comments = $this->getDoctrine()->getManager()->getRepository('projectBundle:Comment')->findBy(['user' => $user->getId()]);
 
         return $this->render('projectBundle:Default:all_comments.html.twig', [
             'comments' => $comments,

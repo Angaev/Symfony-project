@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user_comment")
  * @ORM\Entity(repositoryClass="projectBundle\Repository\CommentRepository")
  */
-class comment
+class Comment
 {
     /**
      * @ORM\Column(type="integer")
@@ -66,7 +66,7 @@ class comment
      *
      * @param \datatime $created
      *
-     * @return comment
+     * @return Comment
      */
     public function setCreated(\datatime $created)
     {
@@ -90,7 +90,7 @@ class comment
      *
      * @param string $comment
      *
-     * @return comment
+     * @return Comment
      */
     public function setComment($comment)
     {
@@ -122,7 +122,7 @@ class comment
      *
      * @param \projectBundle\Entity\Book $book
      *
-     * @return comment
+     * @return Comment
      */
     public function addBook(\projectBundle\Entity\Book $book)
     {
@@ -156,7 +156,7 @@ class comment
      *
      * @param \projectBundle\Entity\user $user
      *
-     * @return comment
+     * @return Comment
      */
     public function addUser(\projectBundle\Entity\user $user)
     {
@@ -190,7 +190,7 @@ class comment
      *
      * @param \projectBundle\Entity\Book $book
      *
-     * @return comment
+     * @return Comment
      */
     public function setBook(\projectBundle\Entity\Book $book = null)
     {
@@ -204,7 +204,7 @@ class comment
      *
      * @param \projectBundle\Entity\user $user
      *
-     * @return comment
+     * @return Comment
      */
     public function setUser(\projectBundle\Entity\user $user = null)
     {
@@ -218,7 +218,7 @@ class comment
      *
      * @param string $commentText
      *
-     * @return comment
+     * @return Comment
      */
     public function setCommentText($commentText)
     {

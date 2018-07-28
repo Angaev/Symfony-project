@@ -11,7 +11,7 @@ namespace projectBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use projectBundle\Entity\Book;
-use projectBundle\Entity\comment;
+use projectBundle\Entity\Comment;
 use projectBundle\Entity\like;
 use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
