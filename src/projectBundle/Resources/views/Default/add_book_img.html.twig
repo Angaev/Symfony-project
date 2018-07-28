@@ -5,7 +5,7 @@
 
 {% block content %}
     {{ form(form) }}
-    <a href="{{ path('book_delete_img') }}?id={{ id }}" class="btn btn-danger sm">
+    <a href="{{ path('book_delete_img', {'id' : id}) }}" class="btn btn-danger sm">
         Удалить обложку
     </a>
 {% endblock %}

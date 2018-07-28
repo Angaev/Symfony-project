@@ -39,11 +39,6 @@
             {{ comment.commentText|e|nl2br }}
             {% if admin or user.id == comment.user.id %}
                 <a href="{{ path('delete_comment', {'idComment' : comment.id}) }}" class="btn btn-danger pull-right btn-sm">Удалить</a>
-              {#<form action="actions/delete_comment.php" method="post">#}
-                {#<input type="hidden" name="commentId" value="{{ comment.id }}">#}
-                {#<input type="hidden" name="bookId" value="{{ comment.book_id }}">#}
-                {#<button id="deleteBtn" type="submit" class="btn btn-danger pull-right btn-sm">Удалить</button>#}
-              {#</form>#}
             {% endif %}
           </div>
         </li>

@@ -16,15 +16,14 @@
   
   <div class="row">
     <div class="col-md-12 small_buttons_book">
-       {#<form method="post" id="add_form" action="">#}
         <label for="new_publishing_house">Добавление нового издательства в базу</label>
         <input type="text" class="form-control" id="new_publishing_house" name = "new_name" placeholder="Введите название добавляемого издательства" required autocomplete="off"/>
         <button class="btn btn-success small_buttons_book btn-sm" id="add">Добавить</button>
-      {#</form>#}
+
     </div>
 
     <div class="col-md-12 small_buttons_book">
-       {#<form action="" method="post">#}
+
           <label for="delete_publishing_house">Удаление издательства из базы</label>
           <select name="publishing_house" class="form-control" required id="delete_select">
             <option value="">Выберите издательство</option>
@@ -33,11 +32,11 @@
             {% endfor %}
           </select>
           <button type="" class="btn btn-danger small_buttons_book btn-sm" id="delete">Удалить</button>
-      {#</form>#}
+
     </div>
 
     <div class="col-md-12 small_buttons_book">
-       {#<form action="" method="post">#}
+
          <label>Переименование издательства в базе</label>
          <div class="row">
            <div class="col-md-6">
@@ -53,8 +52,7 @@
            </div> 
          </div>
          <button type="" class="btn btn-warning small_buttons_book btn-sm" id="rename">Переименовать</button>
-         
-        {#</form>#}
+
     </div>
   </div>
 
