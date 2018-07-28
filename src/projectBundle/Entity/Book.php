@@ -56,7 +56,7 @@ class Book
 
     //в одной книге много лайков (One-to-many)
     /**
-     * @ORM\OneToMany(targetEntity="projectBundle\Entity\like", mappedBy="book")
+     * @ORM\OneToMany(targetEntity="Like", mappedBy="book")
      */
     private $like;
 
@@ -279,11 +279,11 @@ class Book
     /**
      * Add like
      *
-     * @param \projectBundle\Entity\like $like
+     * @param \projectBundle\Entity\Like $like
      *
      * @return Book
      */
-    public function addLike(\projectBundle\Entity\like $like)
+    public function addLike(\projectBundle\Entity\Like $like)
     {
         $this->like[] = $like;
 
@@ -293,9 +293,9 @@ class Book
     /**
      * Remove like
      *
-     * @param \projectBundle\Entity\like $like
+     * @param \projectBundle\Entity\Like $like
      */
-    public function removeLike(\projectBundle\Entity\like $like)
+    public function removeLike(\projectBundle\Entity\Like $like)
     {
         $this->like->removeElement($like);
     }

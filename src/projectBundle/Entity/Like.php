@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="user_like")
  */
-class like
+class Like
 {
     /**
      * @ORM\Column(type="integer")
@@ -92,7 +92,7 @@ class like
      *
      * @param \projectBundle\Entity\Book $book
      *
-     * @return like
+     * @return Like
      */
     public function addBook(\projectBundle\Entity\Book $book)
     {
@@ -126,7 +126,7 @@ class like
      *
      * @param \projectBundle\Entity\user $user
      *
-     * @return like
+     * @return Like
      */
     public function addUser(\projectBundle\Entity\user $user)
     {
@@ -160,7 +160,7 @@ class like
      *
      * @param \projectBundle\Entity\Book $book
      *
-     * @return like
+     * @return Like
      */
     public function setBook(\projectBundle\Entity\Book $book = null)
     {
@@ -174,7 +174,7 @@ class like
      *
      * @param \projectBundle\Entity\user $user
      *
-     * @return like
+     * @return Like
      */
     public function setUser(\projectBundle\Entity\user $user = null)
     {

@@ -36,7 +36,7 @@ class user implements UserInterface
     private $userComment;
 
     /**
-     * @ORM\OneToMany(targetEntity="projectBundle\Entity\like", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Like", mappedBy="user")
      */
     private $userLike;
 
@@ -219,11 +219,11 @@ class user implements UserInterface
     /**
      * Add book
      *
-     * @param \projectBundle\Entity\like $book
+     * @param \projectBundle\Entity\Like $book
      *
      * @return user
      */
-    public function addBook(\projectBundle\Entity\like $book)
+    public function addBook(\projectBundle\Entity\Like $book)
     {
         $this->book[] = $book;
 
@@ -233,9 +233,9 @@ class user implements UserInterface
     /**
      * Remove book
      *
-     * @param \projectBundle\Entity\like $book
+     * @param \projectBundle\Entity\Like $book
      */
-    public function removeBook(\projectBundle\Entity\like $book)
+    public function removeBook(\projectBundle\Entity\Like $book)
     {
         $this->book->removeElement($book);
     }
@@ -253,11 +253,11 @@ class user implements UserInterface
     /**
      * Add like
      *
-     * @param \projectBundle\Entity\like $like
+     * @param \projectBundle\Entity\Like $like
      *
      * @return user
      */
-    public function addLike(\projectBundle\Entity\like $like)
+    public function addLike(\projectBundle\Entity\Like $like)
     {
         $this->like[] = $like;
 
@@ -267,9 +267,9 @@ class user implements UserInterface
     /**
      * Remove like
      *
-     * @param \projectBundle\Entity\like $like
+     * @param \projectBundle\Entity\Like $like
      */
-    public function removeLike(\projectBundle\Entity\like $like)
+    public function removeLike(\projectBundle\Entity\Like $like)
     {
         $this->like->removeElement($like);
     }
@@ -389,11 +389,11 @@ class user implements UserInterface
     /**
      * Add userLike
      *
-     * @param \projectBundle\Entity\like $userLike
+     * @param \projectBundle\Entity\Like $userLike
      *
      * @return user
      */
-    public function addUserLike(\projectBundle\Entity\like $userLike)
+    public function addUserLike(\projectBundle\Entity\Like $userLike)
     {
         $this->userLike[] = $userLike;
 
@@ -403,9 +403,9 @@ class user implements UserInterface
     /**
      * Remove userLike
      *
-     * @param \projectBundle\Entity\like $userLike
+     * @param \projectBundle\Entity\Like $userLike
      */
-    public function removeUserLike(\projectBundle\Entity\like $userLike)
+    public function removeUserLike(\projectBundle\Entity\Like $userLike)
     {
         $this->userLike->removeElement($userLike);
     }

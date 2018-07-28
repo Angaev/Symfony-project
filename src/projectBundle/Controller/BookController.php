@@ -64,7 +64,7 @@ class BookController extends Controller
         $book = $this->getDoctrine()->getRepository('projectBundle:Book')->find($id);
         $comment = $this->getDoctrine()->getRepository('projectBundle:Comment')->findByBook($book);
         $user =  $this->getUser();
-        $findLike = $this->getDoctrine()->getRepository('projectBundle:like')->findOneBy([
+        $findLike = $this->getDoctrine()->getRepository('projectBundle:Like')->findOneBy([
             'user' => $user,
             'book' => $book
         ]);

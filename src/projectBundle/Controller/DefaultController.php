@@ -4,7 +4,7 @@ namespace projectBundle\Controller;
 
 use projectBundle\Entity\Book;
 use projectBundle\Entity\Comment;
-use projectBundle\Entity\like;
+use projectBundle\Entity\Like;
 use projectBundle\Entity\user;
 use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\CommentForm;
@@ -63,7 +63,7 @@ class DefaultController extends Controller
         $repo = $em->getRepository('projectBundle:Book');
         $book = $repo->find($bookId);
 
-        $likeRepo = $em->getRepository('projectBundle:like');
+        $likeRepo = $em->getRepository('projectBundle:Like');
         $findLike = $likeRepo->findOneBy(array('user' => $user, 'book' => $book));
 
         //если лайк уже поставлен, то его надо удалить
@@ -74,7 +74,7 @@ class DefaultController extends Controller
         else
         {
             //поставить like для указанной книги от пользователя
-            $like = new like();
+            $like = new Like();
             $like->setUser($user);
             $like->setBook($book);
             $em->persist($like);
