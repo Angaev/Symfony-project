@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/issues_list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/1649db4bf363f6879eea7fc6cad703a7.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/22e0729c2128b5336b98f85065a881aa.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/2cdfb9658241552001b0584882819c4c.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/7c8c3e8c6b9e73516fccbdde013bb34b.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/829729cbe37bf6bb56ce6dff1f282918.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/b1881dfb6cd22fb70e59d9cfd42386e4.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/dbf5cb86f57965c31092a6ec005a2713.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/ded5f43be85d303a4e2240877996e29b.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/edb540b87b68f5dbf8ff05562479de3a.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/img/avatar/ivan.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -187,7 +195,7 @@
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-42" />
     <option name="y" value="-19" />
     <option name="width" value="1346" />
@@ -405,12 +413,12 @@
       <workItem from="1532365102464" duration="4407000" />
       <workItem from="1532444932940" duration="6909000" />
       <workItem from="1532537961144" duration="4263000" />
-      <workItem from="1532713155632" duration="1641000" />
+      <workItem from="1532713155632" duration="2004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335618000" />
+    <option name="totallyTimeSpent" value="335981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
