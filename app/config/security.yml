@@ -25,14 +25,8 @@ security:
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         database_users:
-            entity: { class: projectBundle:user, property: email }
+            entity: { class: projectBundle:User, property: email }
 
-#        in_memory:
-#            memory:
-#              users:
-#                admin:
-#                  password:
-#                  roles: 'ROLE_ADMIN'
 
     firewalls:
         dev:

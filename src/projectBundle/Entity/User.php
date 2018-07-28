@@ -21,7 +21,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="user")
  * @UniqueEntity(fields="email", message="This email address is already in use")
  */
-class user implements UserInterface
+class User implements UserInterface
 {
     /**
      * @ORM\Column(type="integer")
@@ -109,7 +109,7 @@ class user implements UserInterface
      *
      * @param string $name
      *
-     * @return user
+     * @return User
      */
     public function setName($name)
     {
@@ -133,7 +133,7 @@ class user implements UserInterface
      *
      * @param string $email
      *
-     * @return user
+     * @return User
      */
     public function setEmail($email)
     {
@@ -188,7 +188,7 @@ class user implements UserInterface
      *
      * @param string $avatar
      *
-     * @return user
+     * @return User
      */
     public function setAvatar($avatar)
     {
@@ -221,7 +221,7 @@ class user implements UserInterface
      *
      * @param \projectBundle\Entity\Like $book
      *
-     * @return user
+     * @return User
      */
     public function addBook(\projectBundle\Entity\Like $book)
     {
@@ -255,7 +255,7 @@ class user implements UserInterface
      *
      * @param \projectBundle\Entity\Like $like
      *
-     * @return user
+     * @return User
      */
     public function addLike(\projectBundle\Entity\Like $like)
     {
@@ -289,7 +289,7 @@ class user implements UserInterface
      *
      * @param \projectBundle\Entity\Comment $comment
      *
-     * @return user
+     * @return User
      */
     public function addComment(\projectBundle\Entity\Comment $comment)
     {
@@ -323,7 +323,7 @@ class user implements UserInterface
      *
      * @param \projectBundle\Entity\Comment $user
      *
-     * @return user
+     * @return User
      */
     public function addUser(\projectBundle\Entity\Comment $user)
     {
@@ -357,7 +357,7 @@ class user implements UserInterface
      *
      * @param \projectBundle\Entity\Comment $userComment
      *
-     * @return user
+     * @return User
      */
     public function addUserComment(\projectBundle\Entity\Comment $userComment)
     {
@@ -391,7 +391,7 @@ class user implements UserInterface
      *
      * @param \projectBundle\Entity\Like $userLike
      *
-     * @return user
+     * @return User
      */
     public function addUserLike(\projectBundle\Entity\Like $userLike)
     {

@@ -5,7 +5,7 @@ namespace projectBundle\Controller;
 use projectBundle\Entity\Book;
 use projectBundle\Entity\Comment;
 use projectBundle\Entity\Like;
-use projectBundle\Entity\user;
+use projectBundle\Entity\User;
 use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\CommentForm;
 use projectBundle\Froms\UserTypeForm;
@@ -28,7 +28,7 @@ class DefaultController extends Controller
 {
     public function deleteCommentAction(Request $request)
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
         if ($user == null) {
             return $this->redirectToRoute('book_list');
@@ -42,7 +42,7 @@ class DefaultController extends Controller
 
         /** @var Book $book */
         $book = $findComment->getBook();
-        /** @var user $authorComment */
+        /** @var User $authorComment */
         $authorComment = $findComment->getUser();
 
         if (($authorComment->getId() == $user->getId()) or ($user->getRole() == "ROLE_ADMIN"))

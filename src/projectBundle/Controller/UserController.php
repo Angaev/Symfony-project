@@ -10,7 +10,7 @@ namespace projectBundle\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use projectBundle\Entity\user;
+use projectBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\File\File;
@@ -20,7 +20,7 @@ class UserController extends Controller
 {
     public function userIndexAction()
     {
-        $userRepo = $this->getDoctrine()->getRepository('projectBundle:user');
+        $userRepo = $this->getDoctrine()->getRepository('projectBundle:User');
         $users = $userRepo->findAll();
 
         return $this->render('projectBundle:Default:users.html.twig', [
@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         $userId = $request->get('id');
 
-        $userRepo = $this->getDoctrine()->getRepository(user::class);
+        $userRepo = $this->getDoctrine()->getRepository(User::class);
         $user = $userRepo->find($userId);
 
         if ($user->getRole() == "ROLE_USER")
@@ -57,7 +57,7 @@ class UserController extends Controller
     {
         $userId = $request->get('id');
 
-        $userRepo = $this->getDoctrine()->getRepository(user::class);
+        $userRepo = $this->getDoctrine()->getRepository(User::class);
         $user = $userRepo->find($userId);
 
         if ($user->getRole() != "ROLE_BAN")
@@ -80,7 +80,7 @@ class UserController extends Controller
     public function editProfileAction(Request $request)
     {
 
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
 
         if ($user == null)
@@ -98,7 +98,7 @@ class UserController extends Controller
 
     public function changePasswordAction(Request $request)
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
 
         if ($user == null)
@@ -134,7 +134,7 @@ class UserController extends Controller
 
     public function changeProfileDataAction(Request $request)
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
 
         if ($user == null)
@@ -157,7 +157,7 @@ class UserController extends Controller
 
     public function addAvatarAction(Request $request)
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
         if ($user == null)
         {
@@ -183,7 +183,7 @@ class UserController extends Controller
 
     public function deleteAvatarAction(Request $request)
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
         if ($user == null)
         {
@@ -200,7 +200,7 @@ class UserController extends Controller
 
     public function areaViewAction()
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $likes = $bookRepo->getLastUserBook($user->getId(), 6);

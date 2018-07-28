@@ -33,7 +33,7 @@ class Like
 
     //много лайков у одного пользователя
     /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="userLike")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="userLike")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
@@ -124,11 +124,11 @@ class Like
     /**
      * Add user
      *
-     * @param \projectBundle\Entity\user $user
+     * @param \projectBundle\Entity\User $user
      *
      * @return Like
      */
-    public function addUser(\projectBundle\Entity\user $user)
+    public function addUser(\projectBundle\Entity\User $user)
     {
         $this->user[] = $user;
 
@@ -138,9 +138,9 @@ class Like
     /**
      * Remove user
      *
-     * @param \projectBundle\Entity\user $user
+     * @param \projectBundle\Entity\User $user
      */
-    public function removeUser(\projectBundle\Entity\user $user)
+    public function removeUser(\projectBundle\Entity\User $user)
     {
         $this->user->removeElement($user);
     }
@@ -172,11 +172,11 @@ class Like
     /**
      * Set user
      *
-     * @param \projectBundle\Entity\user $user
+     * @param \projectBundle\Entity\User $user
      *
      * @return Like
      */
-    public function setUser(\projectBundle\Entity\user $user = null)
+    public function setUser(\projectBundle\Entity\User $user = null)
     {
         $this->user = $user;
 

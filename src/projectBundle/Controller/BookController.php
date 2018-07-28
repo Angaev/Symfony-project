@@ -11,7 +11,7 @@ namespace projectBundle\Controller;
 
 use projectBundle\Entity\Book;
 use projectBundle\Entity\Comment;
-use projectBundle\Entity\user;
+use projectBundle\Entity\User;
 use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\CommentForm;
 use projectBundle\Froms\BookDeleteForm;
@@ -239,7 +239,7 @@ class BookController extends Controller
 
     public function likedBooksViewAction()
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
         if ($user == null)
         {
@@ -257,14 +257,16 @@ class BookController extends Controller
 
     public function allCommentsAction()
     {
-        /** @var user $user */
+        /** @var User $user */
         $user = $this->getUser();
         if ($user == null)
         {
             return $this->redirectToRoute('login');
         }
 
-        $comments = $this->getDoctrine()->getManager()->getRepository('projectBundle:Comment')->findBy(['user' => $user->getId()]);
+        $comments = $this->getDoctrine()->getManager()->getRepository('projectBundle:Comment')->findBy([
+            'user' => $user->getId()
+        ]);
 
         return $this->render('projectBundle:Default:all_comments.html.twig', [
             'comments' => $comments,

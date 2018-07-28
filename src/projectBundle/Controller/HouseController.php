@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use projectBundle\Entity\Book;
 use projectBundle\Entity\Comment;
 use projectBundle\Entity\Like;
-use projectBundle\Entity\user;
+use projectBundle\Entity\User;
 use projectBundle\Froms\BookAddImgForm;
 use projectBundle\Froms\CommentForm;
 use projectBundle\Froms\UserTypeForm;

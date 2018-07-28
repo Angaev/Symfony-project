@@ -39,7 +39,7 @@ class Comment
     private $commentText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="projectBundle\Entity\user", inversedBy="userComment")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="userComment")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
@@ -154,11 +154,11 @@ class Comment
     /**
      * Add user
      *
-     * @param \projectBundle\Entity\user $user
+     * @param \projectBundle\Entity\User $user
      *
      * @return Comment
      */
-    public function addUser(\projectBundle\Entity\user $user)
+    public function addUser(\projectBundle\Entity\User $user)
     {
         $this->user[] = $user;
 
@@ -168,9 +168,9 @@ class Comment
     /**
      * Remove user
      *
-     * @param \projectBundle\Entity\user $user
+     * @param \projectBundle\Entity\User $user
      */
-    public function removeUser(\projectBundle\Entity\user $user)
+    public function removeUser(\projectBundle\Entity\User $user)
     {
         $this->user->removeElement($user);
     }
@@ -202,11 +202,11 @@ class Comment
     /**
      * Set user
      *
-     * @param \projectBundle\Entity\user $user
+     * @param \projectBundle\Entity\User $user
      *
      * @return Comment
      */
-    public function setUser(\projectBundle\Entity\user $user = null)
+    public function setUser(\projectBundle\Entity\User $user = null)
     {
         $this->user = $user;
 

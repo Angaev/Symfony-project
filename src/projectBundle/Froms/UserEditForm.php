@@ -10,7 +10,7 @@ namespace projectBundle\Froms;
 
 
 use Symfony\Component\Form\AbstractType;
-use projectBundle\Entity\user;
+use projectBundle\Entity\User;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -29,7 +29,7 @@ class UserEditForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-           'data_class' => user::class
+           'data_class' => User::class
         ]);
     }
 }
