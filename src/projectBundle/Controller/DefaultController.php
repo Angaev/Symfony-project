@@ -30,13 +30,15 @@ class DefaultController extends Controller
     {
         /** @var User $user */
         $user = $this->getUser();
-        if ($user == null) {
+        if ($user == null)
+        {
             return $this->redirectToRoute('book_list');
         }
         $idComment = $request->get('idComment');
         $em = $this->getDoctrine()->getManager();
         $findComment = $em->getRepository('projectBundle:Comment')->find($idComment);
-        if ($findComment == null) {
+        if ($findComment == null)
+        {
             return $this->redirectToRoute('book_list');
         }
 
