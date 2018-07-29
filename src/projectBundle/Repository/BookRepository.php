@@ -11,18 +11,17 @@ class BookRepository extends EntityRepository
     public function searchByWord($word)
     {
         $em = $this->getEntityManager();
-        $rawSql = '
+        $rawSql = "
             SELECT book.id, book.name, book.year, book.image, book.description, 
             (SELECT COUNT(DISTINCT id) FROM user_like WHERE user_like.book_id = book.id) as likeCount,
             (SELECT COUNT(DISTINCT id) FROM user_comment WHERE user_comment.book_id = book.id) as commentCount 
             FROM Book
             WHERE
             book.name like '%' :searchWord '%'
-        ';
+        ";
         $statement = $em->getConnection()->prepare($rawSql);
         $statement->bindValue('searchWord', $word);
-        ($statement->execute());
-
+        $statement->execute();
 
         return $result = $statement->fetchAll();
     }

@@ -170,7 +170,7 @@ class BookController extends Controller
         $word = $request->query->get('name');
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $books = $bookRepo->searchByWord($word);
-
+//        $books = $bookRepo->getAllBooks();
         return $this->render('projectBundle:Default:books.html.twig', [
             'books' => $books,
             'titleText' => 'Книги по запросу ' . $word,
