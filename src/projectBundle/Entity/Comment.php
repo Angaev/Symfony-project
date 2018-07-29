@@ -32,7 +32,6 @@ class Comment
     private $created;
 
 
-
     /**
      *@ORM\Column(type="text")
      */
@@ -47,7 +46,7 @@ class Comment
     //много комментов может быть в одиной книге
     /**
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="comment")
-     * @ORM\JoinColumn(name="book_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="book_id", referencedColumnName="id", onDelete="SET NULL")
      */
     private $book;
 

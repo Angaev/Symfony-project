@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2f83c8c-e5e0-47da-acbd-f1e5a9910446" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/projectBundle/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Entity/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projectBundle/Entity/Like.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/projectBundle/Entity/Like.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/issues_list.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -28,17 +29,26 @@
       <file leaf-file-name="Book.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Book.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3859">
-              <caret line="228" column="17" lean-forward="true" selection-start-line="228" selection-start-column="17" selection-end-line="228" selection-end-column="17" />
+            <state relative-caret-position="255">
+              <caret line="34" column="47" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Like.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Like.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Like.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+            <state relative-caret-position="378">
+              <caret line="38" column="85" lean-forward="true" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Comment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="48" column="85" selection-start-line="48" selection-start-column="85" selection-end-line="48" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -130,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/book.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/Book.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/comment.php" />
-        <option value="$PROJECT_DIR$/src/projectBundle/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/like.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/publishing_house.php" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/PublishingHouse.php" />
@@ -146,6 +155,7 @@
         <option value="$PROJECT_DIR$/src/projectBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/issues_list.txt" />
         <option value="$PROJECT_DIR$/src/projectBundle/Entity/Like.php" />
+        <option value="$PROJECT_DIR$/src/projectBundle/Entity/Comment.php" />
       </list>
     </option>
   </component>
@@ -391,12 +401,12 @@
       <workItem from="1532444932940" duration="6909000" />
       <workItem from="1532537961144" duration="4263000" />
       <workItem from="1532713155632" duration="14957000" />
-      <workItem from="1532844571749" duration="12143000" />
+      <workItem from="1532844571749" duration="13207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361077000" />
+    <option name="totallyTimeSpent" value="362141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -571,13 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -791,21 +794,28 @@
     <entry file="file://$PROJECT_DIR$/issues_list.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Book.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3859">
-          <caret line="228" column="17" lean-forward="true" selection-start-line="228" selection-start-column="17" selection-end-line="228" selection-end-column="17" />
+        <state relative-caret-position="255">
+          <caret line="34" column="47" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Like.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        <state relative-caret-position="378">
+          <caret line="38" column="85" lean-forward="true" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/projectBundle/Entity/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="48" column="85" selection-start-line="48" selection-start-column="85" selection-end-line="48" selection-end-column="85" />
         </state>
       </provider>
     </entry>
