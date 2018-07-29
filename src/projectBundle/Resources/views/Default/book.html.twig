@@ -26,41 +26,43 @@
             <span class="comment_big_icon">
         {{ book.comment.count }}
       </span>
-            <div class="button_group">
-                <a target="_blank" href="
-                {% if book.link is empty %}
-                    #
-                {% else %}
-                    {{ book.link }}
-                {% endif %}
-                " type="button" class="btn btn-success btn-md buttons_book
-                {% if book.link is  empty %} disabled {% endif %}">
-                    {% if book.link is  empty %} Нет активной ссылки {% else %} <span class="	glyphicon glyphicon-download"></span> Скачать {% endif %}
-                </a>
-                {% if  likeBtn == 'free' %}
-                    <input type="hidden" id="likeBtn_status" value=1 />
-                {% else %}
-                    <input type="hidden" id="likeBtn_status" value=2 />
-                {% endif %}
-                {% if likeBtn != 'off' %}
-                    <span href="{{ path('book_list') }}" type="button" class="btn {% if likeBtn == 'lock' %}btn-primary {% elseif  likeBtn == 'free' %} btn-info {% endif %} btn-md buttons_book" id="like_button">
-            {% if  likeBtn == 'free' %}
-                <span class="glyphicon glyphicon-heart" id="likeBtn_icon"></span>
-                <span id="likeBtn_text">Мне нравится</span>
-            {% else %}
-                <span class="glyphicon glyphicon-thumbs-down" id="likeBtn_icon"></span>
-                <span id="likeBtn_text">Больше не нравится</span>
-            {%endif%}
-          </span>
-                {% endif %}
-
-                {% if admin %}
-                    <a href="{{ path('book_edit', {'id': book.id}) }}" type="button" class="btn btn-danger btn-md buttons_book">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                        Редактировать
+            {% if user is not null %}
+                <div class="button_group">
+                    <a target="_blank" href="
+                    {% if book.link is empty %}
+                        #
+                    {% else %}
+                        {{ book.link }}
+                    {% endif %}
+                    " type="button" class="btn btn-success btn-md buttons_book
+                    {% if book.link is  empty %} disabled {% endif %}">
+                        {% if book.link is  empty %} Нет активной ссылки {% else %} <span class="	glyphicon glyphicon-download"></span> Скачать {% endif %}
                     </a>
-                {% endif %}
-            </div>
+                    {% if  likeBtn == 'free' %}
+                        <input type="hidden" id="likeBtn_status" value=1 />
+                    {% else %}
+                        <input type="hidden" id="likeBtn_status" value=2 />
+                    {% endif %}
+                    {% if likeBtn != 'off' %}
+                        <span href="{{ path('book_list') }}" type="button" class="btn {% if likeBtn == 'lock' %}btn-primary {% elseif  likeBtn == 'free' %} btn-info {% endif %} btn-md buttons_book" id="like_button">
+                {% if  likeBtn == 'free' %}
+                    <span class="glyphicon glyphicon-heart" id="likeBtn_icon"></span>
+                    <span id="likeBtn_text">Мне нравится</span>
+                {% else %}
+                    <span class="glyphicon glyphicon-thumbs-down" id="likeBtn_icon"></span>
+                    <span id="likeBtn_text">Больше не нравится</span>
+                {%endif%}
+              </span>
+                    {% endif %}
+
+                    {% if admin %}
+                        <a href="{{ path('book_edit', {'id': book.id}) }}" type="button" class="btn btn-danger btn-md buttons_book">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            Редактировать
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
             <div>
                 <h2>Описание</h2>
             </div>

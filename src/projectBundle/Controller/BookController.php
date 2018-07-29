@@ -50,7 +50,7 @@ class BookController extends Controller
             $file = $book->getImage();
             $fileName = $this->get('app.cover_uploader')->upload($file);
             $book->setImage($fileName);
-            $this->updateEntity($book);
+            $this->updateObject($book);
             return $this->redirectToRoute('book_list');
         }
         return $this->render('projectBundle:Default:add.html.twig', [
@@ -68,13 +68,7 @@ class BookController extends Controller
             'user' => $user,
             'book' => $book
         ]);
-
-        $isAdmin = false;
-        if ($user != null)
-        {
-            $isAdmin =  ($user->getRole() == 'ROLE_ADMIN') ? true : false;
-        }
-
+        $isAdmin = $this->isAdmin($user);
         $commentForm = $this->createForm(CommentForm::class);
         $commentForm->handleRequest($request);
         if ($commentForm->isSubmitted())
@@ -83,10 +77,7 @@ class BookController extends Controller
             $newComment = $commentForm->getData();
             $newComment->setUser($user);
             $newComment->setBook($book);
-
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($newComment);
-            $em->flush();
+            $this->updateObject($newComment);
             return $this->redirectToRoute('book_view', ['id' => $book->getId()]);
         }
         return $this->render('projectBundle:Default:book.html.twig', [
@@ -138,7 +129,7 @@ class BookController extends Controller
             $fileName = $this->get('app.cover_uploader')->upload($file);
             $book->setImage($fileName);
 
-            $this->updateEntity($book);
+            $this->updateObject($book);
             return $this->redirectToRoute('book_view', ['id' => $id]);
         }
 
@@ -146,7 +137,7 @@ class BookController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted())
         {
-            $this->updateEntity($book);
+            $this->updateObject($book);
             return $this->redirectToRoute('book_view', [ 'id' => $book->getId()]);
         }
 
@@ -276,10 +267,19 @@ class BookController extends Controller
         ]);
     }
 
-    private function updateEntity($book)
+    private function updateObject($object)
     {
         $em = $this->getDoctrine()->getManager();
-        $em->persist($book);
+        $em->persist($object);
         $em->flush();
+    }
+
+    private function isAdmin($user)
+    {
+        if ($user != null)
+        {
+            return ($user->getRole() == 'ROLE_ADMIN') ? true : false;
+        }
+        return false;
     }
 }

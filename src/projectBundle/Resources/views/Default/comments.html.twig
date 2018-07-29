@@ -6,7 +6,7 @@
         Комментарии ({{ book.comment.count }})
       </h3>
     </div>
-    {% if user != null %}
+    {% if user is not null %}
       <div class="comment ">
           <div>
             {{ form_start(comment_form) }}
@@ -37,8 +37,10 @@
               </span>
             </h4>
             {{ comment.commentText|e|nl2br }}
-            {% if admin or user.id == comment.user.id %}
-                <a href="{{ path('delete_comment', {'idComment' : comment.id}) }}" class="btn btn-danger pull-right btn-sm">Удалить</a>
+            {% if user is not null %}
+                {% if admin or user.id == comment.user.id %}
+                    <a href="{{ path('delete_comment', {'idComment' : comment.id}) }}" class="btn btn-danger pull-right btn-sm">Удалить</a>
+                {% endif %}
             {% endif %}
           </div>
         </li>
