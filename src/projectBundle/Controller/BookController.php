@@ -68,7 +68,6 @@ class BookController extends Controller
             'user' => $user,
             'book' => $book
         ]);
-        $isAdmin = $this->isAdmin($user);
         $commentForm = $this->createForm(CommentForm::class);
         $commentForm->handleRequest($request);
         if ($commentForm->isSubmitted())
@@ -85,7 +84,7 @@ class BookController extends Controller
             'comments' => $comment,
             'titleText' => $book->getName(),
             'likeBtn' => $findLike ? 'lock' : 'free',
-            'admin' => $isAdmin,
+            'admin' => $this->isAdmin($user),
             'user' => $user,
             'comment_form' => $commentForm->createView()
         ]);
@@ -106,33 +105,21 @@ class BookController extends Controller
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:Book');
-        $book = $repo->find($id);
-
+        $book = $em->getRepository('projectBundle:Book')->find($id);
         if (!$book)
         {
             return $this->redirectToRoute('book_list');
         }
-
-        if($book->getImage() != null)
-        {
-            $book->setImage(new File($book->getImage()));
-        }
-        $form_cover = $this->createForm(BookAddImgForm::class, $book, [
-            'data_class' => 'projectBundle\Entity\Book'
-        ]);
+        $this->prepareBookImage($book);
+        $form_cover = $this->createForm(BookAddImgForm::class, $book, ['data_class' => 'projectBundle\Entity\Book']);
         $form_cover->handleRequest($request);
-
         if($form_cover->isSubmitted())
         {
             $file = $book->getImage();
-            $fileName = $this->get('app.cover_uploader')->upload($file);
-            $book->setImage($fileName);
-
+            $book->setImage($this->get('app.cover_uploader')->upload($file));
             $this->updateObject($book);
             return $this->redirectToRoute('book_view', ['id' => $id]);
         }
-
         $form = $this->createForm(BookEditForm::class, $book);
         $form->handleRequest($request);
         if($form->isSubmitted())
@@ -140,7 +127,6 @@ class BookController extends Controller
             $this->updateObject($book);
             return $this->redirectToRoute('book_view', [ 'id' => $book->getId()]);
         }
-
         return $this->render('@project/Default/edit_book.html.twig', [
             'form' => $form->createView(),
             'form_cover' => $form_cover->createView(),
@@ -162,42 +148,6 @@ class BookController extends Controller
         $em->remove($book);
         $em->flush();
         return $this->redirectToRoute('book_list');
-    }
-
-    public function bookAddImgAction($id, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:Book');
-        $book = $repo->find($id);
-        if (!$book)
-        {
-            return $this->redirectToRoute('book_list');
-        }
-        if($book->getImage() != null)
-        {
-            $book->setImage(new File($book->getImage()));
-        }
-        $form = $this->createForm(BookAddImgForm::class, $book, [
-            'data_class' => 'projectBundle\Entity\Book'
-        ]);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $file = $book->getImage();
-            $fileName = $this->get('app.cover_uploader')->upload($file);
-            $book->setImage($fileName);
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($book);
-            $em->flush();
-            return $this->redirectToRoute('book_list');
-        }
-        return $this->render('projectBundle:Default:add_book_img.html.twig', [
-            'form' => $form->createView(),
-            'titleText' => 'Добавление новой книги',
-            'id' => $id
-        ]);
     }
 
     public function deleteCoverAction(Request $request)
@@ -282,4 +232,13 @@ class BookController extends Controller
         }
         return false;
     }
+
+    private function prepareBookImage(&$book)
+    {
+        if($book->getImage() != null)
+        {
+            $book->setImage(new File($book->getImage()));
+        }
+    }
+
 }

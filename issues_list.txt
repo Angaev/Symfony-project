@@ -29,9 +29,11 @@
 9)[X] можно ли projectBundle:Default:books.html.twig заменить на books.html.twig?
 //Без полного пути Symfony не понимает какой шаблон использовать, но phpstorm сокращет название
 
-10)[] метод editAction слишком большой, нужно упростить, разбить на методы
+10)[V] метод editAction слишком большой, нужно упростить, разбить на методы
+//поджал до 31 строки
 
-11)[] bookAddImgAction тоже самое
+11)[X] bookAddImgAction тоже самое
+//Метод выпилен, т.к. editAction копирует его функционал
 
 12)[V] неиспользуемая переменная $books = $em->getRepository('projectBundle:book')->findAll();
 //убрал

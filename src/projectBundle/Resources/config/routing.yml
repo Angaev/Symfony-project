@@ -28,12 +28,6 @@ book_delete:
     requirements:
         id: '\d+'
 
-book_add_img:
-    path: /book_add_img/{id}
-    defaults: { _controller: projectBundle:Book:bookAddImg}
-    requirements:
-        id: '\d+'
-
 book_delete_img:
     path: /delete_cover
     defaults: { _controller: projectBundle:Book:deleteCover}
