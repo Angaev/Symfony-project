@@ -61,61 +61,61 @@ publishing_house_delete:
     defaults: { _controller: projectBundle:House:deleteHouse}
 
 login:
-  path: /login
-  defaults: { _controller: projectBundle:Security:login}
+    path: /login
+    defaults: { _controller: projectBundle:Security:login}
 
 login_check:
-  path: /login_check
-  defaults: { _controller: projectBundle:Security:loginCheck}
+    path: /login_check
+    defaults: { _controller: projectBundle:Security:loginCheck}
 
 logout:
-  path: /logout
-  defaults: { _controller: projectBundle:Security:logout}
+    path: /logout
+    defaults: { _controller: projectBundle:Security:logout}
 
 register:
-  path: /register
-  defaults: { _controller: projectBundle:Default:register}
+    path: /register
+    defaults: { _controller: projectBundle:Default:register}
 
 users_edit:
-  path: /users_edit
-  defaults: { _controller: projectBundle:User:userIndex}
+    path: /users_edit
+    defaults: { _controller: projectBundle:User:userIndex}
 
 edit_profile:
-  path: /edit_profile
-  defaults: { _controller: projectBundle:User:editProfile}
+    path: /edit_profile
+    defaults: { _controller: projectBundle:User:editProfile}
 
 change_user_password:
-  path: /change_password
-  defaults: { _controller: projectBundle:User:changePassword }
+    path: /change_password
+    defaults: { _controller: projectBundle:User:changePassword }
 
 change_profile_data:
-  path: /change_profile_data
-  defaults: { _controller: projectBundle:User:changeProfileData }
+    path: /change_profile_data
+    defaults: { _controller: projectBundle:User:changeProfileData }
 
 flip_user_right:
-  path: /user_right
-  defaults: { _controller: projectBundle:User:flipUserRole}
+    path: /user_right
+    defaults: { _controller: projectBundle:User:flipUserRole}
 
 flip_user_ban:
-  path: /user_ban
-  defaults: { _controller: projectBundle:User:flipBan}
+    path: /user_ban
+    defaults: { _controller: projectBundle:User:flipBan}
 
 do_like:
-  path: /like
-  defaults: { _controller: projectBundle:Default:like}
+    path: /like
+    defaults: { _controller: projectBundle:Default:like}
 
 delete_comment:
-  path: /delete_comment
-  defaults: { _controller: projectBundle:Default:deleteComment }
+    path: /delete_comment
+    defaults: { _controller: projectBundle:Default:deleteComment }
 
 user_add_avatar:
-  path: /user_add_avatar
-  defaults: { _controller: projectBundle:User:addAvatar }
+    path: /user_add_avatar
+    defaults: { _controller: projectBundle:User:addAvatar }
 
 user_delete_avatar:
-  path: /user_delete_avatar
-  defaults: { _controller: projectBundle:User:deleteAvatar}
+    path: /user_delete_avatar
+    defaults: { _controller: projectBundle:User:deleteAvatar}
 
 area:
-  path: /area
-  defaults: { _controller: projectBundle:User:areaView }
+    path: /area
+    defaults: { _controller: projectBundle:User:areaView }
