@@ -26,11 +26,6 @@ class Like
      */
     private $id;
 
-//    /**
-//     * @ORM\Column(type="datetime")
-//     */
-//    private $created;
-
     //много лайков у одного пользователя
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="userLike")
