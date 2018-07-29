@@ -41,12 +41,10 @@ class DefaultController extends Controller
         {
             return $this->redirectToRoute('book_list');
         }
-
         /** @var Book $book */
         $book = $findComment->getBook();
         /** @var User $authorComment */
         $authorComment = $findComment->getUser();
-
         if (($authorComment->getId() == $user->getId()) or ($user->getRole() == "ROLE_ADMIN"))
         {
             $em->remove($findComment);
@@ -62,12 +60,8 @@ class DefaultController extends Controller
         $user = $this->getUser();
         $bookId = $request->get('book_id');
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('projectBundle:Book');
-        $book = $repo->find($bookId);
-
-        $likeRepo = $em->getRepository('projectBundle:Like');
-        $findLike = $likeRepo->findOneBy(array('user' => $user, 'book' => $book));
-
+        $book = $em->getRepository('projectBundle:Book')->find($bookId);
+        $findLike = $em->getRepository('projectBundle:Like')->findOneBy(array('user' => $user, 'book' => $book));
         //если лайк уже поставлен, то его надо удалить
         if ($findLike)
         {
@@ -81,7 +75,6 @@ class DefaultController extends Controller
             $like->setBook($book);
             $em->persist($like);
         }
-
         $em->flush();
         $likes = $book->getLike();
         $likeCount = count($likes);
@@ -94,12 +87,9 @@ class DefaultController extends Controller
         {
             return $this->redirectToRoute('book_list');
         }
-
         $user = new User();
         $form = $this->createForm(UserTypeForm::class, $user);
-
         $form->handleRequest($request);
-
         if($form->isSubmitted() && $form->isValid())
         {
             // Encode the new users password
@@ -114,10 +104,8 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-
             return $this->redirectToRoute('login');
         }
-
         return $this->render('projectBundle:security:register.html.twig', [
             'form' => $form->createView(),
             'titleText' => 'Регистрация нового пользователя'
