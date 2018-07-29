@@ -36,7 +36,7 @@ class Like
     //много лайков может быть в одиной книге
     /**
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="like")
-     * @ORM\JoinColumn(name="book_id", referencedColumnName="id", onDelete="SET NULL")
+     * @ORM\JoinColumn(name="book_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $book;
 

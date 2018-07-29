@@ -46,7 +46,7 @@ class Comment
     //много комментов может быть в одиной книге
     /**
      * @ORM\ManyToOne(targetEntity="Book", inversedBy="comment")
-     * @ORM\JoinColumn(name="book_id", referencedColumnName="id", onDelete="SET NULL")
+     * @ORM\JoinColumn(name="book_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $book;
 
