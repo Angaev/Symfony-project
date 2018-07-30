@@ -60,12 +60,13 @@ $rawSql = "SELECT book.id, book.name, book.year, book.image, book.description, .
 20)[V] в шаблонах убери комментарии (файлы twig)
 
 UPDATE 30.07.2018
-1)[] вызовов die(); быть не должно, нужно корректно обрабатывать подобные случаи
+1)[V] вызовов die(); быть не должно, нужно корректно обрабатывать подобные случаи
 2)[V] для else всегда нужны скобки
 else
 return $this->redirectToRoute('book_list');
-3)[] ещё остался метод isAnonymousUser
-4)[] В каких случаях может не быть юзера?
+3)[V] ещё остался метод isAnonymousUser
+//выпилил
+4)[V] В каких случаях может не быть юзера?
 $user = $this->getUser();
 if ($user == null)
 {

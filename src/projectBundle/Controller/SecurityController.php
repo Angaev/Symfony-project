@@ -22,7 +22,7 @@ class SecurityController extends Controller
      */
     public function loginAction(Request $request)
     {
-        if (!($this->isAnonymousUser($this->getUser())))
+        if ($this->getUser())
         {
             return $this->redirectToRoute('book_list');
         }
@@ -52,17 +52,5 @@ class SecurityController extends Controller
     public function logoutAction()
     {
 
-    }
-
-    /**
-     * @return bool
-     */
-    private function isAnonymousUser($user)
-    {
-        if ($user != null)
-        {
-            return false;
-        }
-        return true;
     }
 }

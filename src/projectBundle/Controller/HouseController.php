@@ -69,10 +69,6 @@ class HouseController extends Controller
 
         $id = $request->get('id');
         $house = $repo->find($id);
-        if (!$house)
-        {
-            die();
-        }
 
         $em->remove($house);
         $em->flush();
@@ -86,11 +82,6 @@ class HouseController extends Controller
         $houseId = $request->get('id');
         $newName = $request->get('newName');
         $house = $repo->find($houseId);
-
-        if (!$house)
-        {
-            die();
-        }
 
         $house->setName($newName);
 

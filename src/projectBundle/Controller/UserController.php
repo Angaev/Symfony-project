@@ -157,12 +157,10 @@ class UserController extends Controller
 
     public function addAvatarAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         /** @var User $user */
         $user = $this->getUser();
-        if ($user == null)
-        {
-            die();
-        }
         if($user->getAvatar() != null)
         {
             $user->setAvatar(new File($user->getAvatar()));
@@ -183,12 +181,10 @@ class UserController extends Controller
 
     public function deleteAvatarAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         /** @var User $user */
         $user = $this->getUser();
-        if ($user == null)
-        {
-            die();
-        }
 
         $user->setAvatar(null);
         $em = $this->getDoctrine()->getManager();
