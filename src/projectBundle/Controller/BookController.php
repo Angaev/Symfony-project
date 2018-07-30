@@ -111,9 +111,9 @@ class BookController extends Controller
             return $this->redirectToRoute('book_list');
         }
         $this->prepareBookImage($book);
-        $form_cover = $this->createForm(BookAddImgForm::class, $book, ['data_class' => 'projectBundle\Entity\Book']);
-        $form_cover->handleRequest($request);
-        if($form_cover->isSubmitted())
+        $formCover = $this->createForm(BookAddImgForm::class, $book, ['data_class' => 'projectBundle\Entity\Book']);
+        $formCover->handleRequest($request);
+        if($formCover->isSubmitted())
         {
             $file = $book->getImage();
             $book->setImage($this->get('app.cover_uploader')->upload($file));
@@ -129,7 +129,7 @@ class BookController extends Controller
         }
         return $this->render('@project/Default/edit_book.html.twig', [
             'form' => $form->createView(),
-            'form_cover' => $form_cover->createView(),
+            'form_cover' => $formCover->createView(),
             'titleText' => 'Редактирование книги',
             'id' => $book->getId()
         ]);
@@ -226,11 +226,7 @@ class BookController extends Controller
 
     private function isAdmin($user)
     {
-        if ($user != null)
-        {
-            return ($user->getRole() == 'ROLE_ADMIN') ? true : false;
-        }
-        return false;
+        return ($user && $user->getRole() == 'ROLE_ADMIN') ? true : false;
     }
 
     private function prepareBookImage(&$book)
