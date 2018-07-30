@@ -52,7 +52,9 @@ class DefaultController extends Controller
             return $this->redirectToRoute('book_view', ['id' => $book->getId()]);
         }
         else
+        {
             return $this->redirectToRoute('book_list');
+        }
     }
 
     public function likeAction(Request $request)

@@ -61,7 +61,7 @@ $rawSql = "SELECT book.id, book.name, book.year, book.image, book.description, .
 
 UPDATE 30.07.2018
 1)[] вызовов die(); быть не должно, нужно корректно обрабатывать подобные случаи
-2)[] для else всегда нужны скобки
+2)[V] для else всегда нужны скобки
 else
 return $this->redirectToRoute('book_list');
 3)[] ещё остался метод isAnonymousUser
