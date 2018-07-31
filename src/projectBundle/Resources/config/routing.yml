@@ -119,3 +119,7 @@ user_delete_avatar:
 area:
     path: /area
     defaults: { _controller: projectBundle:User:areaView }
+
+api:
+    path: /api
+    defaults: { _controller: projectBundle:Api:index}
