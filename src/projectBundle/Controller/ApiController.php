@@ -27,7 +27,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class ApiController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $bookRepo = $this->getDoctrine()->getRepository('projectBundle:Book');
         $books = $bookRepo->getAllBooks();
